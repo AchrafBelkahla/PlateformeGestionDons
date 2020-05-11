@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="PlatformGD"
+		transaction-type="JTA">
+		<jta-data-source>java:/PlatformDS</jta-data-source>
+		<class>metier.entities.DonEnNature</class>
+		<class>metier.entities.Don</class>
+		<class>metier.entities.Reglement</class>
+		<class>metier.entities.PhotoDon</class>
+		<class>metier.entities.Besoin</class>
+		<class>metier.entities.Categorie</class>
+		<class>metier.entities.Fournisseur</class>
+		<class>metier.entities.Photo</class>
+		<class>metier.entities.PhotoBesoin</class>
+		<class>metier.entities.Produit</class>
+		<class>metier.entities.UniteDeMesure</class>
+		<class>metier.entities.Adresse</class>
+		<class>metier.entities.Etablisement</class>
+		<class>metier.entities.Reclamation</class>
+		<class>metier.entities.Telephone</class>
+		<class>metier.entities.Utilisateur</class>
+		<properties>
+			<!-- <property
+				name="javax.persistence.schema-generation.database.action"
+				value="drop-and-create" /> -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property value="true" name="hibernate.show_sql" />
+		</properties>
+	</persistence-unit>
+</persistence>

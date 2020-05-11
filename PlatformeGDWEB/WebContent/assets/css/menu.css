@@ -1,0 +1,87 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
+
+/*.navbar-nav > li > a, .navbar-brand {*/
+    /*padding-top:4px !important;*/
+    /*padding-bottom:0 !important;*/
+    /*height: 50px;*/
+/*}*/
+/*.navbar {min-height:50px !important;}*/
+
+.btn-menu {
+    padding:10px 10px 10px 10px !important;
+}
+
+.navbar-brand {
+    padding-top:10px !important;
+    padding-bottom:0 !important;
+    height: 50px;
+}
+
+.top-menu {
+    font-family: 'Raleway', Arial, sans-serif;
+    text-align: center;
+    /*text-transform: uppercase;*/
+    font-weight: 500;
+    /*letter-spacing: 1px;*/
+    font-size: 14px;
+    /*font-weight: bold;*/
+    color: #5A3333;
+}
+.top-menu * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.35s ease;
+    transition: all 0.35s ease;
+}
+.top-menu li {
+    display: inline-block;
+    list-style: outside none none;
+    /*margin: 0 1em;*/
+    padding: 0;
+}
+.top-menu > li > a {
+    padding: 0.5em 0.8em;
+    margin: 0.2em 0;
+    display: block;
+    /*color: rgba(255, 255, 255, 0.5);*/
+    position: relative;
+    text-decoration: none;
+}
+.top-menu > li > a:before,
+.top-menu > li > a:after {
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    content: '';
+    -webkit-transition: all 0.35s ease;
+    transition: all 0.35s ease;
+    opacity: 0;
+}
+.top-menu > li > a:before {
+    left: 0;
+    top: 0;
+    border-left: 3px solid #34C924;
+    border-top: 3px solid #34C924;
+    -webkit-transform: translate(100%, 50%);
+    transform: translate(100%, 50%);
+}
+.top-menu > li > a:after {
+    right: 0;
+    bottom: 0;
+    border-right: 3px solid #34C924;
+    border-bottom: 3px solid #34C924;
+    -webkit-transform: translate(-100%, -50%);
+    transform: translate(-100%, -50%);
+}
+.top-menu > li > a:hover,
+.top-menu .current a {
+    color: #34C924;
+}
+.top-menu > li > a:hover:before,
+.top-menu .current a:before,
+.top-menu > li > a:hover:after,
+.top-menu .current a:after {
+    -webkit-transform: translate(0%, 0%);
+    transform: translate(0%, 0%);
+    opacity: 1;
+}
