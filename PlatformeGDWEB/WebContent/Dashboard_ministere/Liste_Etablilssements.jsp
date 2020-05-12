@@ -4,6 +4,7 @@
 	<div class="container">
 		<a href="AjoutEtablissement" class="btn btn-success">Ajouter un
 			établissement</a>
+			<a href="Importer_Etablissement" class="btn btn-default">Importer un fichier excel des établissements</a>
 		<div class="row">
 			<div class="vcenter col-md-12 text-center">
 				<div class="visible-sm-block visible-xs-block top-margin-10">

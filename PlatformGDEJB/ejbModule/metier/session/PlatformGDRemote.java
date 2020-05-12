@@ -142,4 +142,5 @@ public interface PlatformGDRemote {
 		public void updateReclamatiom(boolean codeReclamation, Reclamation reclamation);
 		public void updateetatDecompte(Boolean etatDecompte, Utilisateur utilisateur);
 		public void updateUtilisateur(Utilisateur utilisateur);
+		public boolean veriff_nom_etablissement(String nom);
 }

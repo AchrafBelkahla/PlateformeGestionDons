@@ -116,10 +116,10 @@
 									<div class="form-group">
 										<div class="checkbox">
 											<label class="required"><input type="checkbox"
-												id="registration_association_form_cgu_accepted"
-												name="registration_association_form[cgu_accepted]"
-												required="required" class="form-group-lg" value="1" />
-												J'accepte <a href="../../cgu/iframe.html" class="iframe"
+												id="registration_form_cgu_accepted"
+												name="registration_form[cgu_accepted]" required="required"
+												class="form-group-lg" value="1" /> J'accepte <a
+												href="./cgu/iframe.html" class="iframe"
 												style="text-decoration: underline;" id="cgu-content">les
 													conditions générales d'utilisation</a></label>
 										</div>
@@ -145,20 +145,7 @@
 										value="Valider l&#039;inscription" />
 								</div>
 							</div>
-							<div class="row">
-								<div class="col-md-12">
-									<br>
-									<p>
-										En créant un compte, vous confirmez que vous acceptez <a
-											href="../../cgu/iframe.html" class="iframe"
-											style="text-decoration: underline;" id="cgu-content">les
-											conditions d'utilisation</a>, <a href="../../privacy/iframe.html"
-											class="iframe" style="text-decoration: underline;"
-											id="cgu-content">la politique de confidentialité</a> et
-										l'utilisation des cookies de platform.
-									</p>
-								</div>
-							</div>
+							
 							<div class="clearfix"></div>
 
 							<input type="hidden" id="registration_association_form__token"

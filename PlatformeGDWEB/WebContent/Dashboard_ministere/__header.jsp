@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="Capture.PNG" />
 <link rel='stylesheet'
 	href='http://fonts.googleapis.com/css?family=Arimo:300,400,700,400italic,700italic'
 	media="none" onload="if(media!='all')media='all'">
@@ -122,11 +123,8 @@
         fbq('init', '353811311810939');
         fbq('track', 'PageView');
     </script>
-<noscript>
-	<img height="1" width="1" style="display: none"
-		src="https://www.facebook.com/tr?id=353811311810939&amp;ev=PageView&amp;noscript=1" />
-</noscript>
-<title>Insert title here</title>
+
+<title>Platforme de dons</title>
 </head>
 <body>
 <header class="fixed-header">

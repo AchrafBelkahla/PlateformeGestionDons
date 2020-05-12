@@ -40,174 +40,97 @@
 
 
 	<section class="slider rs-slider-full" id="home">
-		<div class="tp-banner-container">
-			<div class="tp-banner-new responsive">
-				<ul>
-					<!-- Features Slide -->
-					<li data-slotamount="6" data-masterspeed="1200" data-delay="6000"
-						data-title="Association"><img
-						src="assets/img/sections/slider/Organization.jpg"
-						alt="Association" title="Association" data-bgposition="center top"
-						data-kenburns="on" data-duration="16000"
-						data-ease="Linear.easeNone" data-bgfit="110" data-bgfitend="100"
-						data-bgpositionend="center center" />
-						<div class="elements">
-							<h3
-								class="tp-caption white text-shadow tp-resizeme sft skewtotop title -text-uppercase customin customout rs-parallaxlevel-1 -text-color"
-								data-hoffset="0" data-voffset="0" data-x="left" data-y="60"
-								data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-								data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-speed="800" data-start="800" data-startslide="1"
-								data-easing="Power4.easeOut" data-endspeed="500"
-								data-endeasing="Power4.easeIn">
-								paragraphe <br> paragraphe !
-							</h3>
+    <div class="tp-banner-container">
+        <div class="tp-banner-new responsive">
+            <ul>
+                                <!-- Features Slide -->
+                <li data-slotamount="6" data-masterspeed="1200" data-delay="6000" data-title="Association">
+                    <img src="assets/img/sections/slider/Organization.jpg" alt="Association" title="Association" data-bgposition="center top" data-kenburns="on" data-duration="16000" data-ease="Linear.easeNone" data-bgfit="110" data-bgfitend="100" data-bgpositionend="center center" />
+                    <div class="elements">
+                        <h3 class="tp-caption white text-shadow tp-resizeme sft skewtotop title -text-uppercase customin customout rs-parallaxlevel-1 -text-color" data-hoffset="0" data-voffset="0" data-x="left" data-y="60" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="800" data-start="800" data-startslide="1" data-easing="Power4.easeOut" data-endspeed="500" data-endeasing="Power4.easeIn">
+                            Soutenons nos Ã©tablissements de santÃ© <br> Donnez en toute transparence et sauvez des vies
 
-							<h2
-								class="tp-caption white text-shadow tp-resizeme sft skewtotop title text-uppercase customin customout rs-parallaxlevel-1 text-color"
-								data-hoffset="0" data-voffset="0" data-x="right" data-y="60"
-								data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-								data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-speed="800" data-start="800" data-startslide="1"
-								data-easing="Power4.easeOut" data-endspeed="500"
-								data-endeasing="Power4.easeIn">un mot</h2>
+                            
+                        </h3>
 
-							<div
-								class="tp-caption tp-resizeme customin customout rs-parallaxlevel-3"
-								data-x="right" data-y="210"
-								data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-speed="800" data-start="1400"
-								data-easing="Power3.easeInOut" data-endspeed="300"
-								style="z-index: 5">
-								<a href="fund/new.html" class="btn btn-default btn-lg">Lancez-vous
-									! Faire un DON</a>
-							</div>
 
-						</div></li>
-					<!-- Feature Slide Ends -->
-					<!-- Features Slide -->
-					<li data-slotamount="6" data-masterspeed="1200" data-delay="6000"
-						data-title="Solidarité"><img
-						src="assets/img/sections/slider/Solidarity.jpg" alt="Solidarité"
-						title="Solidarité" data-bgposition="center top" data-kenburns="on"
-						data-duration="16000" data-ease="Linear.easeNone" data-bgfit="110"
-						data-bgfitend="100" data-bgpositionend="center center" />
-						<div class="elements">
-							<h3
-								class="tp-caption white text-shadow tp-resizeme sft skewtotop title -text-uppercase customin customout rs-parallaxlevel-1 -text-color"
-								data-hoffset="0" data-voffset="0" data-x="left" data-y="60"
-								data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-								data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-speed="800" data-start="800" data-startslide="1"
-								data-easing="Power4.easeOut" data-endspeed="500"
-								data-endeasing="Power4.easeIn">Paragraphe !</h3>
+                        <div class="tp-caption tp-resizeme customin customout rs-parallaxlevel-3" data-x="right" data-y="210" data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="800" data-start="1400" data-easing="Power3.easeInOut" data-endspeed="300" style="z-index: 5">
+                            <a href="fund/new.html" class="btn btn-default btn-lg"><b>Lancez-vous ! Faites un DON</b></a>
+                        </div>
 
-							<h2
-								class="tp-caption white text-shadow tp-resizeme sft skewtotop title text-uppercase customin customout rs-parallaxlevel-1 text-color"
-								data-hoffset="0" data-voffset="0" data-x="right" data-y="60"
-								data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-								data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-speed="800" data-start="800" data-startslide="1"
-								data-easing="Power4.easeOut" data-endspeed="500"
-								data-endeasing="Power4.easeIn">Un mot</h2>
+                    </div>
+                </li>
+                <!-- Feature Slide Ends -->
+                                <!-- Features Slide -->
+                <li data-slotamount="6" data-masterspeed="1200" data-delay="6000" data-title="SolidaritÃ©">
+                    <img src="assets/img/sections/slider/Solidarity.jpg" alt="SolidaritÃ©" title="SolidaritÃ©" data-bgposition="center top" data-kenburns="on" data-duration="16000" data-ease="Linear.easeNone" data-bgfit="110" data-bgfitend="100" data-bgpositionend="center center" />
+                    <div class="elements">
+                        <h3 class="tp-caption white text-shadow tp-resizeme sft skewtotop title -text-uppercase customin customout rs-parallaxlevel-1 -text-color" data-hoffset="0" data-voffset="0" data-x="left" data-y="60" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="800" data-start="800" data-startslide="1" data-easing="Power4.easeOut" data-endspeed="500" data-endeasing="Power4.easeIn">
+                            Agissons ensemble face au Covid-19
 
-							<div
-								class="tp-caption tp-resizeme customin customout rs-parallaxlevel-3"
-								data-x="right" data-y="210"
-								data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-speed="800" data-start="1400"
-								data-easing="Power3.easeInOut" data-endspeed="300"
-								style="z-index: 5">
-								<a href="fund/new.html" class="btn btn-default btn-lg">Lancez-vous
-									! Faire un DON</a>
-							</div>
+                        </h3>
 
-						</div></li>
-					<!-- Feature Slide Ends -->
-					<!-- Features Slide -->
-					<li data-slotamount="6" data-masterspeed="1200" data-delay="6000"
-						data-title="Projet "><img
-						src="assets/img/sections/slider/Projects.jpg" alt="Projet "
-						title="Projet " data-bgposition="center top" data-kenburns="on"
-						data-duration="16000" data-ease="Linear.easeNone" data-bgfit="110"
-						data-bgfitend="100" data-bgpositionend="center center" />
-						<div class="elements">
-							<h3
-								class="tp-caption white text-shadow tp-resizeme sft skewtotop title -text-uppercase customin customout rs-parallaxlevel-1 -text-color"
-								data-hoffset="0" data-voffset="0" data-x="left" data-y="60"
-								data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-								data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-speed="800" data-start="800" data-startslide="1"
-								data-easing="Power4.easeOut" data-endspeed="500"
-								data-endeasing="Power4.easeIn">Paragraphe !</h3>
+                        <div class="tp-caption tp-resizeme customin customout rs-parallaxlevel-3" data-x="right" data-y="210" data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="800" data-start="1400" data-easing="Power3.easeInOut" data-endspeed="300" style="z-index: 5">
+                            <a href="fund/new.html" class="btn btn-default btn-lg">Lancez-vous ! Faire un DON</a>
+                        </div>
 
-							<h2
-								class="tp-caption white text-shadow tp-resizeme sft skewtotop title text-uppercase customin customout rs-parallaxlevel-1 text-color"
-								data-hoffset="0" data-voffset="0" data-x="right" data-y="60"
-								data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-								data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-speed="800" data-start="800" data-startslide="1"
-								data-easing="Power4.easeOut" data-endspeed="500"
-								data-endeasing="Power4.easeIn">Mot</h2>
+                    </div>
+                </li>
+                <!-- Feature Slide Ends -->
+                                <!-- Features Slide -->
+                <li data-slotamount="6" data-masterspeed="1200" data-delay="6000" data-title="Projet ">
+                    <img src="assets/img/sections/slider/Projects.jpg" alt="Projet " title="Projet " data-bgposition="center top" data-kenburns="on" data-duration="16000" data-ease="Linear.easeNone" data-bgfit="110" data-bgfitend="100" data-bgpositionend="center center" />
+                    <div class="elements">
+                        <h3 class="tp-caption white text-shadow tp-resizeme sft skewtotop title -text-uppercase customin customout rs-parallaxlevel-1 -text-color" data-hoffset="0" data-voffset="0" data-x="left" data-y="60" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="800" data-start="800" data-startslide="1" data-easing="Power4.easeOut" data-endspeed="500" data-endeasing="Power4.easeIn">
+                            Donnez en toute transparence et sauvez des vies !
+                        </h3>
 
-						</div></li>
-					<!-- Feature Slide Ends -->
-					<!-- Features Slide -->
-					<li data-slotamount="6" data-masterspeed="1200" data-delay="6000"
-						data-title="Education"><img
-						src="assets/img/sections/slider/Education.jpg" alt="Education"
-						title="Education" data-bgposition="center top" data-kenburns="on"
-						data-duration="16000" data-ease="Linear.easeNone" data-bgfit="110"
-						data-bgfitend="100" data-bgpositionend="center center" />
-						<div class="elements">
-							<h3
-								class="tp-caption white text-shadow tp-resizeme sft skewtotop title -text-uppercase customin customout rs-parallaxlevel-1 -text-color"
-								data-hoffset="0" data-voffset="0" data-x="left" data-y="60"
-								data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-								data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-speed="800" data-start="800" data-startslide="1"
-								data-easing="Power4.easeOut" data-endspeed="500"
-								data-endeasing="Power4.easeIn">
-								<blockquote>
-									<h3>
-										Citation <br>Citation
-									</h3>
-								</blockquote>
-								Un mot
-							</h3>
+                        <h2 class="tp-caption white text-shadow tp-resizeme sft skewtotop title text-uppercase customin customout rs-parallaxlevel-1 text-color" data-hoffset="0" data-voffset="0" data-x="right" data-y="60" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="800" data-start="800" data-startslide="1" data-easing="Power4.easeOut" data-endspeed="500" data-endeasing="Power4.easeIn">
+                            Mot 
+                        </h2>
 
-							<h2
-								class="tp-caption white text-shadow tp-resizeme sft skewtotop title text-uppercase customin customout rs-parallaxlevel-1 text-color"
-								data-hoffset="0" data-voffset="0" data-x="right" data-y="60"
-								data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-								data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-speed="800" data-start="800" data-startslide="1"
-								data-easing="Power4.easeOut" data-endspeed="500"
-								data-endeasing="Power4.easeIn">Un mot</h2>
+                        <div class="tp-caption tp-resizeme customin customout rs-parallaxlevel-3" data-x="right" data-y="210" data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="800" data-start="1400" data-easing="Power3.easeInOut" data-endspeed="300" style="z-index: 5">
+                            <a href="fund/new/Projects.html" class="btn btn-default btn-lg">Lancez-vous ! Faire un DON</a>
+                        </div>
 
-							<div
-								class="tp-caption tp-resizeme customin customout rs-parallaxlevel-3"
-								data-x="right" data-y="210"
-								data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-speed="800" data-start="1400"
-								data-easing="Power3.easeInOut" data-endspeed="300"
-								style="z-index: 5">
-								<a href="fund/new.html" class="btn btn-default btn-lg">Lancez-vous
-									! Faire un DON</a>
-							</div>
+                    </div>
+                </li>
+                <!-- Feature Slide Ends -->
+                                <!-- Features Slide -->
+                <li data-slotamount="6" data-masterspeed="1200" data-delay="6000" data-title="Education">
+                    <img src="assets/img/sections/slider/Education.jpg" alt="Education" title="Education" data-bgposition="center top" data-kenburns="on" data-duration="16000" data-ease="Linear.easeNone" data-bgfit="110" data-bgfitend="100" data-bgpositionend="center center" />
+                    <div class="elements">
+                        <h3 class="tp-caption white text-shadow tp-resizeme sft skewtotop title -text-uppercase customin customout rs-parallaxlevel-1 -text-color" data-hoffset="0" data-voffset="0" data-x="left" data-y="60" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="800" data-start="800" data-startslide="1" data-easing="Power4.easeOut" data-endspeed="500" data-endeasing="Power4.easeIn">
+                            <blockquote><h3>"De mÃªme que le fleuve retourne Ã  la mer, <br>le don de l'homme revient vers lui. "</h3></blockquote>
+                        </h3>
 
-						</div></li>
-					<!-- Feature Slide Ends -->
-					<!-- Features Slide -->
-					<!-- Feature Slide Ends -->
-				</ul>
-				<div class="tp-bannertimer"></div>
-			</div>
-		</div>
-	</section>
+                        <div class="tp-caption tp-resizeme customin customout rs-parallaxlevel-3" data-x="right" data-y="210" data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="800" data-start="1400" data-easing="Power3.easeInOut" data-endspeed="300" style="z-index: 5">
+                            <a href="./LoginPage" class="btn btn-default btn-lg">Lancez-vous ! Faire un DON</a>
+                        </div>
+
+                    </div>
+                </li>
+                <!-- Feature Slide Ends -->
+                                <!-- Features Slide -->
+                <li data-slotamount="6" data-masterspeed="1200" data-delay="6000" data-title="Environnement">
+                    <img src="assets/img/sections/slider/Environnement.jpg" alt="Environnement" title="Environnement" data-bgposition="center top" data-kenburns="on" data-duration="16000" data-ease="Linear.easeNone" data-bgfit="110" data-bgfitend="100" data-bgpositionend="center center" />
+                    <div class="elements">
+                        <h3 class="tp-caption white text-shadow tp-resizeme sft skewtotop title -text-uppercase customin customout rs-parallaxlevel-1 -text-color" data-hoffset="0" data-voffset="0" data-x="left" data-y="60" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="800" data-start="800" data-startslide="1" data-easing="Power4.easeOut" data-endspeed="500" data-endeasing="Power4.easeIn">
+                            Â« Quand je paie une dette, câ€™est un devoir que je remplis,<br> quand je fais un don, câ€™est un plaisir que je me donne Â».
+                        </h3>
+
+                        <div class="tp-caption tp-resizeme customin customout rs-parallaxlevel-3" data-x="right" data-y="210" data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="800" data-start="1400" data-easing="Power3.easeInOut" data-endspeed="300" style="z-index: 5">
+                            <a href="./LoginPage" class="btn btn-default">Lancez-vous ! Faire un DON</a>
+                        </div>
+
+                    </div>
+                </li>
+                <!-- Feature Slide Ends -->
+                            </ul>
+            <div class="tp-bannertimer"></div>
+        </div>
+    </div>
+</section>
 	<div class="clearfix"></div>
 	<!-- slider -->
 
@@ -219,7 +142,7 @@
 				<div class="section-title" data-animation="fadeInUp">
 					<!-- Heading -->
 					<h2 class="title">
-						<strong>Liste des besoins par établissement<span class="text-color"> </span></strong>
+						<strong>Liste des besoins par Ã©tablissement<span class="text-color"> </span></strong>
 					</h2>
 				</div>
 			</div>
@@ -248,20 +171,20 @@
 							</div>
 							<div
 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Quantité
-										demandée</span></strong>
+								<strong><span class="text-color">QuantitÃ©
+										demandÃ©e</span></strong>
 							</div>
 							<div
 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Quantité
+								<strong><span class="text-color">QuantitÃ©
 										restante</span></strong>
 							</div>
 							<div class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Date création</span></strong>
+								<strong><span class="text-color">Date crÃ©ation</span></strong>
 							</div>
 							<div
 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Priorité</span></strong>
+								<strong><span class="text-color">PrioritÃ©</span></strong>
 							</div>
 							<div class="col-xs-2 col-sm-2 text-center lr-pad-10">
 								<strong><span class="text-color">Statut</span></strong>
@@ -293,7 +216,7 @@
 						<hr class="margin-20">
 						<div class="text-right">
 							<a href="faire_un_don?id_etablissement=${etablissement.getIdEtablissement()}"
-								class="btn btn-default btn-menu">Détails ...<i
+								class="btn btn-default btn-menu">DÃ©tails ...<i
 								style="font-size: 20px"
 								class=" glyphicon glyphicon-circle-arrow-right"></i>
 							</a>
@@ -378,7 +301,7 @@
 				</div>
 				<div class="col-md-4">
 					<div class="section-title" data-animation="fadeInUp">
-						<h2 class="title">Comment ça marche ?</h2>
+						<h2 class="title">Comment Ã§a marche ?</h2>
 					</div>
 					<p>..........</p>
 				</div>

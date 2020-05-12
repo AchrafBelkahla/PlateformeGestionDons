@@ -747,6 +747,17 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 			em.merge(t);
 		
 	}
-
+	@Override
+	public boolean veriff_nom_etablissement(String nom) {
+		try {
+			Query tq = em.createQuery("select u from Etablisement u WHERE NomEtablissement=?", Etablisement.class);
+			tq.setParameter(1, nom);
+			Etablisement etablisement = (Etablisement) tq.getSingleResult();
+			em.merge(etablisement);
+			return true;
+		} catch (Exception noresult) {
+			return false;
+		}
+	}
 
 }

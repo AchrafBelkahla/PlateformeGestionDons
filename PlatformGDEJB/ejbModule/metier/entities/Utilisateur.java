@@ -46,11 +46,6 @@ public class Utilisateur implements Serializable {
 	//@JoinTable(name = "T_UTILISATEUR_TELEPHONE", joinColumns = @JoinColumn(name = "idut"), inverseJoinColumns = @JoinColumn(name = "IdTel"))
 	private List<Telephone> telephone;
 
-	
-	@OneToMany
-	@LazyCollection(LazyCollectionOption.FALSE)
-	//@JoinTable(name = "T_ETABLISSEMENT_UTILISATEUR", joinColumns = @JoinColumn(name = "idut"), inverseJoinColumns = @JoinColumn(name = "IdEtablissement"))
-	private Collection<Etablisement> etablisements;
 
 	@ManyToOne
 	private Etablisement etablissement;
