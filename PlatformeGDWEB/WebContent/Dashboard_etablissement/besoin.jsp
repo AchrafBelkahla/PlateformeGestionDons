@@ -1,6 +1,7 @@
 
 <%@ include file="__header.jsp"%>
 <%@ include file="menu_etablissement.jsp"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <c:if test="${photos.size() >0}">
 <section class="slider rs-slider-full" id="home">
     <div class="tp-banner-container">
@@ -41,7 +42,7 @@
 				</tr>
 				<tr>
 				<td><a href="produit?idProduit=${besoin.getProduit().getIdProduit()}">${besoin.getProduit().getLibelle()  } </a> </td>
-					<td>${besoin.getDateBesoin() } </td>					
+					<td><fmt:formatDate type = "both"  value = "${besoin.getDateBesoin()}"/></td>					
 					<td>${besoin.getQuantiteInitiale()}</td>
 					<td>${besoin.getQuantiteRestante()}</td>
 					<td>${besoin.getMotif()}</td>

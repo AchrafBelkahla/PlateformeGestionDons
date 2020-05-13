@@ -37,9 +37,12 @@ public class ServletCategories extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String libelle = request.getParameter("libelle");
+		if(libelle!=null) 
+		{
+			Categorie c = new Categorie(libelle);
+			dao.ajoutCategorie(c);
+		}
 
-		Categorie c = new Categorie(libelle);
-		dao.ajoutCategorie(c);
 
 		List<Categorie> categories = dao.getAllCategorie();
 		request.setAttribute("categories", categories);

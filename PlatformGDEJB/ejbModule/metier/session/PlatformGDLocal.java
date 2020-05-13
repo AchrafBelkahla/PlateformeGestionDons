@@ -21,7 +21,13 @@ public interface PlatformGDLocal {
 	public List<Don> getDonReglementNotAcceptedByMinistere();
 	public List<Don> getDonEnNatureDeletedByMinistere();
 	public List<Don> getDonReglementDeletedByMinistere();
+	public List<Etablisement> getEtablissementsByGouvernorat(String gouvernorat);
+	public List<Besoin> getBesoinsByGouvernorat(String gouvernorat);
 	
+	public List<DonEnNature> getAllDonsEnNatureByGouvernorat(String gouvernorat);
+	public List<Reglement> getAllDonsReglementsByGouvernorat(String gouvernorat);
+
+
 	public DonEnNature getDonEnNatureById(String id_don);
 	public Reglement getDonEnReglementById(String id_don);
 	public void ajouterDonEnNature(DonEnNature don_en_nature);

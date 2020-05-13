@@ -3,6 +3,7 @@
 	<name>PlatformeGDWEB</name>
 	<comment></comment>
 	<projects>
+		<project>PlatformGDEJB</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

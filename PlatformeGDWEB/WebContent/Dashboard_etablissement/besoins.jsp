@@ -39,7 +39,7 @@
       <td><c:out value="${besoin.getQuantiteInitiale()} ${besoin.getProduit().getUniteDeMesure().getIdUnite()}"></c:out></td>
       <td><c:out value="${besoin.getQuantiteRestante()} ${besoin.getProduit().getUniteDeMesure().getIdUnite()}"></c:out></td>
       <td><c:out value="${besoin.getEtat()}"></c:out></td>
-      <td><c:out value="${besoin.getDateBesoin()}"></c:out></td>
+      <td><fmt:formatDate type = "both"  value = "${besoin.getDateBesoin()}"/></td>
       <td><c:out value="${besoin.getPriorite()}"></c:out></td>
       <td><c:out value="${besoin.getMotif()}"></c:out></td>
       <td style="color: red;">Réaffecter par le ministere</td>

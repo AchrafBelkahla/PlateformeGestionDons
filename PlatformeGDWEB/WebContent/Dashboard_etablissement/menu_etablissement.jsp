@@ -1,3 +1,4 @@
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <header class="fixed-header">
     <!-- navbar -->
     <div id="navigation" class="navbar navbar-default navbar-bg-light navbar-fixed-top" role="navigation">

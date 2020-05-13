@@ -748,5 +748,33 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		
 	}
 
+	@Override
+	public List<Etablisement> getEtablissementsByGouvernorat(String gouvernorat) {
+		Query req = em.createQuery("select e from Etablisement e where e.adresse.gouvernorat=:x");
+		req.setParameter("x", gouvernorat);
+		return req.getResultList();
+	}
+
+	@Override
+	public List<Besoin> getBesoinsByGouvernorat(String gouvernorat) {
+		Query req = em.createQuery("select b from Besoin b where b.etablisement.adresse.gouvernorat=:x");
+		req.setParameter("x", gouvernorat);
+		return req.getResultList();
+	}
+
+	@Override
+	public List<DonEnNature> getAllDonsEnNatureByGouvernorat(String gouvernorat) {
+		Query req = em.createQuery("select d from DonEnNature d where d.etablissement.adresse.gouvernorat=:x");
+		req.setParameter("x", gouvernorat);
+		return req.getResultList();
+	}
+
+	@Override
+	public List<Reglement> getAllDonsReglementsByGouvernorat(String gouvernorat) {
+		Query req = em.createQuery("select d from Reglement d where d.etablissement.adresse.gouvernorat=:x");
+		req.setParameter("x", gouvernorat);
+		return req.getResultList();
+	}
+
 
 }

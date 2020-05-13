@@ -48,7 +48,7 @@
 										<h6>${besoin.getProduit().getLibelle()}</h6>
 									</div>
 									<div class="col-xs-2 col-sm-2">
-										<h6>${besoin.getDateBesoin()}</h6>
+										<h6><fmt:formatDate type = "both"  value = "${besoin.getDateBesoin()}"/></h6>
 									</div>
 									<div class="col-xs-2 col-sm-2 ">
 										<h6>${besoin.getEtablisement().getNomEtablissement()}</h6>

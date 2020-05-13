@@ -42,7 +42,16 @@ public class ServletManagement extends HttpServlet {
 			{
 				if(user.getRole().equals("responsable") && user.getAccepted().equals(true))
 				{
+					if(user.getEtablissement().getHospital())
+					{
+						System.out.println("**************************** hopital ******************************************");
 						 request.getRequestDispatcher("/categories").forward(request, response);
+					}
+					else if(user.getEtablissement().getDrs())
+					{
+						System.out.println("**************************** drs ******************************************");
+						 request.getRequestDispatcher("/Liste_Etablissements_Drs").forward(request, response);
+					}
 					
 				}
 				else {
@@ -84,7 +93,16 @@ public class ServletManagement extends HttpServlet {
 			{
 				if(user.getRole().equals("responsable") && user.getAccepted().equals(true))
 				{
-					request.getRequestDispatcher("/categories").forward(request, response);
+					if(user.getEtablissement().getHospital())
+					{
+						System.out.println("**************************** hopital ******************************************");
+						 request.getRequestDispatcher("/categories").forward(request, response);
+					}
+					else if(user.getEtablissement().getDrs())
+					{
+						System.out.println("**************************** drs ******************************************");
+						 request.getRequestDispatcher("/Liste_Etablissements_Drs").forward(request, response);
+					}
 				}
 				else {
 					if(user.getRole().equals("donateur"))
@@ -122,7 +140,16 @@ public class ServletManagement extends HttpServlet {
 				{
 					if(user.getRole().equals("responsable") && user.getAccepted().equals(true))
 					{
-						request.getRequestDispatcher("/categories").forward(request, response);
+						if(user.getEtablissement().getHospital())
+						{
+							System.out.println("**************************** hopital ******************************************");
+							 request.getRequestDispatcher("/categories").forward(request, response);
+						}
+						else if(user.getEtablissement().getDrs())
+						{
+							System.out.println("**************************** drs ******************************************");
+							 request.getRequestDispatcher("/Liste_Etablissements_Drs").forward(request, response);
+						}
 					}
 					else {
 						if(user.getRole().equals("donateur"))

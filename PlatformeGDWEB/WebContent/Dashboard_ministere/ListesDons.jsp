@@ -163,7 +163,7 @@
 											<h5>${r.getModeReglement()}</h5>
 											</td>
 											<td>
-											<h5>${r.getDateReglement()}</h5>
+											<h5><fmt:formatDate type = "both"  value = "${r.getDateReglement()}"/></h5>
 											</td>
 											<td>
 												<h5>${r.isEstAccepte()}</h5>

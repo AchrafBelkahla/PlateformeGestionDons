@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import metier.entities.Besoin;
 import metier.session.PlatformGDLocal;
 
 @WebServlet("/Liste_Besoins")
@@ -26,5 +27,15 @@ public class ServletListeBesoins extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(req, resp);
+	}
+	@Override
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException 
+	{
+
+		String idBesoin = request.getParameter("id");
+		Besoin besoin = dao.getBesoinById(idBesoin);
+		dao.deleteBesoin(besoin);
+		response.getWriter().println(true);
 	}
 }
