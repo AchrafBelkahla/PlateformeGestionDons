@@ -105,9 +105,8 @@ public class ImporterProduit extends HttpServlet{
 			numLigne++;
 			Row currentRow = iterator.next();
 			int nbCells = currentRow.getLastCellNum();
-			if (nbCells < 3) {
-				// throw new Exception("Nombre de cellules ligne " + numLigne + " incorrect car
-				// < 3 ");
+			if (nbCells != 3) {
+				request.setAttribute("msg", "verifier les nombres de colonnes");
 			} else {
 				Iterator<Cell> cellIterator = currentRow.iterator();
 

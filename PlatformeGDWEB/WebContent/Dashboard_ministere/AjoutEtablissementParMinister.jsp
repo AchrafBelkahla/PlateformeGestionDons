@@ -93,6 +93,7 @@
 											<option value="Monastir">Monastir</option>
 											<option value="Nabeul">Nabeul</option>
 											<option value="Sfax">Sfax</option>
+											<option value="Sousse">Sousse</option>
 											<option value="Sidi Bouzid">Sidi Bouzid</option>
 											<option value="Tataouine">Tataouine</option>
 											<option value="Tozeur">Tozeur</option>

@@ -51,8 +51,7 @@ public class ServletBesoins extends HttpServlet {
 			List<Besoin> besoins = dao.getBesoinsByEtablissement(id_etablissement);
 
 
-			request.setAttribute("ListBesoins", besoins);
-			request.setAttribute("NombreBesoin", besoins.size());
+			request.setAttribute("besoins", besoins);
 			request.getRequestDispatcher("Dashboard_etablissement/besoins.jsp").forward(request,response);
 
 
@@ -119,7 +118,7 @@ public class ServletBesoins extends HttpServlet {
 			dao.updateBesoin(b);
 			 
 			List<Besoin> besoins = dao.getBesoinsByEtablissement(user.getEtablissement().getIdEtablissement());
-			request.setAttribute("ListBesoins", besoins);
+			request.setAttribute("besoins", besoins);
 			request.getRequestDispatcher("Dashboard_etablissement/besoins.jsp").forward(request, response);
 	}
 	

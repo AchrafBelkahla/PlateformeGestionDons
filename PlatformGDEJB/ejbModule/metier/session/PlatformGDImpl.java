@@ -747,17 +747,48 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 			em.merge(t);
 		
 	}
+
 	@Override
-	public boolean veriff_nom_etablissement(String nom) {
-		try {
-			Query tq = em.createQuery("select u from Etablisement u WHERE NomEtablissement=?", Etablisement.class);
-			tq.setParameter(1, nom);
-			Etablisement etablisement = (Etablisement) tq.getSingleResult();
-			em.merge(etablisement);
-			return true;
-		} catch (Exception noresult) {
-			return false;
-		}
+	public List<Etablisement> getEtablissementsByGouvernorat(String gouvernorat) {
+		Query req = em.createQuery("select e from Etablisement e where e.adresse.gouvernorat=:x");
+		req.setParameter("x", gouvernorat);
+		return req.getResultList();
 	}
+
+	@Override
+	public List<Besoin> getBesoinsByGouvernorat(String gouvernorat) {
+		Query req = em.createQuery("select b from Besoin b where b.etablisement.adresse.gouvernorat=:x");
+		req.setParameter("x", gouvernorat);
+		return req.getResultList();
+	}
+
+	@Override
+	public List<DonEnNature> getAllDonsEnNatureByGouvernorat(String gouvernorat) {
+		Query req = em.createQuery("select d from DonEnNature d where d.etablissement.adresse.gouvernorat=:x");
+		req.setParameter("x", gouvernorat);
+		return req.getResultList();
+	}
+
+	@Override
+	public List<Reglement> getAllDonsReglementsByGouvernorat(String gouvernorat) {
+		Query req = em.createQuery("select d from Reglement d where d.etablissement.adresse.gouvernorat=:x");
+		req.setParameter("x", gouvernorat);
+		return req.getResultList();
+	}
+
+	@Override
+	public List<DonEnNature> getAllDonsEnNatureByEtablissement(String idEtab) {
+		Query req = em.createQuery("select d from DonEnNature d where d.etablissement.IdEtablissement=:x");
+		req.setParameter("x", idEtab);
+		return req.getResultList();
+	}
+
+	@Override
+	public List<Reglement> getAllDonsReglementsByEtablissement(String idEtab) {
+		Query req = em.createQuery("select d from Reglement d where d.etablissement.IdEtablissement=:x");
+		req.setParameter("x", idEtab);
+		return req.getResultList();
+	}
+
 
 }

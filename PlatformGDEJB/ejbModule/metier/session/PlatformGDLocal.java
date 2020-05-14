@@ -21,6 +21,14 @@ public interface PlatformGDLocal {
 	public List<Don> getDonReglementNotAcceptedByMinistere();
 	public List<Don> getDonEnNatureDeletedByMinistere();
 	public List<Don> getDonReglementDeletedByMinistere();
+	public List<Etablisement> getEtablissementsByGouvernorat(String gouvernorat);
+	public List<Besoin> getBesoinsByGouvernorat(String gouvernorat);
+	
+	public List<DonEnNature> getAllDonsEnNatureByGouvernorat(String gouvernorat);
+	public List<Reglement> getAllDonsReglementsByGouvernorat(String gouvernorat);
+	public List<DonEnNature> getAllDonsEnNatureByEtablissement(String idEtab);
+	public List<Reglement> getAllDonsReglementsByEtablissement(String idEtab);
+
 	
 	public DonEnNature getDonEnNatureById(String id_don);
 	public Reglement getDonEnReglementById(String id_don);
@@ -144,7 +152,7 @@ public interface PlatformGDLocal {
 		public void updateReclamatiom(boolean codeReclamation, Reclamation reclamation);
 		public void updateetatDecompte(Boolean etatDecompte, Utilisateur utilisateur);
 		public void updateUtilisateur(Utilisateur utilisateur);
-		
-		public boolean veriff_nom_etablissement(String nom);
+
+
 
 }

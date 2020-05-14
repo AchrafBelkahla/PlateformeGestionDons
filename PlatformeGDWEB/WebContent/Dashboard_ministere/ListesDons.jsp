@@ -81,7 +81,7 @@
 											<h5>${d.getEtablissement().getNomEtablissement()}</h5>
 											</td>
 											<td>
-											<h5>Donateur</h5>
+											<h5>${d.getUtilisateur().getNom()}, ${d.getUtilisateur().getPrenom()}</h5>
 											</td>
 											<td>
 											<h5>${d.getPrix_totale()}</h5>
@@ -157,23 +157,23 @@
 											<h5>${r.getEtablissement().getNomEtablissement()}</h5>
 											</td>
 											<td>
-											<h5>Donateur</h5>
+											<h5>${r.getUtilisateur().getNom()}, ${r.getUtilisateur().getPrenom()}</h5>
 											</td>
 											<td>
 											<h5>${r.getModeReglement()}</h5>
 											</td>
 											<td>
-											<h5>${r.getDateReglement()}</h5>
+											<h5><fmt:formatDate type = "both"  value = "${r.getDateReglement()}"/></h5>
 											</td>
 											<td>
 												<h5>${r.isEstAccepte()}</h5>
 											</td>
 											<td>
 												
-												<a href="accepter_don?code_reglement=${r.getId_don()}" class="btn btn-success btn-sm" role="button">Accepter</a>
+												<a href="accepter_don_reglement?code_reglement=${r.getId_don()}" class="btn btn-success btn-sm" role="button">Accepter</a>											</td>
 											</td>
 											<td>
-												<a href="supprimer_don?code_reglement=${r.getId_don()}" class="btn btn-danger btn-sm" role="button">Supprimer</a>
+												<a href="supprimer_don_reglement?code_reglement=${r.getId_don()}" class="btn btn-danger btn-sm" role="button">Supprimer</a>
 											</td>
 											</tr>
 											</c:if>

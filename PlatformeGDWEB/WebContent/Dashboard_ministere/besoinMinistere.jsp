@@ -51,7 +51,7 @@
 			</tr>
 			<tr>
 				<td>${besoin.getProduit().getLibelle()}</td>
-				<td>${besoin.getDateBesoin() }</td>
+				<td><fmt:formatDate type = "both"  value = "${besoin.getDateBesoin()}"/></td>
 				<td>${besoin.getQuantiteInitiale()}</td>
 				<td>${besoin.getQuantiteRestante()}</td>
 				<td>${besoin.getMotif()}</td>

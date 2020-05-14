@@ -2,44 +2,9 @@
 
 <%@ include file="__header.jsp"%>
 <%@ include file="menu_donnateur.jsp"%>
-<!-- Load Facebook SDK for JavaScript -->
-<div id="fb-root"></div>
-<script>
-    window.fbAsyncInit = function() {
-        FB.init({
-            xfbml            : true,
-            version          : 'v3.2'
-        });
-    };
-    (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = '../connect.facebook.net/fr_FR/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
 
 
-
-<!-- facebook page -->
-<script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = '../connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.0&appId=1669069353118459&autoLogAppEvents=1';
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-<div id="page">
-	<!-- Page Loader -->
-	<div id="pageloader">
-		<div class="loader-item fa fa-spin text-color"></div>
-	</div>
-
-
-
-
-
-	<section class="slider rs-slider-full" id="home">
+ <section class="slider rs-slider-full" id="home">
     <div class="tp-banner-container">
         <div class="tp-banner-new responsive">
             <ul>
@@ -55,7 +20,7 @@
 
 
                         <div class="tp-caption tp-resizeme customin customout rs-parallaxlevel-3" data-x="right" data-y="210" data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="800" data-start="1400" data-easing="Power3.easeInOut" data-endspeed="300" style="z-index: 5">
-                            <a href="fund/new.html" class="btn btn-default btn-lg"><b>Lancez-vous ! Faites un DON</b></a>
+                            <a href="besoinsByEtablissement" class="btn btn-default btn-lg"><b>Lancez-vous ! Faites un DON</b></a>
                         </div>
 
                     </div>
@@ -71,7 +36,7 @@
                         </h3>
 
                         <div class="tp-caption tp-resizeme customin customout rs-parallaxlevel-3" data-x="right" data-y="210" data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="800" data-start="1400" data-easing="Power3.easeInOut" data-endspeed="300" style="z-index: 5">
-                            <a href="fund/new.html" class="btn btn-default btn-lg">Lancez-vous ! Faire un DON</a>
+                            <a href="besoinsByEtablissement" class="btn btn-default btn-lg">Lancez-vous ! Faire un DON</a>
                         </div>
 
                     </div>
@@ -90,7 +55,7 @@
                         </h2>
 
                         <div class="tp-caption tp-resizeme customin customout rs-parallaxlevel-3" data-x="right" data-y="210" data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="800" data-start="1400" data-easing="Power3.easeInOut" data-endspeed="300" style="z-index: 5">
-                            <a href="fund/new/Projects.html" class="btn btn-default btn-lg">Lancez-vous ! Faire un DON</a>
+                            <a href="besoinsByEtablissement" class="btn btn-default btn-lg">Lancez-vous ! Faire un DON</a>
                         </div>
 
                     </div>
@@ -105,7 +70,7 @@
                         </h3>
 
                         <div class="tp-caption tp-resizeme customin customout rs-parallaxlevel-3" data-x="right" data-y="210" data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="800" data-start="1400" data-easing="Power3.easeInOut" data-endspeed="300" style="z-index: 5">
-                            <a href="./LoginPage" class="btn btn-default btn-lg">Lancez-vous ! Faire un DON</a>
+                            <a href="besoinsByEtablissement" class="btn btn-default btn-lg">Lancez-vous ! Faire un DON</a>
                         </div>
 
                     </div>
@@ -120,7 +85,7 @@
                         </h3>
 
                         <div class="tp-caption tp-resizeme customin customout rs-parallaxlevel-3" data-x="right" data-y="210" data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="800" data-start="1400" data-easing="Power3.easeInOut" data-endspeed="300" style="z-index: 5">
-                            <a href="./LoginPage" class="btn btn-default">Lancez-vous ! Faire un DON</a>
+                            <a href="besoinsByEtablissement" class="btn btn-default">Lancez-vous ! Faire un DON</a>
                         </div>
 
                     </div>
@@ -285,29 +250,29 @@
 
 
 	<section id="video" class="page-section light-bg">
-		<div class="container">
-			<div class="row text-center">
-				<div class="col-md-4">
-					<div class="section-title" data-animation="fadeInUp">
-						<h2 class="title">Pour quels besoins ?</h2>
-					</div>
-					<p>..........</p>
-				</div>
-				<div class="col-md-4">
-					<div class="section-title" data-animation="fadeInUp">
-						<h2 class="title">C'est quoi ?</h2>
-					</div>
-					<p>..........</p>
-				</div>
-				<div class="col-md-4">
-					<div class="section-title" data-animation="fadeInUp">
-						<h2 class="title">Comment ça marche ?</h2>
-					</div>
-					<p>..........</p>
-				</div>
-				<!--  space -->
-			</div>
-		</div>
-	</section>
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <div class="section-title" data-animation="fadeInUp">
+                        <h2 class="title">Pour quels besoins ?</h2>
+                    </div>
+                    <p>La transparence dans la gestion des dons pour les services sanitaires et l’équité dans leur distribution.</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="section-title" data-animation="fadeInUp">
+                        <h2 class="title">C'est quoi ?</h2>
+                    </div>
+                    <p>Une plateforme qui permet au ministère de la santé de gérer, les besoins et les dons.</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="section-title" data-animation="fadeInUp">
+                        <h2 class="title">Comment ça marche ?</h2>
+                    </div>
+                    <p>Les services sanitaires expriment leurs besoins en médicaments, en produits équipements médicaux sur la plateforme. Les donateurs répondent aux besoins exprimés et suivent leur dons jusqu’à leur destination.</p>
+                </div>
+                <!--  space -->
+            </div>
+        </div>
+    </section>
 
 	<%@ include file="__footer.jsp"%>

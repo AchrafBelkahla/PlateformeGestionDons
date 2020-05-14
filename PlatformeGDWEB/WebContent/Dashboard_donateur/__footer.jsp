@@ -4,41 +4,21 @@
     <div class="footer-widget dark-section">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-3 widget bottom-xs-pad-20">
-                    <div class="widget-title">
-                        <!-- Title -->
-                        <h3 class="title">A propos de nous</h3>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-3 widget bottom-xs-pad-20">
+                
+                <div class="col-xs-12 col-sm-6 col-md-6 widget bottom-xs-pad-20">
                     <div class="widget-title">
                         <!-- Title -->
                         <h3 class="title">Infos pratiques</h3>
                     </div>
                     <nav>
                         <ul>
-                            <!-- List Items -->
-                                                                                                                    <li>
-                                <a href="contact.html">Nous contacter</a>
-                            </li>
                             <li>
                                 <a href="cgu.html">C.G.U</a>
-                            </li>
-                            <li>
-                                <a href="faq.html">Foire aux Questions (FAQ)</a>
-                            </li>
-                            <li>
-                                <a href="privacy.html">Politique de confidentialité</a>
                             </li>
                         </ul>
                     </nav>
                                     </div>
-                <div class="col-xs-12 col-sm-6 col-md-3 widget">
-                    <div class="widget-title">
-                        <!-- Title -->
-                        <h3 class="title">Autres info</h3>
-                    </div>
-                </div>
+                
                 <div class="col-xs-12 col-sm-6 col-md-3 widget newsletter bottom-xs-pad-20">
                                                                                                                                                                                                                                                     <!-- Social Links -->
                     <div class="widget-title">
@@ -47,7 +27,7 @@
 
                     <!-- Social Links -->
                     <div class="social-icon gray-bg icons-circle i-3x">
-                        <a href="#" target="_blank">&nbsp;
+                        <a href="https://www.facebook.com/santetunisie.rns.tn" target="_blank">&nbsp;
                             <i class="fa fa-facebook"></i>
                         </a>
                         <a href="#" target="_blank">&nbsp;
@@ -65,12 +45,6 @@
             <div class="row">
                 <!-- Copyrights -->
                 <div class="col-xs-10 col-sm-6 col-md-6"> &copy; 2020 <a href="index.html">www.nom_platform.tn</a>.
-                </div>
-                <div class="col-xs-2  col-sm-6 col-md-6 text-right page-scroll gray-bg icons-circle i-3x">
-                    <!-- Goto Top -->
-                    <a href="#page">
-                        <i class="glyphicon glyphicon-arrow-up"></i>
-                    </a>
                 </div>
             </div>
         </div>
