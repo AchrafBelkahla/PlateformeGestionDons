@@ -13,6 +13,8 @@ import metier.entities.Categorie;
 import metier.entities.Produit;
 import metier.entities.UniteDeMesure;
 import metier.session.PlatformGDLocal;
+import web.GlobalConfig;
+
 
 
 @WebServlet("/Liste_produits")
@@ -27,11 +29,24 @@ public class ServletProduits extends HttpServlet {
 		
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+			throws ServletException, IOException 
+	{
+		int currentPage = Integer.valueOf(request.getParameter("currentPage"));
+		List<Produit> produits = dao.getAllProduit(currentPage,GlobalConfig.recordsPerPage);
+        int rows = (int) dao.getNumberOfRows("Produit");
+
+        int nOfPages = rows / GlobalConfig.recordsPerPage;
+        if (nOfPages % GlobalConfig.recordsPerPage > 0) {
+            nOfPages++;
+        }
+        
+        request.setAttribute("noOfPages", nOfPages);
+        request.setAttribute("currentPage", currentPage);
+        request.setAttribute("recordsPerPage", GlobalConfig.recordsPerPage);
 		
-			List<Produit> produits = dao.getAllProduit();
-			request.setAttribute("ListProduits", produits);
-			request.getRequestDispatcher("Dashboard_ministere/produits.jsp").forward(request,response);
+		
+		request.setAttribute("ListProduits", produits);
+		request.getRequestDispatcher("Dashboard_ministere/produits.jsp").forward(request,response);
 
 
 	}
@@ -54,10 +69,10 @@ public class ServletProduits extends HttpServlet {
 		
 		dao.ajoutProduit(p);
 
-	    List<Produit> produits = dao.getAllProduit();
-		request.setAttribute("ListProduits", produits);
-		request.getRequestDispatcher("Dashboard_ministere/produits.jsp").forward(request, response);
-			
+//	    List<Produit> produits = dao.getAllProduit();
+//		request.setAttribute("ListProduits", produits);
+//		request.getRequestDispatcher("Dashboard_ministere/produits.jsp").forward(request, response);
+		response.sendRedirect("Liste_produits?currentPage=1");
 		
 	}
 	

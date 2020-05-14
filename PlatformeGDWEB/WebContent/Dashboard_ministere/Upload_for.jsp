@@ -3,7 +3,7 @@
 <section class="page-section light-bg">
 <div class="container">	
 <div class="overlay"></div>
- <form name="formAjoutBesoin" action="Importer_four" method="post" class="col-md-6 col-md-offset-3 form-box-cha9a9a" enctype="multipart/form-data"> 
+ <form name="formAjoutBesoin" action="Importer_fournisseur" method="post" class="col-md-6 col-md-offset-3 form-box-cha9a9a" enctype="multipart/form-data"> 
 <h1>importer fournisseur</h1>
 
 <div class="form-group">

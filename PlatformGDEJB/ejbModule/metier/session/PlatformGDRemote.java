@@ -88,12 +88,13 @@ public interface PlatformGDRemote {
 		public PhotoBesoin getPhotoBesoinById(String idPb);
 
 		
+		public long getNumberOfRows(String type);
 		public List<Besoin> getAllBesoin();
-		public List<Produit> getAllProduit();
+		public List<Produit> getAllProduit(int current, int nbRecords);
 		public List<Categorie> getAllCategorie();
 		public List<PhotoBesoin> getAllPhotoBesoin();
 		public List<UniteDeMesure> getAllUniteDeMesure();
-		public List<Fournisseur> getAllFournisseur();
+		public List<Fournisseur> getAllFournisseur(int current, int nbRecords);
 		
 		public List<Produit> getProduitByCategorie(String idc);
 		public List<Produit> getProduitByFounisseur(String idF);

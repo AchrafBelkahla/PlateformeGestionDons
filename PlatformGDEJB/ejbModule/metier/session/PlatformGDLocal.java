@@ -85,6 +85,7 @@ public interface PlatformGDLocal {
 	
 	//read
 	
+	public long getNumberOfRows(String type);
 	public Produit getProduitById(String idP);
 	public UniteDeMesure getUniteDeMesureById(String idU);
 	public Categorie getCategorieById(String idC);
@@ -93,11 +94,11 @@ public interface PlatformGDLocal {
 	public PhotoBesoin getPhotoBesoinById(String idPb);
 	
 	public List<Besoin> getAllBesoin();
-	public List<Produit> getAllProduit();
+	public List<Produit> getAllProduit(int current, int nbRecords);
 	public List<Categorie> getAllCategorie();
 	public List<PhotoBesoin> getAllPhotoBesoin();
 	public List<UniteDeMesure> getAllUniteDeMesure();
-	public List<Fournisseur> getAllFournisseur();
+	public List<Fournisseur> getAllFournisseur(int current, int nbRecords);
 	
 	public List<Produit> getProduitByCategorie(String idc);
 	public List<Produit> getProduitByFounisseur(String idF);

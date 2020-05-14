@@ -94,8 +94,8 @@ public class PlatformGDService {
 	public Fournisseur getFournisseurById(String idF) {
 		return metier.getFournisseurById(idF);
 	}
-	public List<Produit> getAllProduit() {
-		return metier.getAllProduit();
+	public List<Produit> getAllProduit(int current, int nbRecords) {
+		return metier.getAllProduit(current,nbRecords);
 	}
 	public List<Categorie> getAllCategorie() {
 		return metier.getAllCategorie();
@@ -106,8 +106,8 @@ public class PlatformGDService {
 	public List<UniteDeMesure> getAllUniteDeMesure() {
 		return metier.getAllUniteDeMesure();
 	}
-	public List<Fournisseur> getAllFournisseur() {
-		return metier.getAllFournisseur();
+	public List<Fournisseur> getAllFournisseur(int current, int nbRecords) {
+		return metier.getAllFournisseur(current,nbRecords);
 	}
 	public List<Produit> getProduitByCategorie(String idc) {
 		return metier.getProduitByCategorie(idc);

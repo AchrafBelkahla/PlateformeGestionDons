@@ -1,5 +1,6 @@
 package metier.session;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -320,8 +321,10 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 	}
 
 	@Override
-	public List<Produit> getAllProduit() {
-		return em.createNamedQuery("Produit.findAll",Produit.class).getResultList();
+	public List<Produit> getAllProduit(int current, int nbRecords) 
+	{
+		int start = current * nbRecords - nbRecords;
+		return em.createNamedQuery("Produit.findAll",Produit.class).setFirstResult(start).setMaxResults(nbRecords).getResultList();
 	}
 
 	@Override
@@ -341,9 +344,10 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 	}
 
 	@Override
-	public List<Fournisseur> getAllFournisseur() 
+	public List<Fournisseur> getAllFournisseur(int current, int nbRecords) 
 	{
-		return em.createNamedQuery("Fournisseur.findAll",Fournisseur.class).getResultList();
+		int start = current * nbRecords - nbRecords;
+		return em.createNamedQuery("Fournisseur.findAll",Fournisseur.class).setFirstResult(start).setMaxResults(nbRecords).getResultList();
 
 	}
 
@@ -789,6 +793,14 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		req.setParameter("x", idEtab);
 		return req.getResultList();
 	}
-
+	@Override
+	public long getNumberOfRows(String type)
+	{
+        long numOfRows = 0;
+        String reqString = "SELECT COUNT(*) FROM "+type;
+        Query req = em.createQuery(reqString);
+		numOfRows = (long) req.getSingleResult();
+        return numOfRows;
+	}
 
 }

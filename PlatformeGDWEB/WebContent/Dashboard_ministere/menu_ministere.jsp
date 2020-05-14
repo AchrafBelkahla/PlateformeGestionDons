@@ -28,13 +28,13 @@
                                 <a href="Liste_Intermediaire">Intermédiaires</a>
                             </li>
                             <li>
-                                <a href="Liste_Fournisseurs">Fournisseurs</a>
+                                <a href="Liste_Fournisseurs?currentPage=1">Fournisseurs</a>
                             </li>
                             <li>
                                 <a href="Liste_Donnateurs">Donateurs</a>
                             </li>
                             <li>
-                                <a href="Liste_produits">Produits</a>
+                                <a href="Liste_produits?currentPage=1">Produits</a>
                             </li>
                             <li>
                                 <a href="Liste_categories">Catégories</a>

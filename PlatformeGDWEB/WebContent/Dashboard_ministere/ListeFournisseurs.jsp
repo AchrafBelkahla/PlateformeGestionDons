@@ -45,87 +45,12 @@
 				</c:forEach>
 			</tbody>
 		</table>
-
+		<jsp:include page="../pagination.jsp">
+	        <jsp:param name="currentPage" value="${currentPage}"/>
+	        <jsp:param name="noOfPages" value="${noOfPages}"/>
+	        <jsp:param name="link" value="Liste_Fournisseurs"/>
+	    </jsp:include>
 	</div>
-	<!-- 	<div class="container"> -->
-	<!-- 		<a href="ajoutFournisseurMinistere" class="btn btn-success">Ajouter un -->
-	<!-- 			fournisseur</a> -->
-	<!-- 		<div class="row"> -->
-	<!-- 			<div class="vcenter col-md-12 text-center"> -->
-	<!-- 				<div class="visible-sm-block visible-xs-block top-margin-10"> -->
-	<!-- 					<div class="form-box-cha9a9a widget bottom-pad-0" -->
-	<!-- 						style="padding-top: 0px;"></div> -->
-	<!-- 				</div> -->
-
-	<!-- 				<div class="form-box-cha9a9a top-margin-20" -->
-	<!-- 					style="padding: 10px !important;"> -->
-	<!-- 					<div class="container"> -->
-	<!-- 						<h1>Liste des Fournisseurs</h1> -->
-	<!-- 						<div class="row"> -->
-
-	<!-- 						</div> -->
-	<!-- 						<hr class="margin-20"> -->
-	<%-- 						<c:forEach var="fournisseur" items="${fournisseurs}"> --%>
-	<%-- 							<div class="row" id="${fournisseur.getIdF()}"> --%>
-	<!-- 								<div class="col-xs-2 col-sm-2 text-center"> -->
-	<%-- 									<h6>${fournisseur.getLibelle()}</h6> --%>
-	<!-- 								</div> -->
-	<!-- 								<div class="col-xs-2 col-sm-2 text-center"> -->
-	<%-- 									<h6>${fournisseur.getAdresseF()}, --%>
-	<%-- 										${fournisseur.getCodePostal()}, --%>
-	<%-- 										${fournisseur.getGouvernorat()}</h6> --%>
-	<!-- 								</div> -->
-	<!-- 								<div class="col-xs-2 col-sm-2 text-center"> -->
-	<%-- 									<h6>${fournisseur.getEmailF()}</h6> --%>
-	<!-- 								</div> -->
-	<!-- 								<div class="col-xs-2 col-sm-2 text-center"> -->
-	<%-- 									<h6>${fournisseur.getNumTelF()}</h6> --%>
-	<!-- 								</div> -->
-	<!-- 								<div class="col-xs-2 col-sm-2 text-center"> -->
-	<%-- 									<c:forEach items="${fournisseur.getProduits()}" var="p"> --%>
-	<%-- 										${p.getLibelle()} /  --%>
-	<%-- 									</c:forEach> --%>
-	<!-- 								</div> -->
-	<!-- 								<div class="col-xs-1 col-sm-1 text-center"> -->
-	<%-- 									<a href="editFournisseur?idFournisseur=${fournisseur.getIdF()}" --%>
-	<!-- 										class="btn btn-warning btn-sm" -->
-	<!-- 										id="editfournisseur">Editer</a> -->
-	<!-- 								</div> -->
-	<%-- 								<div class="col-xs-1 col-sm-1 text-center" id="${fournisseur.getIdF()}"> --%>
-	<!-- 									<button class="btn btn-danger btn-sm" id="deletefournisseur"> -->
-	<!-- 										Supprimer</button> -->
-	<!-- 								</div> -->
-	<!-- 							</div> -->
-	<%-- 						</c:forEach> --%>
-	<!-- 						<div class="row"> -->
-	<!-- 							<a href="#" class="btn btn-default btn-menu"><i -->
-	<!-- 								class="fa icon-plus2"></i>Voir plus</a> -->
-	<!-- 						</div> -->
-	<!-- 					</div> -->
-	<!-- 				</div> -->
-	<!-- 			</div> -->
-	<!-- 		</div> -->
-	<!-- 	</div> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	<script>
 		$(document).ready(function() {
