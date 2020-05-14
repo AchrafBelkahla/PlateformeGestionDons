@@ -2,41 +2,6 @@
 
 <%@ include file="__header.jsp"%>
 <%@ include file="menu_donnateur.jsp"%>
-<!-- Load Facebook SDK for JavaScript -->
-<div id="fb-root"></div>
-<script>
-    window.fbAsyncInit = function() {
-        FB.init({
-            xfbml            : true,
-            version          : 'v3.2'
-        });
-    };
-    (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = '../connect.facebook.net/fr_FR/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-
-
-
-<!-- facebook page -->
-<script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = '../connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.0&appId=1669069353118459&autoLogAppEvents=1';
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-<div id="page">
-	<!-- Page Loader -->
-	<div id="pageloader">
-		<div class="loader-item fa fa-spin text-color"></div>
-	</div>
-
-
-
 
 
 	<section class="slider rs-slider-full" id="home">

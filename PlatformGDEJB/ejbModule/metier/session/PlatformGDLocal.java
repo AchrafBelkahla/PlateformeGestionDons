@@ -26,8 +26,10 @@ public interface PlatformGDLocal {
 	
 	public List<DonEnNature> getAllDonsEnNatureByGouvernorat(String gouvernorat);
 	public List<Reglement> getAllDonsReglementsByGouvernorat(String gouvernorat);
+	public List<DonEnNature> getAllDonsEnNatureByEtablissement(String idEtab);
+	public List<Reglement> getAllDonsReglementsByEtablissement(String idEtab);
 
-
+	
 	public DonEnNature getDonEnNatureById(String id_don);
 	public Reglement getDonEnReglementById(String id_don);
 	public void ajouterDonEnNature(DonEnNature don_en_nature);
@@ -150,5 +152,7 @@ public interface PlatformGDLocal {
 		public void updateReclamatiom(boolean codeReclamation, Reclamation reclamation);
 		public void updateetatDecompte(Boolean etatDecompte, Utilisateur utilisateur);
 		public void updateUtilisateur(Utilisateur utilisateur);
+
+
 
 }

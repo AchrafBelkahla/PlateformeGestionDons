@@ -1,4 +1,3 @@
-
 <%@ include file="__header.jsp"%>
 <%@ include file="menu_etablissement.jsp"%>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
@@ -19,38 +18,83 @@
     </div>
 </section>
 </c:if>
-<section class="page-section light-bg">
+<section class="page-section">
 	<div class="container">
-	<div class="row">
-  		<div class="col-sm-8"><h1>Besoin : ${besoin.getProduit().getLibelle()}</h1></div>
-  		<div class="col-sm-4" id="${besoin.getIdBesoin()}">
+  		<div id="${besoin.getIdBesoin()}">
   			<a href="besoins" class="btn btn-default" role="button">Retour</a>
   		    <a href="editBesoin?idBesoin=${besoin.getIdBesoin()}" class="btn btn-warning " role="button" id="editbesoin">Editer</a>
 	  		<button class="btn btn-danger" id="deletebesoin">Supprimer </button>
   		</div>
-</div>
-		
-		<br>
-		<table class="table table-hover" border = "1">
-				<tr>
-					<td>Produit </td>
-					<td>Date Besoin  </td>					
-					<td>Quantité demandée</td>
-					<td>Quantité restante</td>
-					<td>Motif</td>
-					<td>Priorité</td>
-				</tr>
-				<tr>
-				<td><a href="produit?idProduit=${besoin.getProduit().getIdProduit()}">${besoin.getProduit().getLibelle()  } </a> </td>
-					<td><fmt:formatDate type = "both"  value = "${besoin.getDateBesoin()}"/></td>					
-					<td>${besoin.getQuantiteInitiale()}</td>
-					<td>${besoin.getQuantiteRestante()}</td>
-					<td>${besoin.getMotif()}</td>
-					<td>${besoin.getPriorite()}</td>					
-		</table>
+		<div class="row">
+			<div class="vcenter col-md-12 text-center">
+				<div class="visible-sm-block visible-xs-block top-margin-10">
+					<div class="form-box-cha9a9a widget bottom-pad-0"
+						style="padding-top: 0px;"></div>
+				</div>
 
+				<div class="form-box-cha9a9a top-margin-20"
+					style="padding: 10px !important;">
+					<div class="container">
+						<h1>Besoin : ${besoin.getProduit().getLibelle()}</h1>
+						<div class="row">
+							<div
+								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
+								<strong><span class="text-color">Produit</span></strong>
+							</div>
+							<div
+								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
+								<strong><span class="text-color">Date Besoin</span></strong>
+							</div>
+							<div
+								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
+								<strong><span class="text-color">Quantité demandée</span></strong>
+							</div>
+							<div
+								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
+								<strong><span class="text-color">Quantité restante</span></strong>
+							</div>
+							<div
+								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
+								<strong><span class="text-color">Motif</span></strong>
+							</div>
+							<div
+								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
+								<strong><span class="text-color">Priorité</span></strong>
+							</div>
+						</div>
+						<hr class="margin-20">
+								<div class="row">
+									<div class="col-xs-2 col-sm-2 text-center">
+										<h5><a href="produit?idProduit=${besoin.getProduit().getIdProduit()}">${besoin.getProduit().getLibelle()} </a></h5>
+									</div>
+
+									<div class="col-xs-2 col-sm-2 text-center">
+										<h5><fmt:formatDate type = "both"  value = "${besoin.getDateBesoin()}"/></h5>
+
+									</div>
+									<div class="col-xs-2 col-sm-2 text-center">
+										<h5>${besoin.getQuantiteRestante()}</h5>
+									</div>
+									<div class="col-xs-2 col-sm-2 text-center">
+										<h5>${besoin.getQuantiteInitiale()}}</h5>
+									</div>
+									<div class="col-xs-2 col-sm-2 text-center">
+										<h5>${besoin.getMotif()}</h5>
+									</div>
+									<div class="col-xs-2 col-sm-2 text-center">
+										<h5>${besoin.getPriorite()}	</h5>
+									</div>
+								</div>
+						<div class="row">
+							<a href="#" class="btn btn-default btn-menu"><i
+								class="fa icon-plus2"></i>Voir plus</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-	
+</section>
 	<script>
 		$(document).ready(function() {
 			$("button").click(function() {
@@ -85,5 +129,4 @@
 
 		})	
 </script>
-	</section>
 <%@ include file="__footer.jsp"%>

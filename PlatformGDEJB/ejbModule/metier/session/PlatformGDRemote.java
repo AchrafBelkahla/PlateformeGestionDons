@@ -23,6 +23,9 @@ public interface PlatformGDRemote {
 	public List<Besoin> getBesoinsByGouvernorat(String gouvernorat);
 	public List<DonEnNature> getAllDonsEnNatureByGouvernorat(String gouvernorat);
 	public List<Reglement> getAllDonsReglementsByGouvernorat(String gouvernorat);
+	public List<DonEnNature> getAllDonsEnNatureByEtablissement(String idEtab);
+	public List<Reglement> getAllDonsReglementsByEtablissement(String idEtab);
+	
 	
 	public DonEnNature getDonEnNatureById(String id_don);
 	public Reglement getDonEnReglementById(String id_don);

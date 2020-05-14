@@ -14,7 +14,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span></button>
 
-                        <a class="navbar-brand scroll" href="../../index.html#">
+                        <a class="navbar-brand scroll" href="">
                         <img
 							src="images/Logo/Capture.PNG" style="width: 70px; height: 60px;">
                         </a></div>
@@ -23,19 +23,11 @@
                         <!-- nav -->
                         <ul class="nav navbar-nav">     
                             
-
                                 <li  class="current" >
-                                    <a href="besoins">Besoins</a>
+                                    <a href="dons">Dons</a>
                                 </li>
-
-                                <li >
-                                    <a href="produits"> Produits</a>
-                                </li>
-                                 <li >
-                                    <a href="fournisseurs"> Fournisseurs</a>
-                                </li>
-                                                                 <li >
-                                    <a href="categories"> Catégories</a>
+                                <li  class="current" >
+                                    <a href="besoins">Mes besoins</a>
                                 </li>
                                 <li><a href="LogOut">Déconnexion</a></li>
                                                     </ul>

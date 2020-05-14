@@ -776,5 +776,19 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		return req.getResultList();
 	}
 
+	@Override
+	public List<DonEnNature> getAllDonsEnNatureByEtablissement(String idEtab) {
+		Query req = em.createQuery("select d from DonEnNature d where d.etablissement.IdEtablissement=:x");
+		req.setParameter("x", idEtab);
+		return req.getResultList();
+	}
+
+	@Override
+	public List<Reglement> getAllDonsReglementsByEtablissement(String idEtab) {
+		Query req = em.createQuery("select d from Reglement d where d.etablissement.IdEtablissement=:x");
+		req.setParameter("x", idEtab);
+		return req.getResultList();
+	}
+
 
 }

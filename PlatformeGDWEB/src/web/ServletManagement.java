@@ -45,7 +45,7 @@ public class ServletManagement extends HttpServlet {
 					if(user.getEtablissement().getHospital())
 					{
 						System.out.println("**************************** hopital ******************************************");
-						 request.getRequestDispatcher("/categories").forward(request, response);
+						 request.getRequestDispatcher("/besoins").forward(request, response);
 					}
 					else if(user.getEtablissement().getDrs())
 					{
@@ -96,7 +96,8 @@ public class ServletManagement extends HttpServlet {
 					if(user.getEtablissement().getHospital())
 					{
 						System.out.println("**************************** hopital ******************************************");
-						 request.getRequestDispatcher("/categories").forward(request, response);
+						 //request.getRequestDispatcher("/besoins").forward(request, response);
+						 response.sendRedirect("/PlatformeGDWEB/besoins");
 					}
 					else if(user.getEtablissement().getDrs())
 					{
@@ -143,7 +144,8 @@ public class ServletManagement extends HttpServlet {
 						if(user.getEtablissement().getHospital())
 						{
 							System.out.println("**************************** hopital ******************************************");
-							 request.getRequestDispatcher("/categories").forward(request, response);
+							 //request.getRequestDispatcher("/besoins").forward(request, response);
+							 response.sendRedirect("/PlatformeGDWEB/besoins");
 						}
 						else if(user.getEtablissement().getDrs())
 						{
