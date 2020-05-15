@@ -31,30 +31,30 @@
                                 <a href="Liste_Fournisseurs?currentPage=1">Fournisseurs</a>
                             </li>
                             <li>
-                                <a href="Liste_Donnateurs">Donateurs</a>
+                                <a href="Liste_Donnateurs?currentPage=1">Donateurs</a>
                             </li>
                             <li>
                                 <a href="Liste_produits?currentPage=1">Produits</a>
                             </li>
                             <li>
-                                <a href="Liste_categories">Catégories</a>
+                                <a href="Liste_categories?currentPage=1">Catégories</a>
                             </li>
                             <li>
-                                <a href="Liste_unite_de_mesure">Unité</a>
+                                <a href="Liste_unite_de_mesure?currentPage=1">Unité</a>
                             </li>
                             <li >
-                                <a href="Liste_Etablissements">Etablissments</a>
+                                <a href="Liste_Etablissements?currentPage=1">Etablissments</a>
                             </li>
 
                             <li >
                                 <a href="Liste_Dons">Dons</a>
                             </li>
                             <li >
-                                <a href="Liste_Besoins">Besoins</a>
+                                <a href="Liste_Besoins?currentPage=1">Besoins</a>
                             </li>
 
                             <li >
-                                <a href="Liste_DRS">Liste DRS</a>
+                                <a href="Liste_DRS?currentPage=1">Liste DRS</a>
                             </li>
                             <li>
                                 <a href="LogOut">Déconnexion</a>

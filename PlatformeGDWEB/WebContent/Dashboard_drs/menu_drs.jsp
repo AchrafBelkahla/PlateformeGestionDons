@@ -38,7 +38,7 @@
                                 <a href="Liste_produits_Drs">Produits</a>
                             </li>
                             <li>
-                                <a href="Liste_categories_Drs">Catégories</a>
+                                <a href="Liste_categories_Drs?currentPage=1">Catégories</a>
                             </li>
                             <li >
                                 <a href="Liste_Etablissements_Drs">Etablissments</a>
@@ -48,7 +48,7 @@
                                 <a href="Liste_Dons_Drs">Dons</a>
                             </li>
                             <li >
-                                <a href="Liste_Besoins_Drs">Besoins</a>
+                                <a href="Liste_Besoins_Drs?currentPage=1">Besoins</a>
                             </li>
                             <li>
                                 <a href="LogOut">Déconnexion</a>

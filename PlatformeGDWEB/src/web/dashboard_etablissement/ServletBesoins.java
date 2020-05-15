@@ -26,6 +26,7 @@ import metier.entities.PhotoBesoin;
 import metier.entities.Produit;
 import metier.entities.Utilisateur;
 import metier.session.PlatformGDLocal;
+import web.GlobalConfig;
 
 
 @WebServlet("/besoins")
@@ -48,14 +49,23 @@ public class ServletBesoins extends HttpServlet {
 			HttpSession session = request.getSession();
 			Utilisateur user = (Utilisateur) session.getAttribute("user");
 			String id_etablissement = (String) user.getEtablissement().getIdEtablissement();
-			List<Besoin> besoins = dao.getBesoinsByEtablissement(id_etablissement);
-
-
-			request.setAttribute("besoins", besoins);
-			request.getRequestDispatcher("Dashboard_etablissement/besoins.jsp").forward(request,response);
-
-
-
+			
+			//List<Besoin> besoins = dao.getBesoinsByEtablissement(id_etablissement);
+			//request.setAttribute("besoins", besoins);
+			//request.getRequestDispatcher("Dashboard_etablissement/besoins.jsp").forward(request,response);
+			int currentPage = Integer.valueOf(request.getParameter("currentPage"));
+			List<Besoin> besoins = dao.getBesoinsByEtablissement(id_etablissement,currentPage,GlobalConfig.recordsPerPage);
+	        int rows = (int) dao.getNumberOfRows("Besoin");
+	        int nOfPages = rows / GlobalConfig.recordsPerPage;
+	        
+	        if (nOfPages % GlobalConfig.recordsPerPage > 0) {
+	            nOfPages++;
+	        }
+	        request.setAttribute("noOfPages", nOfPages);
+	        request.setAttribute("currentPage", currentPage);
+	        request.setAttribute("recordsPerPage", GlobalConfig.recordsPerPage);
+	        request.setAttribute("besoins", besoins);
+	        request.getRequestDispatcher("Dashboard_etablissement/besoins.jsp").forward(request,response);
 	}
 
 	
@@ -117,9 +127,23 @@ public class ServletBesoins extends HttpServlet {
 			dao.updateEtablisement(etablisement);
 			dao.updateBesoin(b);
 			 
-			List<Besoin> besoins = dao.getBesoinsByEtablissement(user.getEtablissement().getIdEtablissement());
-			request.setAttribute("besoins", besoins);
-			request.getRequestDispatcher("Dashboard_etablissement/besoins.jsp").forward(request, response);
+			//List<Besoin> besoins = dao.getBesoinsByEtablissement(user.getEtablissement().getIdEtablissement());
+			//request.setAttribute("besoins", besoins);
+			//request.getRequestDispatcher("Dashboard_etablissement/besoins.jsp").forward(request, response);
+			
+			int currentPage = Integer.valueOf(request.getParameter("currentPage"));
+			List<Besoin> besoins = dao.getBesoinsByEtablissement(user.getEtablissement().getIdEtablissement(),currentPage,GlobalConfig.recordsPerPage);
+	        int rows = (int) dao.getNumberOfRows("Besoin");
+	        int nOfPages = rows / GlobalConfig.recordsPerPage;
+	        
+	        if (nOfPages % GlobalConfig.recordsPerPage > 0) {
+	            nOfPages++;
+	        }
+	        request.setAttribute("noOfPages", nOfPages);
+	        request.setAttribute("currentPage", currentPage);
+	        request.setAttribute("recordsPerPage", GlobalConfig.recordsPerPage);
+	        request.setAttribute("besoins", besoins);
+	        request.getRequestDispatcher("Dashboard_etablissement/besoins.jsp").forward(request,response);
 	}
 	
 	@Override

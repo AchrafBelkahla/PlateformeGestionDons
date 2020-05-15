@@ -3,7 +3,7 @@
 <section class="page-section light-bg">
 <div class="container">	
 <div class="overlay"></div>
- <form name="formAjoutBesoinDrs" action="Liste_Besoins_Drs" method="post" class="col-md-6 col-md-offset-3 form-box-cha9a9a" enctype="multipart/form-data"> 
+ <form name="formAjoutBesoinDrs" action="Liste_Besoins_Drs?currentPage=1" method="post" class="col-md-6 col-md-offset-3 form-box-cha9a9a" enctype="multipart/form-data"> 
 <h1>Ajouter un besoin</h1>
 
 <div class="form-group">

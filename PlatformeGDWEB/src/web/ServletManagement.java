@@ -36,7 +36,7 @@ public class ServletManagement extends HttpServlet {
 			Utilisateur user = (Utilisateur) session.getAttribute("user");
 			if(user.getRole().equals("ministere"))
 			{
-				request.getRequestDispatcher("/Ministere").forward(request, response);
+				request.getRequestDispatcher("/Ministere?currentPage=1").forward(request, response);
 			}
 			else
 			{
@@ -45,7 +45,7 @@ public class ServletManagement extends HttpServlet {
 					if(user.getEtablissement().getHospital())
 					{
 						System.out.println("**************************** hopital ******************************************");
-						 request.getRequestDispatcher("/besoins").forward(request, response);
+						 request.getRequestDispatcher("/besoins?currentPage=1").forward(request, response);
 					}
 					else if(user.getEtablissement().getDrs())
 					{
@@ -87,7 +87,7 @@ public class ServletManagement extends HttpServlet {
 			Utilisateur user = (Utilisateur) session.getAttribute("user");
 			if(user.getRole().equals("ministere"))
 			{
-				request.getRequestDispatcher("/Ministere").forward(request, response);
+				request.getRequestDispatcher("/Ministere?currentPage=1").forward(request, response);
 			}
 			else
 			{
@@ -97,7 +97,7 @@ public class ServletManagement extends HttpServlet {
 					{
 						System.out.println("**************************** hopital ******************************************");
 						 //request.getRequestDispatcher("/besoins").forward(request, response);
-						 response.sendRedirect("/PlatformeGDWEB/besoins");
+						 response.sendRedirect("/PlatformeGDWEB/besoins?currentPage=1");
 					}
 					else if(user.getEtablissement().getDrs())
 					{
@@ -135,7 +135,7 @@ public class ServletManagement extends HttpServlet {
 				Utilisateur user = (Utilisateur) session.getAttribute("user");
 				if(user.getRole().equals("ministere"))
 				{
-					request.getRequestDispatcher("/Ministere").forward(request, response);
+					request.getRequestDispatcher("/Ministere?currentPage=1").forward(request, response);
 				}
 				else
 				{
@@ -145,7 +145,7 @@ public class ServletManagement extends HttpServlet {
 						{
 							System.out.println("**************************** hopital ******************************************");
 							 //request.getRequestDispatcher("/besoins").forward(request, response);
-							 response.sendRedirect("/PlatformeGDWEB/besoins");
+							 response.sendRedirect("/PlatformeGDWEB/besoins?currentPage=1");
 						}
 						else if(user.getEtablissement().getDrs())
 						{

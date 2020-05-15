@@ -803,4 +803,84 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
         return numOfRows;
 	}
 
+
+
+
+	@Override
+	public List<UniteDeMesure> getAllUniteDeMesure(int current, int nbRecords) {
+
+		int start = current * nbRecords - nbRecords;
+		return em.createNamedQuery("UniteDeMesure.findAll",UniteDeMesure.class).setFirstResult(start).setMaxResults(nbRecords).getResultList();
+	}
+
+	@Override
+	public List<Fournisseur> getAllFournisseur() {
+		return em.createNamedQuery("Fournisseur.findAll",Fournisseur.class).getResultList();
+
+	}
+
+	@Override
+	public List<Besoin> getAllBesoin(int current, int nbRecords) {
+
+		int start = current * nbRecords - nbRecords;
+		return em.createNamedQuery("Besoin.findAll",Besoin.class).setFirstResult(start).setMaxResults(nbRecords).getResultList();
+	}
+
+	@Override
+	public List<Produit> getAllProduit() {
+		return em.createNamedQuery("Produit.findAll",Produit.class).getResultList();
+
+	}
+
+	@Override
+	public List<Categorie> getAllCategorie(int current, int nbRecords) {
+
+		int start = current * nbRecords - nbRecords;
+		return em.createNamedQuery("Categorie.findAll",Categorie.class).setFirstResult(start).setMaxResults(nbRecords).getResultList();
+	}
+	public List<Besoin> getBesoinsByEtablissement(String idE, int current, int nbRecords){
+		int start = current * nbRecords - nbRecords;
+		Query req= em.createQuery("select b from Besoin b where b.etablisement.IdEtablissement =:x");
+    	req.setParameter("x", idE);
+    	return req.setFirstResult(start).setMaxResults(nbRecords).getResultList();
+	}
+	public List<Besoin> getBesoinsByGouvernorat(String gouvernorat, int current, int nbRecords){
+		int start = current * nbRecords - nbRecords;
+		Query req = em.createQuery("select b from Besoin b where b.etablisement.adresse.gouvernorat=:x");
+		req.setParameter("x", gouvernorat);
+		return req.setFirstResult(start).setMaxResults(nbRecords).getResultList();
+	}
+	public List<Etablisement> getAllEtablissement(int current, int nbRecords){
+		int start = current * nbRecords - nbRecords;
+		Query req = em.createQuery("select e from Etablisement e");
+		return req.setFirstResult(start).setMaxResults(nbRecords).getResultList();
+	}
+	public List<Etablisement> getAllDrs(){
+		Boolean drs = true;
+		Query req = em.createQuery("select e from Etablisement e where e.drs=:x");
+		req.setParameter("x", drs);
+		return req.getResultList();
+	}
+	public List<Etablisement> getAllDrs(int current, int nbRecords){
+		int start = current * nbRecords - nbRecords;
+		Boolean drs = true;
+		Query req = em.createQuery("select e from Etablisement e where e.drs=:x");
+		req.setParameter("x", drs);
+		return req.setFirstResult(start).setMaxResults(nbRecords).getResultList();
+	}
+	public List<Etablisement> getAllHospital(){
+		Boolean hospital = true;
+		Query req = em.createQuery("select e from Etablisement e where e.hospital=:x");
+		req.setParameter("x", hospital);
+		return req.getResultList();
+	}
+	public List<Etablisement> getAllHospital(int current, int nbRecords){
+		int start = current * nbRecords - nbRecords;
+		Boolean hospital = true;
+		Query req = em.createQuery("select e from Etablisement e where e.hospital=:x");
+		req.setParameter("x", hospital);
+		return req.setFirstResult(start).setMaxResults(nbRecords).getResultList();
+	}
+
+
 }
