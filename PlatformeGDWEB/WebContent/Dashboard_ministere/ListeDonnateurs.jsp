@@ -86,10 +86,6 @@
 								</div>
 							</c:if>
 						</c:forEach>
-						<div class="row">
-							<a href="#" class="btn btn-default btn-menu"><i
-								class="fa icon-plus2"></i>Voir plus</a>
-						</div>
 					</div>
 				</div>
 			</div>

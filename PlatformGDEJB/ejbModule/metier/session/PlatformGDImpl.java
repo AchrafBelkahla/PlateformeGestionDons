@@ -530,7 +530,13 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		return req.getResultList();
 	}
 
-
+	@Override
+	public List<Utilisateur> getAllDonnateurs(){
+		String role = "donateur";
+		Query req = em.createNativeQuery("SELECT u FROM Utilisateur u where u.role=:x");
+		req.setParameter("x", role);
+		return req.getResultList();
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -770,7 +776,24 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		req.setParameter("x", gouvernorat);
 		return req.getResultList();
 	}
-
+	@Override
+	public List<Etablisement> getEtablissementsByGouvernorat(String gouvernorat, int current, int nbRecords) {
+		int start = current * nbRecords - nbRecords;
+		Boolean hospital = true;
+		Query req = em.createQuery("select e from Etablisement e where e.hospital=:x and e.adresse.gouvernorat=:y");
+		req.setParameter("x", hospital);
+		req.setParameter("y", gouvernorat);
+		return req.setFirstResult(start).setMaxResults(nbRecords).getResultList();
+	}
+	@Override
+	public List<Etablisement> getIntermediaireByGouvernorat(String gouvernorat, int current, int nbRecords){
+		int start = current * nbRecords - nbRecords;
+		Boolean intermediaire = true;
+		Query req = em.createQuery("select e from Etablisement e where e.Intermediaire=:x and e.adresse.gouvernorat=:y");
+		req.setParameter("x", intermediaire);
+		req.setParameter("y", gouvernorat);
+		return req.setFirstResult(start).setMaxResults(nbRecords).getResultList();
+	}
 	@Override
 	public List<Besoin> getBesoinsByGouvernorat(String gouvernorat) {
 		Query req = em.createQuery("select b from Besoin b where b.etablisement.adresse.gouvernorat=:x");
@@ -854,29 +877,34 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		int start = current * nbRecords - nbRecords;
 		return em.createNamedQuery("Categorie.findAll",Categorie.class).setFirstResult(start).setMaxResults(nbRecords).getResultList();
 	}
+	@Override
 	public List<Besoin> getBesoinsByEtablissement(String idE, int current, int nbRecords){
 		int start = current * nbRecords - nbRecords;
 		Query req= em.createQuery("select b from Besoin b where b.etablisement.IdEtablissement =:x");
     	req.setParameter("x", idE);
     	return req.setFirstResult(start).setMaxResults(nbRecords).getResultList();
 	}
+	@Override
 	public List<Besoin> getBesoinsByGouvernorat(String gouvernorat, int current, int nbRecords){
 		int start = current * nbRecords - nbRecords;
 		Query req = em.createQuery("select b from Besoin b where b.etablisement.adresse.gouvernorat=:x");
 		req.setParameter("x", gouvernorat);
 		return req.setFirstResult(start).setMaxResults(nbRecords).getResultList();
 	}
+	@Override
 	public List<Etablisement> getAllEtablissement(int current, int nbRecords){
 		int start = current * nbRecords - nbRecords;
 		Query req = em.createQuery("select e from Etablisement e");
 		return req.setFirstResult(start).setMaxResults(nbRecords).getResultList();
 	}
+	@Override
 	public List<Etablisement> getAllDrs(){
 		Boolean drs = true;
 		Query req = em.createQuery("select e from Etablisement e where e.drs=:x");
 		req.setParameter("x", drs);
 		return req.getResultList();
 	}
+	@Override
 	public List<Etablisement> getAllDrs(int current, int nbRecords){
 		int start = current * nbRecords - nbRecords;
 		Boolean drs = true;
@@ -884,12 +912,14 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		req.setParameter("x", drs);
 		return req.setFirstResult(start).setMaxResults(nbRecords).getResultList();
 	}
+	@Override
 	public List<Etablisement> getAllHospital(){
 		Boolean hospital = true;
 		Query req = em.createQuery("select e from Etablisement e where e.hospital=:x");
 		req.setParameter("x", hospital);
 		return req.getResultList();
 	}
+	@Override
 	public List<Etablisement> getAllHospital(int current, int nbRecords){
 		int start = current * nbRecords - nbRecords;
 		Boolean hospital = true;
@@ -897,13 +927,14 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		req.setParameter("x", hospital);
 		return req.setFirstResult(start).setMaxResults(nbRecords).getResultList();
 	}
-
+	@Override
 	public List<Etablisement> getAllIntermediaire(){
 		Boolean hospital = true;
 		Query req = em.createQuery("select e from Etablisement e where e.Intermediaire=:x");
 		req.setParameter("x", hospital);
 		return req.getResultList();
 	}
+	@Override
 	public List<Etablisement> getAllIntermediaire(int current, int nbRecords){
 		int start = current * nbRecords - nbRecords;
 		Boolean intermediaire = true;

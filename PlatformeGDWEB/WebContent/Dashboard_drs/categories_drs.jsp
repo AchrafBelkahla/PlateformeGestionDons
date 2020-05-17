@@ -4,74 +4,57 @@
 <section class="page-section light-bg">
 
 <div class="container">
-		<div class="row text-center">
 
-			<h1>Liste des catégories</h1>
+	<div class="container">
+<a href="ajoutCategorieMinistere" class="btn btn-success">Ajouter une
+			catégorie</a>
+		<div class="row">
+			<div class="vcenter col-md-12 text-center">
+				<div class="visible-sm-block visible-xs-block top-margin-10">
+					<div class="form-box-cha9a9a widget bottom-pad-0"
+						style="padding-top: 0px;"></div>
+				</div>
+
+				<div class="form-box-cha9a9a top-margin-20"
+					style="padding: 10px !important;">
+					<div class="container">
+						<h1>Liste des catégories</h1>
+						<div class="row">
+							<div
+								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
+								<strong><span class="text-color">Catégorie</span></strong>
+							</div>
+							<div
+								class="col-xs-6 col-sm-6 text-center fund-bottom-border lr-pad-10">
+								<strong><span class="text-color">Produits</span></strong>
+							</div>
+						</div>
+						<hr class="margin-20">
+						<c:forEach var="categorie" items="${categories}">
+							<div class="row" id="${categorie.getIdC()}">
+								<div class="col-xs-2 col-sm-2 text-center">
+									<h6>${categorie.getLibelle()}</h6>
+								</div>
+								<div class="col-xs-6 col-sm-6 text-center">
+									<c:forEach var="produit" items="${categorie.getProduits()}">
+										${produit.getLibelle()} / 
+									</c:forEach>
+								</div>
+							</div>
+							<hr class="margin-20">
+						</c:forEach>
+						
+					</div>
+				</div>
+			</div>
+			<jsp:include page="../pagination.jsp">
+					        <jsp:param name="currentPage" value="${currentPage}"/>
+					        <jsp:param name="noOfPages" value="${noOfPages}"/>
+					        <jsp:param name="link" value="Liste_categories_Drs"/>
+					    </jsp:include>
 		</div>
+
 		
 	</div>
-	<div class="container">
-		<a href="ajoutCategorieMinistere" class="btn btn-success">Ajouter une
-			catégorie</a>
-		<table class="table">
-			<thead class="thead-dark">
-				<tr>
-					<th scope="col">Catégorie</th>
-					<th scope="col">Produits</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="categorie" items="${categories}">
-					<tr id="${categorie.getIdC()}">
-						<td><c:out value="${categorie.getLibelle()}"></c:out></td>
-						<td>
-							<c:forEach var="produit" items="${categorie.getProduits()}">
-								<li><c:out value="${produit.getLibelle()}"></c:out></li>
-							</c:forEach>
-						</td>
-						<td><button class="btn btn-danger btn-sm" id="deletecategorie">Supprimer
-									</button></td>
-
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-		<jsp:include page="../pagination.jsp">
-	        <jsp:param name="currentPage" value="${currentPage}"/>
-	        <jsp:param name="noOfPages" value="${noOfPages}"/>
-	        <jsp:param name="link" value="Liste_categories_Drs"/>
-	    </jsp:include>
-	</div>
-
-	<script>
-		$(document).ready(function() {
-			$("button").click(function() {
-				let id = $(this).closest('div').attr('id');
-				switch (this.id) {
-				case "deletecategorie":
-					console.log("delete categorie" + id);
-					async("delete", {
-						id : id
-					})
-					break;
-				}
-			})
-			function async(method, data) {
-				console.log(data);
-				$.ajax({
-					url : "Liste_categories?currentPage=1",
-					data : data,
-					method : method
-				}).done(function(data) {
-					console.log(data);
-					if (data) {
-						location.href = "Liste_categories?currentPage=1"
-					}
-				});
-			}
-
-		})
-	</script>
 </section>
 <%@ include file="__footer.jsp"%>

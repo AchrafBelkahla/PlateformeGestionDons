@@ -29,7 +29,7 @@ public class ServletMinistere extends HttpServlet{
 		
 		int currentPage = Integer.valueOf(req.getParameter("currentPage"));
 		List<Etablisement> etablissements = dao.getAllDrs(currentPage,GlobalConfig.recordsPerPage);
-        int rows = (int) etablissements.size();
+		 int rows = (int) dao.getNumberOfRows("Categorie");
         int nOfPages = rows / GlobalConfig.recordsPerPage;
         
         if (nOfPages % GlobalConfig.recordsPerPage > 0) {

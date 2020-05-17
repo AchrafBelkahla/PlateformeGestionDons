@@ -172,5 +172,13 @@ public class Etablisement implements Serializable {
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
 	}
+
+	@Override
+	public String toString() {
+		return "Etablisement [NomEtablissement=" + NomEtablissement + ", Intermediaire=" + Intermediaire
+				+ ", ministraire=" + ministraire + ", hospital=" + hospital + ", drs=" + drs + ", libelle=" + libelle
+				+ ", adresse=" + adresse + "]";
+	}
+	
 	
 }

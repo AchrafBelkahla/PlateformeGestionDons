@@ -70,7 +70,7 @@
 									</thead>
 									<tbody>
 										<c:forEach items="${don_en_nature}" var="d">
-											<c:if test="${d.isEstSupprime() == false}">
+<%-- 											<c:if test="${d.isEstSupprime() == false}"> --%>
 											<tr>
 											<!--<td>
 											</td>-->
@@ -81,7 +81,7 @@
 											<h5>${d.getEtablissement().getNomEtablissement()}</h5>
 											</td>
 											<td>
-											<h5>Donateur</h5>
+											<h5>${d.getUtilisateur().getNom(), ${d.getUtilisateur().getPrenom()}</h5>
 											</td>
 											<td>
 											<h5>${d.getPrix_totale()}</h5>
@@ -99,7 +99,7 @@
 												<a href="supprimer_don?code_don_en_nature=${d.getId_don()}" class="btn btn-danger btn-sm" role="button" >Supprimer</a>
 											</td>
 											</tr>
-											</c:if>
+<%-- 											</c:if> --%>
 										</c:forEach>
 									</tbody>
 								</table>
@@ -146,7 +146,7 @@
 									</thead>
 									<tbody>
 										<c:forEach items="${reglement}" var="r">
-										<c:if test="${r.isEstSupprime() == false}">
+<%-- 										<c:if test="${r.isEstSupprime() == false}"> --%>
 											<tr>
 											<td>
 											</td>
@@ -157,7 +157,7 @@
 											<h5>${r.getEtablissement().getNomEtablissement()}</h5>
 											</td>
 											<td>
-											<h5>Donateur</h5>
+											<h5>${r.getUtilisateur().getNom(), ${d.getUtilisateur().getPrenom()}</h5>
 											</td>
 											<td>
 											<h5>${r.getModeReglement()}</h5>
@@ -176,7 +176,7 @@
 												<a href="supprimer_don?code_reglement=${r.getId_don()}" class="btn btn-danger btn-sm" role="button">Supprimer</a>
 											</td>
 											</tr>
-											</c:if>
+<%-- 											</c:if> --%>
 										</c:forEach>
 									</tbody>
 									</table>

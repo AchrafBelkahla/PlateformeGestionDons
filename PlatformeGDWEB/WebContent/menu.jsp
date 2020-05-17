@@ -18,7 +18,7 @@
 							<span class="icon-bar"></span> <span class="icon-bar"></span>
 						</button>
 
-						<a class="navbar-brand scroll" href="../../index.html#"> <img
+						<a class="navbar-brand scroll" href=""> <img
 							src="images/Logo/Capture.PNG" style="width: 70px; height: 60px;">
 						</a>
 					</div>
@@ -26,7 +26,7 @@
 					<div class="navbar-collapse collapse">
 						<!-- nav -->
 						<ul class="nav navbar-nav">
-							<li><a href="index.jsp">Accueil</a></li>
+							<li><a href="">Accueil</a></li>
 							<li><a href="InscriptionUtilisateur"> Inscrire un donateur</a></li>
 
 							<li class="current"><a href="InscriptionEtablissement"> Inscrire mon

@@ -50,7 +50,7 @@ public class ServletManagement extends HttpServlet {
 					else if(user.getEtablissement().getDrs())
 					{
 						System.out.println("**************************** drs ******************************************");
-						 request.getRequestDispatcher("/Liste_Etablissements_Drs").forward(request, response);
+						 request.getRequestDispatcher("/Liste_Etablissements_Drs?currentPage=1").forward(request, response);
 					}
 					
 				}
@@ -102,7 +102,7 @@ public class ServletManagement extends HttpServlet {
 					else if(user.getEtablissement().getDrs())
 					{
 						System.out.println("**************************** drs ******************************************");
-						 request.getRequestDispatcher("/Liste_Etablissements_Drs").forward(request, response);
+						 request.getRequestDispatcher("/Liste_Etablissements_Drs?currentPage=1").forward(request, response);
 					}
 				}
 				else {
@@ -152,7 +152,7 @@ public class ServletManagement extends HttpServlet {
 							else if(user.getEtablissement().getDrs())
 							{
 								System.out.println("**************************** drs ******************************************");
-								 request.getRequestDispatcher("/Liste_Etablissements_Drs").forward(request, response);
+								 request.getRequestDispatcher("/Liste_Etablissements_Drs?currentPage=1").forward(request, response);
 							}
 						}
 						else {

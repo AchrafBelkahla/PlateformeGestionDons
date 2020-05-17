@@ -48,7 +48,7 @@
 		<jsp:include page="../pagination.jsp">
 	        <jsp:param name="currentPage" value="${currentPage}"/>
 	        <jsp:param name="noOfPages" value="${noOfPages}"/>
-	        <jsp:param name="link" value="Liste_Fournisseurs"/>
+	        <jsp:param name="link" value="Liste_Fournisseurs_Drs"/>
 	    </jsp:include>
 	</div>
 

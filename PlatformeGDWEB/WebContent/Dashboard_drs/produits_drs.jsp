@@ -77,14 +77,17 @@
 <!-- 					Supprimer </button> -->
 <!-- 								</div> -->
 							</div>
+							<hr class="margin-20">
 						</c:forEach>
-						<div class="row">
-							<a href="#" class="btn btn-default btn-menu"><i
-								class="fa icon-plus2"></i>Voir plus</a>
-						</div>
+						
 					</div>
 				</div>
 			</div>
+			<jsp:include page="../pagination.jsp">
+					        <jsp:param name="currentPage" value="${currentPage}"/>
+					        <jsp:param name="noOfPages" value="${noOfPages}"/>
+					        <jsp:param name="link" value="Liste_produits_Drs"/>
+					    </jsp:include>
 		</div>
 
 	</div>

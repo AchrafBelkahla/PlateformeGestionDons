@@ -8,7 +8,7 @@
 			enctype="multipart/form-data">
 			<h1 >importer etablissements</h1>
 			<p style="color: red;">Le fichier excel doit avoir les colonnes suivantes:</p>
-			<p>Nom etablissement | Gouvernorat | Adresse | Tel | Nom Responsable don | prénom | Tel responsable | mail responsable</p>
+			<p>Nom etablissement | Gouvernorat | Adresse |</p>
 
 			<div class="form-group">
 

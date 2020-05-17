@@ -15,7 +15,7 @@
 						<h1>Liste des Intermédiaires</h1>
 						<div class="row">
 							<div
-								class="col-xs-4 col-sm-4 text-center fund-bottom-border lr-pad-10">
+								class="col-xs-3 col-sm-3 text-center fund-bottom-border lr-pad-10">
 								<strong><span class="text-color">Nom établissement</span></strong>
 							</div>
 							<div
@@ -59,13 +59,15 @@
 								</div>
 							</c:if>
 						</c:forEach>
-						<div class="row">
-							<a href="#" class="btn btn-default btn-menu"><i
-								class="fa icon-plus2"></i>Voir plus</a>
-						</div>
+						
 					</div>
 				</div>
 			</div>
+			<jsp:include page="../pagination.jsp">
+					        <jsp:param name="currentPage" value="${currentPage}"/>
+					        <jsp:param name="noOfPages" value="${noOfPages}"/>
+					        <jsp:param name="link" value="Liste_Intermediaire_Drs"/>
+					    </jsp:include>
 		</div>
 	</div>
 </section>

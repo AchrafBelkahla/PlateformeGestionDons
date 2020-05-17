@@ -26,6 +26,7 @@ public interface PlatformGDLocal {
 	public List<Don> getDonEnNatureDeletedByMinistere();
 	public List<Don> getDonReglementDeletedByMinistere();
 	public List<Etablisement> getEtablissementsByGouvernorat(String gouvernorat);
+	public List<Etablisement> getEtablissementsByGouvernorat(String gouvernorat, int current, int nbRecords);
 	public List<Besoin> getBesoinsByGouvernorat(String gouvernorat);
 	public List<Besoin> getBesoinsByGouvernorat(String gouvernorat, int current, int nbRecords);
 	public List<DonEnNature> getAllDonsEnNatureByGouvernorat(String gouvernorat);
@@ -199,6 +200,7 @@ public interface PlatformGDLocal {
 		public Etablisement authentification_Etablissement(String nom);
 		public boolean veriff_nom_etablissement(String nom);
 		public Utilisateur authentification_Utilisateur(String email);
-
+		public List<Etablisement> getIntermediaireByGouvernorat(String gouvernorat, int current, int nbRecords);
+		public List<Utilisateur> getAllDonnateurs();
 
 }

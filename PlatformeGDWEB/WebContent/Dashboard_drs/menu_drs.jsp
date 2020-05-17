@@ -17,7 +17,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span></button>
 
-                        <a class="navbar-brand scroll" href="Liste_Etablissements_Drs">
+                        <a class="navbar-brand scroll" href="Liste_Etablissements_Drs?currentPage=1">
                             <img src="images/Logo/Capture.PNG" style="width: 70px; height: 60px;">
                         </a></div>
                     <!-- Navbar Collapse -->
@@ -26,22 +26,22 @@
                         <ul class="nav navbar-nav">
                             
                             <li >
-                                <a href="Liste_Intermediaire_Drs">Intermédiaires</a>
+                                <a href="Liste_Intermediaire_Drs?currentPage=1">Intermédiaires</a>
                             </li>
                             <li>
-                                <a href="Liste_Fournisseurs_Drs">Fournisseurs</a>
+                                <a href="Liste_Fournisseurs_Drs?currentPage=1">Fournisseurs</a>
                             </li>
                             <li>
-                                <a href="Liste_Donnateurs_Drs">Donateurs</a>
+                                <a href="Liste_Donnateurs_Drs?currentPage=1">Donateurs</a>
                             </li>
                             <li>
-                                <a href="Liste_produits_Drs">Produits</a>
+                                <a href="Liste_produits_Drs?currentPage=1">Produits</a>
                             </li>
                             <li>
                                 <a href="Liste_categories_Drs?currentPage=1">Catégories</a>
                             </li>
                             <li >
-                                <a href="Liste_Etablissements_Drs">Etablissments</a>
+                                <a href="Liste_Etablissements_Drs?currentPage=1">Etablissments</a>
                             </li>
 
                             <li >

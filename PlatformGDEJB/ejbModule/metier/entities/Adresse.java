@@ -66,4 +66,9 @@ public class Adresse implements Serializable {
 		this.codePostale = codePostale;
 	}
 
+	@Override
+	public String toString() {
+		return "Adresse [gouvernorat=" + gouvernorat + ", adresse=" + adresse + "]";
+	}
+	
 }

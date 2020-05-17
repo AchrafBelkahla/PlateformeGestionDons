@@ -48,10 +48,9 @@ public class Importer_Etablissement extends HttpServlet {
 		metier = new PlatformGDImpl();
 	}
 	
-	protected Boolean find_etablissement(String name) {
-		List<Etablisement> liste = metier.getAllEtablissement();
+	protected Boolean find_etablissement(List<Etablisement> liste, String name) {
 		for (Etablisement etab : liste) {
-			if(etab.getLibelle().equals(name)){
+			if(etab.getNomEtablissement().toLowerCase().equals(name.toLowerCase())){
 				return true;
 			}
 		}
@@ -102,13 +101,7 @@ public class Importer_Etablissement extends HttpServlet {
 			}
 
 		}
-		// File file = new File(uploadPath + File.separator + fileName);
-		String direc= uploadPath + File.separator + s+fileName;
-		
-		
 		int numLigne = 1;
-//		int numCol = 0;
-//		List<String> msgs = new ArrayList<String>();
 
 		File initialFile = new File(uploadPath + File.separator +s+ fileName);
 
@@ -125,107 +118,30 @@ public class Importer_Etablissement extends HttpServlet {
 				numLigne++;
 				currentRow = iterator.next();
 				int nbCells = currentRow.getLastCellNum();
-				if (nbCells < 8) {
+				if (nbCells < 3) {
 
 					request.setAttribute("msg", "verifier les nomres de colonnes");
 				} else {
-					System.out.println(numLigne);
 					Iterator<Cell> cellIterator = currentRow.cellIterator();
-					String Email_responsable_don = "";
 					String Nom_établissement = "";
-					String Nom_responsable_don = "";
-					String Prénom_responsable_don = "";
 					String Gouvernorat = "";
 					String Adresse = "";
-					String Tel_responsable_don = "";
-					String Tel = "";
 					Cell currentCell = cellIterator.next();
 					if (currentCell.getCellType() != CellType.BLANK && currentCell.getCellType() == CellType.STRING) {
-						// System.out.println(currentCell.getCellType());
 						Nom_établissement = currentCell.getStringCellValue();
 					} else {
 						continue;
 					}
 					currentCell = cellIterator.next();
 					if (currentCell.getCellType() != CellType.BLANK && currentCell.getCellType() == CellType.STRING) {
-						// System.out.println(currentCell.getCellType());
 						Gouvernorat = currentCell.getStringCellValue();
 					}
 					currentCell = cellIterator.next();
-					// System.out.println(currentCell.getCellType());
 					if (currentCell.getCellType() != CellType.BLANK && currentCell.getCellType() == CellType.STRING) {
 						Adresse = currentCell.getStringCellValue();
 					}
-					currentCell = cellIterator.next();
-
-					if (currentCell.getCellType() != CellType.BLANK && currentCell.getCellType() == CellType.STRING) {
-						Tel = currentCell.getStringCellValue();
-					} else if (currentCell.getCellType() != CellType.BLANK
-							&& currentCell.getCellType() == CellType.NUMERIC) {
-						int Tel1 = (int) currentCell.getNumericCellValue();
-						Tel = String.valueOf(Tel1);
-					}
-					currentCell = cellIterator.next();
-					// System.out.println(currentCell.getCellType());
-					if (currentCell.getCellType() != CellType.BLANK && currentCell.getCellType() == CellType.STRING) {
-						Nom_responsable_don = currentCell.getStringCellValue();
-					}
-
-					currentCell = cellIterator.next();
-					// System.out.println(currentCell.getCellType());
-					if (currentCell.getCellType() != CellType.BLANK && currentCell.getCellType() == CellType.STRING) {
-						Prénom_responsable_don = currentCell.getStringCellValue();
-					}
-					currentCell = cellIterator.next();
-					// System.out.println(currentCell.getCellType());
-					if (currentCell.getCellType() != CellType.BLANK && currentCell.getCellType() == CellType.STRING) {
-						Tel_responsable_don = currentCell.getStringCellValue();
-					} else if (currentCell.getCellType() != CellType.BLANK
-							&& currentCell.getCellType() == CellType.NUMERIC) {
-						int Tel_responsable_don1 = (int) currentCell.getNumericCellValue();
-						Tel_responsable_don = String.valueOf(Tel_responsable_don1);
-
-					}
-					currentCell = cellIterator.next();
-					// System.out.println(currentCell.getCellType());
-					if (currentCell.getCellType() != CellType.BLANK) {
-						Email_responsable_don = currentCell.getStringCellValue();
-					} else {
-						continue;
-					}
-					if (metier.veriff(Email_responsable_don) == null
-							&& metier.veriff_nom_etablissement(Nom_établissement) == false && Nom_établissement != null
-							&& Email_responsable_don != null) {
-						Utilisateur utilisateur = new Utilisateur();
-
-						utilisateur.setNom(Nom_responsable_don);
-						utilisateur.setPrenom(Prénom_responsable_don);
-						utilisateur.setEmail(Email_responsable_don);
-						utilisateur.setMdp(Email_responsable_don);
-						utilisateur.setEtatDecompte(true);
-						utilisateur.setAccepted(true);
-						utilisateur.setRole("responsable");
-						DaoManagement daoManagement = new DaoManagement();
-						//////////////////////////////////////////////////////////////////////
-						List<Telephone> collection_tel_adm = new ArrayList<Telephone>();
-						Telephone telephone = new Telephone();
-						if (Tel_responsable_don.indexOf("/") != -1) {
-
-							telephone.setNumero(Tel_responsable_don.substring(0, Tel_responsable_don.indexOf("/")));
-
-							Telephone fax = new Telephone();
-							fax.setNumero(Tel_responsable_don.substring(Tel_responsable_don.indexOf("/") + 1));
-
-							metier.ajoutetelephone(telephone);
-							metier.ajoutetelephone(fax);
-							collection_tel_adm.add(fax);
-							collection_tel_adm.add(telephone);
-						} else {
-							telephone.setNumero(Tel_responsable_don);
-							metier.ajoutetelephone(telephone);
-							collection_tel_adm.add(telephone);
-						}
-						utilisateur.setTelephone(collection_tel_adm);
+					if (!Nom_établissement.equals(null) && find_etablissement(metier.getAllHospital(), Nom_établissement)) {
+						
 						///////////////////////////////////////////////////////////////////////
 						Etablisement etablisement = new Etablisement();
 						etablisement.setNomEtablissement(Nom_établissement);
@@ -234,48 +150,15 @@ public class Importer_Etablissement extends HttpServlet {
 						etablisement.setMinistraire(false);
 						etablisement.setDrs(false);
 						etablisement.setLibelle("HR");
-						////////////////////////////////////////////
-
-						List<Telephone> Tels = new ArrayList<Telephone>();
-						Telephone tele_et = new Telephone();
-						if (Tel.indexOf("/") != -1) {
-
-							tele_et.setNumero(Tel.substring(0, Tel.indexOf("/")));
-
-							Telephone fax2 = new Telephone();
-							fax2.setNumero(Tel.substring(Tel.indexOf("/") + 1));
-
-							metier.ajoutetelephone(tele_et);
-							metier.ajoutetelephone(fax2);
-
-							Tels.add(fax2);
-							Tels.add(tele_et);
-
-						} else {
-							tele_et.setNumero(Tel);
-							metier.ajoutetelephone(tele_et);
-							Tels.add(tele_et);
-
-						}
-						etablisement.setTelephones(Tels);
 
 						//////////////////////////////////////////////////////////////////////////////
 						Adresse adresse = new Adresse();
 						adresse.setGouvernorat(Gouvernorat);
-						// adresse.setCodePostale(Integer.parseInt(c3));
 						adresse.setAdresse(Adresse);
 						metier.ajouteadresse(adresse);
 						////////////////////////////////////////////////////////////////////////////////////////
 						etablisement.setAdresse(adresse);
-//						List<Utilisateur> collection_utilisateur = new ArrayList<Utilisateur>();
-//
-//						collection_utilisateur.add(utilisateur);
-//						etablisement.setUtilisateurs(collection_utilisateur);
 						metier.ajouteetablissement(etablisement);
-						utilisateur.setEtablissement(etablisement);
-						daoManagement.ajouteUtilisateur(utilisateur);
-						System.out.println("+++++++++++" + numLigne + "+++++++++++++++++");
-
 					}
 				}
 
@@ -284,121 +167,33 @@ public class Importer_Etablissement extends HttpServlet {
 			//////////////////////////////////////////// DRS//////////////////////////////////////////////
 			numLigne = 0;
 			XSSFSheet datatypeSheet1 = workbook.getSheetAt(1);
-			System.out.println("\n+++++++++++////////////////////");
 
 			Iterator<Row> iterator1 = datatypeSheet1.iterator();
 			currentRow = iterator1.next();
-			System.out.println("+++++++++++DRS+++++++++++++++++");
 
 			while (iterator1.hasNext()) {
 
 				numLigne++;
 				currentRow = iterator1.next();
 				int nbCells = currentRow.getLastCellNum();
-				if (nbCells < 7) {
-
+				if (nbCells < 2) {
 					request.setAttribute("msg", "verifier les nomres de colonnes");
 				} else {
-					System.out.println(numLigne);
 					Iterator<Cell> cellIterator = currentRow.cellIterator();
-					String Email_responsable_don = "";
 					String Nom_établissement = "";
-					String Nom_responsable_don = "";
-					String Prénom_responsable_don = "";
 					String Gouvernorat = "";
-					String Adresse = "";
-					String Tel_responsable_don = "";
-					String Tel = "";
 					
 					Cell currentCell = cellIterator.next();
 					if (currentCell.getCellType() != CellType.BLANK && currentCell.getCellType() == CellType.STRING) {
-						// System.out.println(currentCell.getCellType());
 						Nom_établissement = currentCell.getStringCellValue();
 					} else {
 						continue;
 					}
 					currentCell = cellIterator.next();
-					// System.out.println(currentCell.getCellType());
 					if (currentCell.getCellType() != CellType.BLANK && currentCell.getCellType() == CellType.STRING) {
-						Nom_responsable_don = currentCell.getStringCellValue();
-					}
-
-					currentCell = cellIterator.next();
-					// System.out.println(currentCell.getCellType());
-					if (currentCell.getCellType() != CellType.BLANK && currentCell.getCellType() == CellType.STRING) {
-						Prénom_responsable_don = currentCell.getStringCellValue();
-					}
-					
-					 currentCell = cellIterator.next();
-					// System.out.println(currentCell.getCellType());
-					if (currentCell.getCellType() != CellType.BLANK && currentCell.getCellType() == CellType.STRING) {
-						Tel_responsable_don = currentCell.getStringCellValue();
-					} else if (currentCell.getCellType() != CellType.BLANK
-							&& currentCell.getCellType() == CellType.NUMERIC) {
-						int Tel_responsable_don1 = (int) currentCell.getNumericCellValue();
-						Tel_responsable_don = String.valueOf(Tel_responsable_don1);
-
-					}
-					currentCell = cellIterator.next();
-					// System.out.println(currentCell.getCellType());
-					if (currentCell.getCellType() != CellType.BLANK) {
-						Email_responsable_don = currentCell.getStringCellValue();
-					} else {
-						continue;
-					}
-
-				
-					currentCell = cellIterator.next();
-					if (currentCell.getCellType() != CellType.BLANK) {
-						// System.out.println(currentCell.getCellType());
 						Gouvernorat = currentCell.getStringCellValue();
 					}
-				
-					currentCell = cellIterator.next();
-
-					if (currentCell.getCellType() != CellType.BLANK && currentCell.getCellType() == CellType.STRING) {
-						Tel = currentCell.getStringCellValue();
-					} else if (currentCell.getCellType() != CellType.BLANK
-							&& currentCell.getCellType() == CellType.NUMERIC) {
-						int Tel1 = (int) currentCell.getNumericCellValue();
-						Tel = String.valueOf(Tel1);
-					}
-
-					
-					
-					if (metier.veriff(Email_responsable_don) == null
-							&& metier.veriff_nom_etablissement(Nom_établissement) == false && Nom_établissement != null
-							&& Email_responsable_don != null) {
-						Utilisateur utilisateur = new Utilisateur();
-
-						utilisateur.setNom(Nom_responsable_don);
-						utilisateur.setPrenom(Prénom_responsable_don);
-						utilisateur.setEmail(Email_responsable_don);
-						utilisateur.setMdp(Email_responsable_don);
-						utilisateur.setEtatDecompte(true);
-						utilisateur.setAccepted(true);
-						utilisateur.setRole("responsable");
-						DaoManagement daoManagement = new DaoManagement();
-						//////////////////////////////////////////////////////////////////////
-						List<Telephone> collection_tel_adm = new ArrayList<Telephone>();
-						Telephone telephone = new Telephone();
-						if (Tel_responsable_don.indexOf("/") != -1) {
-
-							telephone.setNumero(Tel_responsable_don.substring(0, Tel_responsable_don.indexOf("/")));
-
-							Telephone fax = new Telephone();
-							fax.setNumero(Tel_responsable_don.substring(Tel_responsable_don.indexOf("/") + 1));
-
-							metier.ajoutetelephone(telephone);
-							metier.ajoutetelephone(fax);
-							collection_tel_adm.add(fax);
-							collection_tel_adm.add(telephone);
-						} else {
-							telephone.setNumero(Tel_responsable_don);
-							metier.ajoutetelephone(telephone);
-							collection_tel_adm.add(telephone);
-						}
-						utilisateur.setTelephone(collection_tel_adm);
+					if(!Nom_établissement.equals(null) && !find_etablissement(metier.getAllDrs(), Nom_établissement)) {
 						///////////////////////////////////////////////////////////////////////
 						Etablisement etablisement = new Etablisement();
 						etablisement.setNomEtablissement(Nom_établissement);
@@ -407,47 +202,16 @@ public class Importer_Etablissement extends HttpServlet {
 						etablisement.setMinistraire(false);
 						etablisement.setDrs(true);
 						etablisement.setLibelle("HR");
-						////////////////////////////////////////////
-
-						List<Telephone> Tels = new ArrayList<Telephone>();
-						Telephone tele_et = new Telephone();
-						if (Tel.indexOf("/") != -1) {
-
-							tele_et.setNumero(Tel.substring(0, Tel.indexOf("/")));
-
-							Telephone fax2 = new Telephone();
-							fax2.setNumero(Tel.substring(Tel.indexOf("/") + 1));
-
-							metier.ajoutetelephone(tele_et);
-							metier.ajoutetelephone(fax2);
-
-							Tels.add(fax2);
-							Tels.add(tele_et);
-
-						} else {
-							tele_et.setNumero(Tel);
-							metier.ajoutetelephone(tele_et);
-							Tels.add(tele_et);
-
-						}
-						etablisement.setTelephones(Tels);
 
 						//////////////////////////////////////////////////////////////////////////////
 						Adresse adresse = new Adresse();
 						adresse.setGouvernorat(Gouvernorat);
-						// adresse.setCodePostale(Integer.parseInt(c3));
-						adresse.setAdresse(Adresse);
 						metier.ajouteadresse(adresse);
 						////////////////////////////////////////////////////////////////////////////////////////
 						etablisement.setAdresse(adresse);
-//							List<Utilisateur> collection_utilisateur = new ArrayList<Utilisateur>();
-						//
-//							collection_utilisateur.add(utilisateur);
-//							etablisement.setUtilisateurs(collection_utilisateur);
+
 						metier.ajouteetablissement(etablisement);
-						utilisateur.setEtablissement(etablisement);
-						daoManagement.ajouteUtilisateur(utilisateur);
-						System.out.println("+++++++++++" + numLigne + "+++++++++++++++++");
+						System.out.println(etablisement.toString());
 
 					}
 				}
@@ -476,107 +240,28 @@ public class Importer_Etablissement extends HttpServlet {
 				} else {
 					System.out.println(numLigne);
 					Iterator<Cell> cellIterator = currentRow.cellIterator();
-					String Email_responsable_don = "";
 					String Nom_établissement = "";
-					String Nom_responsable_don = "";
-					String Prénom_responsable_don = "";
 					String Gouvernorat = "";
 					String Adresse = "";
-					String Tel_responsable_don = "";
-					String Tel = "";
 
 					Cell currentCell = cellIterator.next();
 					if (currentCell.getCellType() != CellType.BLANK && currentCell.getCellType() == CellType.STRING) {
-						// System.out.println(currentCell.getCellType());
 						Nom_établissement = currentCell.getStringCellValue();
 					} else {
 						continue;
 					}
 					currentCell = cellIterator.next();
 					if (currentCell.getCellType() != CellType.BLANK && currentCell.getCellType() == CellType.STRING) {
-						// System.out.println(currentCell.getCellType());
 						Gouvernorat = currentCell.getStringCellValue();
 					}
 					currentCell = cellIterator.next();
-					// System.out.println(currentCell.getCellType());
 					if (currentCell.getCellType() != CellType.BLANK && currentCell.getCellType() == CellType.STRING) {
 						Adresse = currentCell.getStringCellValue();
 					}
-					currentCell = cellIterator.next();
+					
 
-					if (currentCell.getCellType() != CellType.BLANK && currentCell.getCellType() == CellType.STRING) {
-						Tel = currentCell.getStringCellValue();
-					} else if (currentCell.getCellType() != CellType.BLANK
-							&& currentCell.getCellType() == CellType.NUMERIC) {
-						System.out.println("0000000000heloooo");
-
-						int Tel1 = (int) currentCell.getNumericCellValue();
-						Tel = String.valueOf(Tel1);
-					}
-										
-					currentCell = cellIterator.next();
-					// System.out.println(currentCell.getCellType());
-					if (currentCell.getCellType() != CellType.BLANK && currentCell.getCellType() == CellType.STRING) {
-						Nom_responsable_don = currentCell.getStringCellValue();
-					}
-
-					currentCell = cellIterator.next();
-					// System.out.println(currentCell.getCellType());
-					if (currentCell.getCellType() != CellType.BLANK && currentCell.getCellType() == CellType.STRING) {
-						Prénom_responsable_don = currentCell.getStringCellValue();
-					}
-					currentCell = cellIterator.next();
-					// System.out.println(currentCell.getCellType());
-					if (currentCell.getCellType() != CellType.BLANK && currentCell.getCellType() == CellType.STRING) {
-						Tel_responsable_don = currentCell.getStringCellValue();
-					} else if (currentCell.getCellType() != CellType.BLANK
-							&& currentCell.getCellType() == CellType.NUMERIC) {
-						System.out.println("heloooo");
-						int Tel_responsable_don1 = (int) currentCell.getNumericCellValue();
-						Tel_responsable_don = String.valueOf(Tel_responsable_don1);
-
-					}
-					currentCell = cellIterator.next();
-					// System.out.println(currentCell.getCellType());
-					if (currentCell.getCellType() != CellType.BLANK) {
-						Email_responsable_don = currentCell.getStringCellValue();
-					} else {
-						continue;
-					}
-
-					if (metier.veriff(Email_responsable_don) == null
-							&& metier.veriff_nom_etablissement(Nom_établissement) == false && Nom_établissement != null
-							&& Email_responsable_don != null) {
-						Utilisateur utilisateur = new Utilisateur();
-
-						utilisateur.setNom(Nom_responsable_don);
-						utilisateur.setPrenom(Prénom_responsable_don);
-						utilisateur.setEmail(Email_responsable_don);
-						utilisateur.setMdp(Email_responsable_don);
-						utilisateur.setEtatDecompte(true);
-						utilisateur.setAccepted(true);
-						utilisateur.setRole("responsable");
-						DaoManagement daoManagement = new DaoManagement();
-						//////////////////////////////////////////////////////////////////////
-						List<Telephone> collection_tel_adm = new ArrayList<Telephone>();
-						Telephone telephone = new Telephone();
-						if (Tel_responsable_don.indexOf("/") != -1) {
-
-							telephone.setNumero(Tel_responsable_don.substring(0, Tel_responsable_don.indexOf("/")));
-
-							Telephone fax = new Telephone();
-							fax.setNumero(Tel_responsable_don.substring(Tel_responsable_don.indexOf("/") + 1));
-
-							metier.ajoutetelephone(telephone);
-							metier.ajoutetelephone(fax);
-							collection_tel_adm.add(fax);
-							collection_tel_adm.add(telephone);
-						} else {
-							telephone.setNumero(Tel_responsable_don);
-							metier.ajoutetelephone(telephone);
-							collection_tel_adm.add(telephone);
-						}
-						utilisateur.setTelephone(collection_tel_adm);
+					if (!Nom_établissement.equals(null) && find_etablissement(metier.getAllIntermediaire(), Nom_établissement)) {
+						
 						///////////////////////////////////////////////////////////////////////
 						Etablisement etablisement = new Etablisement();
 						etablisement.setNomEtablissement(Nom_établissement);
@@ -587,28 +272,6 @@ public class Importer_Etablissement extends HttpServlet {
 						etablisement.setLibelle("HR");
 						////////////////////////////////////////////
 
-						List<Telephone> Tels = new ArrayList<Telephone>();
-						Telephone tele_et = new Telephone();
-						if (Tel.indexOf("/") != -1) {
-
-							tele_et.setNumero(Tel.substring(0, Tel.indexOf("/")));
-
-							Telephone fax2 = new Telephone();
-							fax2.setNumero(Tel.substring(Tel.indexOf("/") + 1));
-
-							metier.ajoutetelephone(tele_et);
-							metier.ajoutetelephone(fax2);
-
-							Tels.add(fax2);
-							Tels.add(tele_et);
-
-						} else {
-							tele_et.setNumero(Tel);
-							metier.ajoutetelephone(tele_et);
-							Tels.add(tele_et);
-
-						}
-						etablisement.setTelephones(Tels);
 
 						//////////////////////////////////////////////////////////////////////////////
 						Adresse adresse = new Adresse();
@@ -619,9 +282,6 @@ public class Importer_Etablissement extends HttpServlet {
 						etablisement.setAdresse(adresse);
 
 						metier.ajouteetablissement(etablisement);
-						utilisateur.setEtablissement(etablisement);
-						daoManagement.ajouteUtilisateur(utilisateur);
-						System.out.println("+++++++++++" + numLigne + "+++++++++++++++++");
 
 					}
 				}

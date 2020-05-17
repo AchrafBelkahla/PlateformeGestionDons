@@ -4,8 +4,14 @@
     <div class="footer-widget dark-section">
         <div class="container">
             <div class="row">
-                
-                <div class="col-xs-12 col-sm-6 col-md-6 widget bottom-xs-pad-20">
+                <div class="col-xs-12 col-sm-6 col-md-3 widget bottom-xs-pad-20">
+                    <div class="widget-title">
+                        <!-- Title -->
+                        <h3 class="title">A propos de nous</h3>
+                        <p>Créée dans le cadre de la lutte contre le COVID-19 par une équipe d'enseignants et étudiants de l'ENIT en partenariat avec le ministère de santé,cette plateforme permet la bonne gestion des dons dédiés aux services sanitaires tunisiens en toute transparence.</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4 widget bottom-xs-pad-20">
                     <div class="widget-title">
                         <!-- Title -->
                         <h3 class="title">Infos pratiques</h3>
@@ -17,9 +23,8 @@
                             </li>
                         </ul>
                     </nav>
-                                    </div>
-                
-                <div class="col-xs-12 col-sm-6 col-md-3 widget newsletter bottom-xs-pad-20">
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4 widget newsletter bottom-xs-pad-20">
                                                                                                                                                                                                                                                     <!-- Social Links -->
                     <div class="widget-title">
                         <h3 class="title">SUIVEZ-NOUS</h3>
@@ -44,7 +49,13 @@
         <div class="container">
             <div class="row">
                 <!-- Copyrights -->
-                <div class="col-xs-10 col-sm-6 col-md-6"> &copy; 2020 <a href="index.html">www.nom_platform.tn</a>.
+                <div class="col-xs-10 col-sm-6 col-md-6"> &copy; 2020 <a href="index.html"></a>.
+                </div>
+                <div class="col-xs-2  col-sm-6 col-md-6 text-right page-scroll gray-bg icons-circle i-3x">
+                    <!-- Goto Top -->
+                    <a href="#page">
+                        <i class="glyphicon glyphicon-arrow-up"></i>
+                    </a>
                 </div>
             </div>
         </div>

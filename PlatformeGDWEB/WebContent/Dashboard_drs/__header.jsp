@@ -126,7 +126,7 @@
 	<img height="1" width="1" style="display: none"
 		src="https://www.facebook.com/tr?id=353811311810939&amp;ev=PageView&amp;noscript=1" />
 </noscript>
-<title>Insert title here</title>
+<title>Platforme de dons</title>
 </head>
 <body>
 <header class="fixed-header">

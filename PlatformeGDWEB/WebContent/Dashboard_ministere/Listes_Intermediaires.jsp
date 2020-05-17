@@ -21,15 +21,15 @@
 			<tbody>
 				<c:forEach var="etab" items="${etablissements}">
 					<tr>
-						<td><c:out value="${b.getNomEtablissement()}"></c:out></td>
-						<td><c:out value="${b.getAdresse().getAdresse()}, ${b.getAdresse().getGouvernorat()}, ${b.getAdresse().getCodePostale()}"></c:out></td>
+						<td><c:out value="${etab.getNomEtablissement()}"></c:out></td>
+						<td><c:out value="${etab.getAdresse().getAdresse()}, ${etab.getAdresse().getGouvernorat()}, ${etab.getAdresse().getCodePostale()}"></c:out></td>
 						<td>
-							<c:forEach items="${b.getUtilisateurs()}" var="utilisateur">
+							<c:forEach items="${etab.getUtilisateurs()}" var="utilisateur">
 											<h6>${utilisateur.getNom()}, ${utilisateur.getPrenom()}</h6><br>
 										</c:forEach>
 						</td>
 						<td>
-							<c:forEach items="${b.getUtilisateurs()}" var="utilisateur">
+							<c:forEach items="${etab.getUtilisateurs()}" var="utilisateur">
 											<c:forEach items="${utilisateur.getTelephone()}" var="tel">
 												${tel.getNumero()}, 
 											</c:forEach>

@@ -16,7 +16,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span></button>
 
-                        <a class="navbar-brand scroll" href="/">
+                        <a class="navbar-brand scroll" href="">
                             <img src="images/Logo/Capture.PNG" style="width: 70px ; height: 60px;">
                         </a></div>
                     <!-- Navbar Collapse -->
@@ -25,7 +25,7 @@
                         <ul class="nav navbar-nav">     
                             
                                 <li  class="current" >
-                                    <a href="index.jsp">Accueil</a>
+                                    <a href="">Accueil</a>
                                 </li>
 
                                 <li >
@@ -236,7 +236,7 @@
                 <!-- Icon -->
                 <i class="icon-user7 fa-3x text-color"></i>
                 <!-- number -->
-                <div class="count-number" data-count="1024"><span class="counter"></span></div>
+                <div class="count-number" data-count="3025"><span class="counter"></span></div>
                 <!-- Title -->
                 <h4 class="text-color">Utilisateurs</h4>
             </div>
@@ -244,7 +244,7 @@
                 <!-- Icon -->
                 <i class="icon-organization fa-3x text-color"></i>
                 <!-- number -->
-                <div class="count-number" data-count="148"><span class="counter"></span></div>
+                <div class="count-number" data-count="200"><span class="counter"></span></div>
                 <!-- Title -->
                 <h4 class="text-color">Etablissements</h4>
             </div>
@@ -252,7 +252,7 @@
                 <!-- Icon -->
                 <i class="icon-heart3 fa-3x text-color"></i>
                 <!-- number -->
-                <div class="count-number" data-count="3740"><span class="counter"></span></div>
+                <div class="count-number" data-count="100"><span class="counter"></span></div>
                 <!-- Title -->
                 <h4 class="text-color">Donateurs</h4>
             </div>
