@@ -89,7 +89,7 @@ public class Importer_fournisseur extends HttpServlet {
 
 		}
 		//File file = new File(uploadPath + File.separator + fileName);
-		int numLigne = 0;
+		int numLigne = 1;
 		int numCol = 0;
 		List<Fournisseur> liste_fournisseurs = new ArrayList<Fournisseur>();
 		liste_fournisseurs = dao.getAllFournisseur();

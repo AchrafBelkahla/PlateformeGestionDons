@@ -88,7 +88,7 @@ public class ImporterProduit extends HttpServlet{
 
 		}
 		//File file = new File(uploadPath + File.separator + fileName);
-		int numLigne = 0;
+		int numLigne = 1;
 		int numCol = 0;
 		
 	    File initialFile = new File(uploadPath + File.separator + fileName);
@@ -105,7 +105,7 @@ public class ImporterProduit extends HttpServlet{
 			numLigne++;
 			Row currentRow = iterator.next();
 			int nbCells = currentRow.getLastCellNum();
-			if (nbCells != 3) {
+			if (nbCells < 3) {
 				request.setAttribute("msg", "verifier les nombres de colonnes");
 			} else {
 				Iterator<Cell> cellIterator = currentRow.iterator();
@@ -136,7 +136,7 @@ public class ImporterProduit extends HttpServlet{
 						F.setProduits(list_produits);
 						dao.ajoutProduit(produit);
 						dao.ajoutFournisseur(F);
-						System.out.println(F.getLibelle());
+//						System.out.println(F.getLibelle());
 						//System.out.println("fin if thenia");
 					} else {
 						//System.out.println("debut else thenia");
@@ -150,7 +150,7 @@ public class ImporterProduit extends HttpServlet{
 						F.setProduits(list_produits);
 						dao.ajoutFournisseur(F);
 						dao.updateProduit(p);
-						System.out.println(F.getLibelle());
+						//System.out.println(F.getLibelle());
 						//System.out.println("fin else thenia");
 					}
 					//System.out.println("fin if loula");

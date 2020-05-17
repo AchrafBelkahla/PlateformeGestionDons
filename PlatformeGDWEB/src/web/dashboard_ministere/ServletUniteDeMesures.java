@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import metier.entities.Categorie;
 import metier.entities.UniteDeMesure;
 import metier.session.PlatformGDLocal;
+import web.GlobalConfig;
 
 
 @WebServlet("/Liste_unite_de_mesure")
@@ -27,10 +28,25 @@ public class ServletUniteDeMesures extends HttpServlet {
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-			List<UniteDeMesure> udms = dao.getAllUniteDeMesure();
-			request.setAttribute("udms", udms);
-			request.getRequestDispatcher("Dashboard_ministere/UniteDeMesures.jsp").forward(request,response);
+//		
+//			List<UniteDeMesure> udms = dao.getAllUniteDeMesure();
+//			request.setAttribute("udms", udms);
+//			request.getRequestDispatcher("Dashboard_ministere/UniteDeMesures.jsp").forward(request,response);
+			
+			int currentPage = Integer.valueOf(request.getParameter("currentPage"));
+			List<UniteDeMesure> udms = dao.getAllUniteDeMesure(currentPage,GlobalConfig.recordsPerPage);
+	        int rows = (int) dao.getNumberOfRows("UniteDeMesure");
+	        int nOfPages = rows / GlobalConfig.recordsPerPage;
+	        
+	        if (nOfPages % GlobalConfig.recordsPerPage > 0) {
+	            nOfPages++;
+	        }
+	        
+	        request.setAttribute("noOfPages", nOfPages);
+	        request.setAttribute("currentPage", currentPage);
+	        request.setAttribute("recordsPerPage", GlobalConfig.recordsPerPage);
+	        request.setAttribute("udms", udms);
+	        request.getRequestDispatcher("Dashboard_ministere/UniteDeMesures.jsp").forward(request,response);
 
 
 	}
@@ -41,10 +57,8 @@ public class ServletUniteDeMesures extends HttpServlet {
 
 		UniteDeMesure u = new UniteDeMesure(idUnite);
 		dao.ajoutUniteDeMesure(u);
-
-		List<UniteDeMesure> udms = dao.getAllUniteDeMesure();
-		request.setAttribute("udms", udms);
-		request.getRequestDispatcher("Dashboard_ministere/UniteDeMesures.jsp").forward(request,response);
+		
+		doGet(request, response);
 	}
 	
 	@Override

@@ -27,7 +27,7 @@
                                     <a href="dons">Dons</a>
                                 </li>
                                 <li  class="current" >
-                                    <a href="besoins">Mes besoins</a>
+                                    <a href="besoins?currentPage=1">Mes besoins</a>
                                 </li>
                                 <li><a href="LogOut">Déconnexion</a></li>
                                                     </ul>

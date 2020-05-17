@@ -18,12 +18,14 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import metier.entities.Besoin;
+import metier.entities.Categorie;
 import metier.entities.Etablisement;
 import metier.entities.Photo;
 import metier.entities.PhotoBesoin;
 import metier.entities.Produit;
 import metier.entities.Utilisateur;
 import metier.session.PlatformGDLocal;
+import web.GlobalConfig;
 
 @WebServlet("/Liste_Besoins_Drs")
 @MultipartConfig
@@ -43,8 +45,23 @@ public class ServletListeBesoinsDrs extends HttpServlet{
 		Utilisateur user = (Utilisateur) session.getAttribute("user");
 		String gouvernorat = user.getEtablissement().getAdresse().getGouvernorat();
 		
-		req.setAttribute("besoins", dao.getBesoinsByGouvernorat(gouvernorat));
-		req.getRequestDispatcher("Dashboard_drs/ListeBesoins_drs.jsp").forward(req,resp);
+		//req.setAttribute("besoins", dao.getBesoinsByGouvernorat(gouvernorat));
+		//req.getRequestDispatcher("Dashboard_drs/ListeBesoins_drs.jsp").forward(req,resp);
+		int currentPage = Integer.valueOf(req.getParameter("currentPage"));
+		List<Besoin> besoins = dao.getBesoinsByGouvernorat(gouvernorat, currentPage,GlobalConfig.recordsPerPage);
+        int rows = (int) dao.getNumberOfRows("Categorie");
+        int nOfPages = rows / GlobalConfig.recordsPerPage;
+        
+        if (nOfPages % GlobalConfig.recordsPerPage > 0) {
+            nOfPages++;
+        }
+        
+        req.setAttribute("noOfPages", nOfPages);
+        req.setAttribute("currentPage", currentPage);
+        req.setAttribute("recordsPerPage", GlobalConfig.recordsPerPage);
+        req.setAttribute("besoins", besoins);
+        req.getRequestDispatcher("Dashboard_drs/ListeBesoins_drs.jsp").forward(req,resp);
+		
 	}
 	
 	@Override
@@ -107,9 +124,23 @@ public class ServletListeBesoinsDrs extends HttpServlet{
 		dao.updateBesoin(b);
 		 
 		session.setAttribute("user", user);
-		List<Besoin> besoins = dao.getBesoinsByEtablissement(user.getEtablissement().getIdEtablissement());
-		request.setAttribute("besoins", besoins);
-		request.getRequestDispatcher("Dashboard_drs/ListeBesoins_drs.jsp").forward(request, response);
+		//List<Besoin> besoins = dao.getBesoinsByEtablissement(user.getEtablissement().getIdEtablissement());
+		//request.setAttribute("besoins", besoins);
+		//request.getRequestDispatcher("Dashboard_drs/ListeBesoins_drs.jsp").forward(request, response);
+		int currentPage = Integer.valueOf(request.getParameter("currentPage"));
+		List<Besoin> besoins = dao.getBesoinsByEtablissement(user.getEtablissement().getIdEtablissement(), currentPage,GlobalConfig.recordsPerPage);
+        int rows = (int) dao.getNumberOfRows("Categorie");
+        int nOfPages = rows / GlobalConfig.recordsPerPage;
+        
+        if (nOfPages % GlobalConfig.recordsPerPage > 0) {
+            nOfPages++;
+        }
+        
+        request.setAttribute("noOfPages", nOfPages);
+        request.setAttribute("currentPage", currentPage);
+        request.setAttribute("recordsPerPage", GlobalConfig.recordsPerPage);
+        request.setAttribute("besoins", besoins);
+        request.getRequestDispatcher("Dashboard_drs/ListeBesoins_drs.jsp").forward(request,response);
 	}
 	@Override
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) 

@@ -9,26 +9,33 @@ import metier.entities.*;
 @Local
 public interface PlatformGDLocal {
 
-	public void Faire_Un_Don(Don don, PhotoDon photo, Utilisateur donnateur, Etablisement beneficiaire);
-
+    public void Faire_Un_Don(Don don, PhotoDon photo, Utilisateur donnateur, Etablisement beneficiaire);
+	
 	public List<DonEnNature> getAllDonsEnNature();
+	//public List<DonEnNature> getAllDonsEnNature(int current, int nbRecords);
 	public List<Reglement> getAllDonsReglement();
+	//public List<Reglement> getAllDonsReglement(int current, int nbRecords);
 	public List<DonEnNature> getDonEnNatureByDonnateur(String idD);
 	public List<Reglement> getReglementByDonnateur(String idD);
 	public List<Don> getDonByEtablissement(String nom_etabliessement);
+	//public List<Don> getDonByEtablissement(String nom_etabliessement, int current, int nbRecords);
 	public List<Don> getDonByDonnateur(String mail_donnateur);
+	//public List<DonEnNature> getDonByDonnateur(String mail_donnateur, int current, int nbRecords);
 	public List<Don> getDonEnNatureNotAcceptedByMinistere();
 	public List<Don> getDonReglementNotAcceptedByMinistere();
 	public List<Don> getDonEnNatureDeletedByMinistere();
 	public List<Don> getDonReglementDeletedByMinistere();
 	public List<Etablisement> getEtablissementsByGouvernorat(String gouvernorat);
 	public List<Besoin> getBesoinsByGouvernorat(String gouvernorat);
-	
+	public List<Besoin> getBesoinsByGouvernorat(String gouvernorat, int current, int nbRecords);
 	public List<DonEnNature> getAllDonsEnNatureByGouvernorat(String gouvernorat);
+	//public List<DonEnNature> getAllDonsEnNatureByGouvernorat(String gouvernorat, int current, int nbRecords);
 	public List<Reglement> getAllDonsReglementsByGouvernorat(String gouvernorat);
+	//public List<DonEnNature> getAllDonsReglementsByGouvernorat(String gouvernorat, int current, int nbRecords);
 	public List<DonEnNature> getAllDonsEnNatureByEtablissement(String idEtab);
+	//public List<DonEnNature> getAllDonsEnNatureByEtablissement(String idEtab, int current, int nbRecords);
 	public List<Reglement> getAllDonsReglementsByEtablissement(String idEtab);
-
+	//public List<DonEnNature> getAllDonsReglementsByEtablissement(String idEtab, int current, int nbRecords);
 	
 	public DonEnNature getDonEnNatureById(String id_don);
 	public Reglement getDonEnReglementById(String id_don);
@@ -46,6 +53,7 @@ public interface PlatformGDLocal {
 	public List<PhotoDon> getAllPhotoDon();
 	public List<PhotoDon> getAllPhotoDonById(String id_don);
 
+	
 
 	public String getNomEtablissementById(String id_etablissement);
 	public Etablisement getEtablissementById(String id_etablissement);
@@ -93,14 +101,19 @@ public interface PlatformGDLocal {
 	public Fournisseur getFournisseurById(String idF);
 	public PhotoBesoin getPhotoBesoinById(String idPb);
 	
+	
+	public long getNumberOfRows(String type);
 	public List<Besoin> getAllBesoin();
-	public List<Produit> getAllProduit(int current, int nbRecords);
+	public List<Besoin> getAllBesoin(int current, int nbRecords);
 	public List<Produit> getAllProduit();
+	public List<Produit> getAllProduit(int current, int nbRecords);
 	public List<Categorie> getAllCategorie();
+	public List<Categorie> getAllCategorie(int current, int nbRecords);
 	public List<PhotoBesoin> getAllPhotoBesoin();
 	public List<UniteDeMesure> getAllUniteDeMesure();
-	public List<Fournisseur> getAllFournisseur(int current, int nbRecords);
+	public List<UniteDeMesure> getAllUniteDeMesure(int current, int nbRecords);
 	public List<Fournisseur> getAllFournisseur();
+	public List<Fournisseur> getAllFournisseur(int current, int nbRecords);
 	
 	public List<Produit> getProduitByCategorie(String idc);
 	public List<Produit> getProduitByFounisseur(String idF);
@@ -148,13 +161,24 @@ public interface PlatformGDLocal {
 		public List<Utilisateur> getUtilisateur();
 		public List<Etablisement> getAllBeneficiaire();
 		public List<Etablisement> getAllEtablissement();
+		public List<Etablisement> getAllEtablissement(int current, int nbRecords);
+		public List<Etablisement> getAllDrs();
+		public List<Etablisement> getAllDrs(int current, int nbRecords);
+		public List<Etablisement> getAllHospital();
+		public List<Etablisement> getAllHospital(int current, int nbRecords);
 		public List<Reclamation> getreclamation();
+
+		public List<Etablisement> getAllIntermediaire();
+		public List<Etablisement> getAllIntermediaire(int current, int nbRecords);
 		
 		//update
 
 		public void updateReclamatiom(boolean codeReclamation, Reclamation reclamation);
 		public void updateetatDecompte(Boolean etatDecompte, Utilisateur utilisateur);
 		public void updateUtilisateur(Utilisateur utilisateur);
+		public Etablisement authentification_Etablissement(String nom);
+		public boolean veriff_nom_etablissement(String nom);
+		public Utilisateur authentification_Utilisateur(String email);
 
 		
 

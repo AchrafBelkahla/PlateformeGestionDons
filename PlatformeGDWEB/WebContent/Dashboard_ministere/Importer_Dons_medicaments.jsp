@@ -3,12 +3,10 @@
 <section class="page-section light-bg">
 	<div class="container">
 		<div class="overlay"></div>
-		<form name="formAjoutBesoin" action="Importer_Etablissement"
+		<form name="formImproterMed" action="Importer_Dons"
 			method="post" class="col-md-6 col-md-offset-3 form-box-cha9a9a"
 			enctype="multipart/form-data">
-			<h1 >importer etablissements</h1>
-			<p style="color: red;">Le fichier excel doit avoir les colonnes suivantes:</p>
-			<p>Nom etablissement | Gouvernorat | Adresse | Tel | Nom Responsable don | prénom | Tel responsable | mail responsable</p>
+			<h1>importer dons </h1>
 
 			<div class="form-group">
 

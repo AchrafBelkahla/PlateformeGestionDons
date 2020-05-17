@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import metier.entities.Categorie;
+import metier.entities.Fournisseur;
 import metier.session.PlatformGDLocal;
+import web.GlobalConfig;
 
 
 @WebServlet("/Liste_categories")
@@ -27,9 +29,25 @@ public class ServletCategories extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-			List<Categorie> categories = dao.getAllCategorie();
-			request.setAttribute("categories", categories);
-			request.getRequestDispatcher("Dashboard_ministere/categories.jsp").forward(request,response);
+			//List<Categorie> categories = dao.getAllCategorie();
+			//request.setAttribute("categories", categories);
+			//request.getRequestDispatcher("Dashboard_ministere/categories.jsp").forward(request,response);
+			
+			
+			int currentPage = Integer.valueOf(request.getParameter("currentPage"));
+			List<Categorie> categories = dao.getAllCategorie(currentPage,GlobalConfig.recordsPerPage);
+	        int rows = (int) dao.getNumberOfRows("Categorie");
+	        int nOfPages = rows / GlobalConfig.recordsPerPage;
+	        
+	        if (nOfPages % GlobalConfig.recordsPerPage > 0) {
+	            nOfPages++;
+	        }
+	        
+	        request.setAttribute("noOfPages", nOfPages);
+	        request.setAttribute("currentPage", currentPage);
+	        request.setAttribute("recordsPerPage", GlobalConfig.recordsPerPage);
+	        request.setAttribute("categories", categories);
+	        request.getRequestDispatcher("Dashboard_ministere/categories.jsp").forward(request,response);
 
 
 	}
@@ -41,9 +59,7 @@ public class ServletCategories extends HttpServlet {
 		Categorie c = new Categorie(libelle);
 		dao.ajoutCategorie(c);
 
-		List<Categorie> categories = dao.getAllCategorie();
-		request.setAttribute("categories", categories);
-		request.getRequestDispatcher("Dashboard_ministere/categories.jsp").forward(request,response);
+		doGet(request, response);
 	}
 	
 	@Override

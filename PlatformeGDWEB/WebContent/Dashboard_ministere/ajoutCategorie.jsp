@@ -6,7 +6,7 @@
 <div class="overlay"></div>
 <div class="container">	
 
- <form name="formAjoutCategorie" action="Liste_categories" method="post" class="col-md-6 col-md-offset-3 form-box-cha9a9a">
+ <form name="formAjoutCategorie" action="Liste_categories?currentPage=1" method="post" class="col-md-6 col-md-offset-3 form-box-cha9a9a">
 <h1>Ajouter une catégorie</h1>
 
   <div class="form-group">
@@ -18,7 +18,7 @@
 
   	<div class="form-group">
 	 <button type="submit" class="btn btn-default btn-block">Ajouter</button>
-	 <a href="Liste_categories" class="btn btn-default btn-block" role="button">Annuler</a>
+	 <a href="Liste_categories?currentPage=1" class="btn btn-default btn-block" role="button">Annuler</a>
 	</div>
   </div>
 </form>
