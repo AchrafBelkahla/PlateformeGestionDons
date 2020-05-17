@@ -193,7 +193,7 @@ public class Importer_Etablissement extends HttpServlet {
 					} else {
 						continue;
 					}
-					if (metier.veriff(Email_responsable_don) == false
+					if (metier.veriff(Email_responsable_don) == null
 							&& metier.veriff_nom_etablissement(Nom_établissement) == false && Nom_établissement != null
 							&& Email_responsable_don != null) {
 						Utilisateur utilisateur = new Utilisateur();
@@ -366,7 +366,7 @@ public class Importer_Etablissement extends HttpServlet {
 
 					
 					
-					if (metier.veriff(Email_responsable_don) == false
+					if (metier.veriff(Email_responsable_don) == null
 							&& metier.veriff_nom_etablissement(Nom_établissement) == false && Nom_établissement != null
 							&& Email_responsable_don != null) {
 						Utilisateur utilisateur = new Utilisateur();
@@ -544,7 +544,7 @@ public class Importer_Etablissement extends HttpServlet {
 						continue;
 					}
 
-					if (metier.veriff(Email_responsable_don) == false
+					if (metier.veriff(Email_responsable_don) == null
 							&& metier.veriff_nom_etablissement(Nom_établissement) == false && Nom_établissement != null
 							&& Email_responsable_don != null) {
 						Utilisateur utilisateur = new Utilisateur();

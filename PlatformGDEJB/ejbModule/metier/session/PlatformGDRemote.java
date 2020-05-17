@@ -12,11 +12,11 @@ public interface PlatformGDRemote {
 	public List<DonEnNature> getAllDonsEnNature();
 	//public List<DonEnNature> getAllDonsEnNature(int current, int nbRecords);
 	public List<Reglement> getAllDonsReglement();
-	//public List<DonEnNature> getAllDonsReglement(int current, int nbRecords);
+	//public List<Reglement> getAllDonsReglement(int current, int nbRecords);
 	public List<DonEnNature> getDonEnNatureByDonnateur(String idD);
 	public List<Reglement> getReglementByDonnateur(String idD);
 	public List<Don> getDonByEtablissement(String nom_etabliessement);
-	//public List<DonEnNature> getDonByEtablissement(String nom_etabliessement, int current, int nbRecords);
+	//public List<Don> getDonByEtablissement(String nom_etabliessement, int current, int nbRecords);
 	public List<Don> getDonByDonnateur(String mail_donnateur);
 	//public List<DonEnNature> getDonByDonnateur(String mail_donnateur, int current, int nbRecords);
 	public List<Don> getDonEnNatureNotAcceptedByMinistere();
@@ -26,7 +26,6 @@ public interface PlatformGDRemote {
 	public List<Etablisement> getEtablissementsByGouvernorat(String gouvernorat);
 	public List<Besoin> getBesoinsByGouvernorat(String gouvernorat);
 	public List<Besoin> getBesoinsByGouvernorat(String gouvernorat, int current, int nbRecords);
-
 	public List<DonEnNature> getAllDonsEnNatureByGouvernorat(String gouvernorat);
 	//public List<DonEnNature> getAllDonsEnNatureByGouvernorat(String gouvernorat, int current, int nbRecords);
 	public List<Reglement> getAllDonsReglementsByGouvernorat(String gouvernorat);
@@ -48,13 +47,16 @@ public interface PlatformGDRemote {
 	public void deletePhotoDon(String id_photo);
 	public void updatePhotoDon(PhotoDon photo_don);
 	
-	
+	public void updateTelephone(Telephone t);
 	public List<PhotoDon> getAllPhotoDon();
 	public List<PhotoDon> getAllPhotoDonById(String id_don);
 
 
 	public String getNomEtablissementById(String id_etablissement);
 	public Etablisement getEtablissementById(String id_etablissement);
+
+	public Utilisateur getUtilisateurById(String userId);
+
 
 	
 	// create
@@ -87,7 +89,7 @@ public interface PlatformGDRemote {
 		public void updateFournisseur(Fournisseur f);
 		public void updateEtablisement(Etablisement e);
 		public void updateAdresse(Adresse a);
-		public void updateTelephone(Telephone t);
+
 		//read
 		
 		public Produit getProduitById(String idP);
@@ -97,29 +99,45 @@ public interface PlatformGDRemote {
 		public Fournisseur getFournisseurById(String idF);
 		public PhotoBesoin getPhotoBesoinById(String idPb);
 
-		
-		public long getNumberOfRows(String type);
-		public List<Besoin> getAllBesoin();
-		public List<Besoin> getAllBesoin(int current, int nbRecords);
-		public List<Produit> getAllProduit();
-		public List<Produit> getAllProduit(int current, int nbRecords);
-		public List<Produit> getAllProduit();
-		public List<Categorie> getAllCategorie();
-		public List<Categorie> getAllCategorie(int current, int nbRecords);
-		public List<PhotoBesoin> getAllPhotoBesoin();
-		public List<UniteDeMesure> getAllUniteDeMesure();
-		public List<UniteDeMesure> getAllUniteDeMesure(int current, int nbRecords);
-		public List<Fournisseur> getAllFournisseur();
-		public List<Fournisseur> getAllFournisseur(int current, int nbRecords);
-		public List<Fournisseur> getAllFournisseur();
-		
-		public List<Produit> getProduitByCategorie(String idc);
-		public List<Produit> getProduitByFounisseur(String idF);
-		public List<Fournisseur> getFournisseurByProduit(String idP);
-		public List<Besoin> getBesoinsByEtablissement(String idE);
-		public List<Besoin> getBesoinsByEtablissement(String idE, int current, int nbRecords);
+
+	public void deleteDon(String idDon);
+	
+
+	
+
+	
+	//read
+	
+	public long getNumberOfRows(String type);
+
+	
+	public List<Besoin> getAllBesoin();
+	public List<Produit> getAllProduit(int current, int nbRecords);
+	public List<Produit> getAllProduit();
+	public List<Categorie> getAllCategorie();
+	public List<PhotoBesoin> getAllPhotoBesoin();
+	public List<UniteDeMesure> getAllUniteDeMesure();
+	public List<Fournisseur> getAllFournisseur(int current, int nbRecords);
+	public List<Fournisseur> getAllFournisseur();
+	
+	public List<Produit> getProduitByCategorie(String idc);
+	public List<Produit> getProduitByFounisseur(String idF);
+	public List<Fournisseur> getFournisseurByProduit(String idP);
+	public List<Besoin> getBesoinsByEtablissement(String idE);
+	
+	
+	// l'ajout
 
 		
+		public List<Besoin> getAllBesoin(int current, int nbRecords);
+
+		public List<Categorie> getAllCategorie(int current, int nbRecords);
+
+		public List<UniteDeMesure> getAllUniteDeMesure(int current, int nbRecords);
+
+		
+
+		public List<Besoin> getBesoinsByEtablissement(String idE, int current, int nbRecords);
 		
 		public void ajouteUtilisateur(Utilisateur utilisateur);
 		//public String ajouteUtilisateur(Utilisateur utilisateur);
@@ -145,7 +163,6 @@ public interface PlatformGDRemote {
 		public void deleteetablissement(Etablisement etablisement);
 		public void deletereclamation(Reclamation reclamation);
 		public void deletetelephone(Telephone telephone);
-		public void deleteDon(String idDon);
 		
 		// affichage 
 		
@@ -155,8 +172,7 @@ public interface PlatformGDRemote {
 		public Reclamation findreclamation(String codeReclamation);
 		public Telephone findtelephone(String idTel);
 		public Utilisateur getDonnateurByEtablissement(String id_Etablissemment);
-		public Utilisateur getUtilisateurById(String userId);
-
+		
 		//Get
 		
 		public List<Utilisateur> getUtilisateur();
@@ -167,16 +183,20 @@ public interface PlatformGDRemote {
 		public List<Etablisement> getAllDrs(int current, int nbRecords);
 		public List<Etablisement> getAllHospital();
 		public List<Etablisement> getAllHospital(int current, int nbRecords);
+		public List<Reclamation> getreclamation();
+
 		public List<Etablisement> getAllIntermediaire();
 		public List<Etablisement> getAllIntermediaire(int current, int nbRecords);
-		public List<Reclamation> getreclamation();
 		
 		//update
 
 		public void updateReclamatiom(boolean codeReclamation, Reclamation reclamation);
 		public void updateetatDecompte(Boolean etatDecompte, Utilisateur utilisateur);
 		public void updateUtilisateur(Utilisateur utilisateur);
+
 		public Etablisement authentification_Etablissement(String nom);
 		public boolean veriff_nom_etablissement(String nom);
 		public Utilisateur authentification_Utilisateur(String email);
+
+
 }

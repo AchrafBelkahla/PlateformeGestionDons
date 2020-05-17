@@ -25,7 +25,7 @@ public class DaoManagement {
 			jndiProperties.put(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
 			final Context context = new InitialContext(jndiProperties);
 			metier = (PlatformGDLocal) context
-					.lookup("java:global/ear/PlatformGDEJB/BK!metier.session.PlatformGDLocal");
+					.lookup("java:global/PlatformeGDEAR/PlatformGDEJB/BK!metier.session.PlatformGDLocal");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

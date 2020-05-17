@@ -185,7 +185,7 @@ public class Servlet_Importer_Dons_medicaments extends HttpServlet {
 					etablisement = metier.authentification_Etablissement(Bénéficiaire);
 					donEnNature.setEtablissement(etablisement);
 					Utilisateur utilisateur = new Utilisateur();
-					if (metier.veriff(Mail_Donateur) == false && Mail_Donateur != null) {
+					if (metier.veriff(Mail_Donateur) == null && Mail_Donateur != null) {
 
 						utilisateur.setNom(Donateur);
 						utilisateur.setPrenom("");

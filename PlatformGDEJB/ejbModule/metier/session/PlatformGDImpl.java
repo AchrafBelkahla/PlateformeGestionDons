@@ -326,11 +326,6 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		int start = current * nbRecords - nbRecords;
 		return em.createNamedQuery("Produit.findAll",Produit.class).setFirstResult(start).setMaxResults(nbRecords).getResultList();
 	}
-	@Override
-	public List<Produit> getAllProduit() 
-	{
-		return em.createNamedQuery("Produit.findAll",Produit.class).getResultList();
-	}
 
 	@Override
 	public List<Categorie> getAllCategorie() {
@@ -356,12 +351,6 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 
 	}
 	
-	@Override
-	public List<Fournisseur> getAllFournisseur() 
-	{
-		return em.createNamedQuery("Fournisseur.findAll",Fournisseur.class).getResultList();
-
-	}
 
 	@Override
 	public List<Produit> getProduitByCategorie(String idc) {
