@@ -26,6 +26,7 @@
 					<div class="navbar-collapse collapse">
 						<!-- nav -->
 						<ul class="nav navbar-nav">
+							<li><a href="Liste_Fournisseurs_donateur?currentPage=1">Liste Fournisseurs</a></li>
 							<li><a href="profilDonateur">Profil</a></li>
 							<li><a href="LogOut">Deconnexion</a></li>
 						</ul>

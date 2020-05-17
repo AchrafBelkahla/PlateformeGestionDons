@@ -165,12 +165,17 @@ public void Faire_Un_Don(Don don, PhotoDon photo, Utilisateur donnateur, Etablis
 		public List<Etablisement> getAllHospital();
 		public List<Etablisement> getAllHospital(int current, int nbRecords);
 		public List<Reclamation> getreclamation();
+
+		public List<Etablisement> getAllIntermediaire();
+		public List<Etablisement> getAllIntermediaire(int current, int nbRecords);
 		
 		//update
 
 		public void updateReclamatiom(boolean codeReclamation, Reclamation reclamation);
 		public void updateetatDecompte(Boolean etatDecompte, Utilisateur utilisateur);
 		public void updateUtilisateur(Utilisateur utilisateur);
-
+		public Etablisement authentification_Etablissement(String nom);
+		public boolean veriff_nom_etablissement(String nom);
+		public Utilisateur authentification_Utilisateur(String email);
 
 }

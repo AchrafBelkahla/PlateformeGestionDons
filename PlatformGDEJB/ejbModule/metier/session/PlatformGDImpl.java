@@ -610,6 +610,18 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 //			return null;
 //		}
 //	}
+	
+	public Utilisateur authentification_Utilisateur(String email) {
+		try {
+			Query tq = em.createQuery("select u from Utilisateur u WHERE email=? ", Utilisateur.class);
+			tq.setParameter(1, email);
+			Utilisateur utilisateur = (Utilisateur) tq.getSingleResult();
+			em.merge(utilisateur);
+			return utilisateur;
+		} catch (Exception noresult) {
+			return null;
+		}
+	}
 
 	@Override
 	public Etablisement verification_du_compte(Utilisateur utilisateur) {
@@ -882,5 +894,43 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		return req.setFirstResult(start).setMaxResults(nbRecords).getResultList();
 	}
 
+	public List<Etablisement> getAllIntermediaire(){
+		Boolean hospital = true;
+		Query req = em.createQuery("select e from Etablisement e where e.Intermediaire=:x");
+		req.setParameter("x", hospital);
+		return req.getResultList();
+	}
+	public List<Etablisement> getAllIntermediaire(int current, int nbRecords){
+		int start = current * nbRecords - nbRecords;
+		Boolean intermediaire = true;
+		Query req = em.createQuery("select e from Etablisement e where e.Intermediaire=:x");
+		req.setParameter("x", intermediaire);
+		return req.setFirstResult(start).setMaxResults(nbRecords).getResultList();
+	}
+	
+	@Override
+	public Etablisement authentification_Etablissement(String nom) {
+		try {
+			Query tq = em.createQuery("select u from Etablisement u WHERE NomEtablissement=? ", Etablisement.class);
+			tq.setParameter(1, nom);
+			Etablisement etablisement = (Etablisement) tq.getSingleResult();
+			em.merge(etablisement);
+			return etablisement;
+		} catch (Exception noresult) {
+			return null;
+		}
+	}
+	@Override
+	public boolean veriff_nom_etablissement(String nom) {
+		try {
+			Query tq = em.createQuery("select u from Etablisement u WHERE NomEtablissement=?", Etablisement.class);
+			tq.setParameter(1, nom);
+			Etablisement etablisement = (Etablisement) tq.getSingleResult();
+			em.merge(etablisement);
+			return true;
+		} catch (Exception noresult) {
+			return false;
+		}
+	}
 
 }

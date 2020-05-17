@@ -57,7 +57,7 @@ public class ServletManagement extends HttpServlet {
 				else {
 					if(user.getRole().equals("donateur"))
 					{
-						request.getRequestDispatcher("/besoinsByEtablissement").forward(request, response);
+						request.getRequestDispatcher("/besoinsByEtablissement?currentPage=1").forward(request, response);
 					} else {
 						request.setAttribute("errur1", "Votre compte n'est pas encore validé par le ministere !");
 						request.getRequestDispatcher("LoginPage.jsp").forward(request, response);
@@ -108,7 +108,7 @@ public class ServletManagement extends HttpServlet {
 				else {
 					if(user.getRole().equals("donateur"))
 					{
-						request.getRequestDispatcher("/besoinsByEtablissement").forward(request, response);
+						request.getRequestDispatcher("/besoinsByEtablissement?currentPage=1").forward(request, response);
 					} else {
 						request.setAttribute("errur1", " Votre compte n'est pas encore validé par le ministere !");
 						request.getRequestDispatcher("LoginPage.jsp").forward(request, response);
@@ -156,7 +156,7 @@ public class ServletManagement extends HttpServlet {
 					else {
 						if(user.getRole().equals("donateur"))
 						{
-							request.getRequestDispatcher("/besoinsByEtablissement").forward(request, response);
+							request.getRequestDispatcher("/besoinsByEtablissement?currentPage=1").forward(request, response);
 						} else {
 						request.setAttribute("errur1", "Votre compte n'est pas encore validé par le ministere !");
 						session.invalidate();

@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ include file="__header.jsp"%>
 <%@ include file="menu_donnateur.jsp"%>
 
@@ -20,7 +21,7 @@
 
 
                         <div class="tp-caption tp-resizeme customin customout rs-parallaxlevel-3" data-x="right" data-y="210" data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="800" data-start="1400" data-easing="Power3.easeInOut" data-endspeed="300" style="z-index: 5">
-                            <a href="besoinsByEtablissement" class="btn btn-default btn-lg"><b>Lancez-vous ! Faites un DON</b></a>
+                            <a href="besoinsByEtablissement?currentPage=1" class="btn btn-default btn-lg"><b>Lancez-vous ! Faites un DON</b></a>
                         </div>
 
                     </div>
@@ -36,7 +37,7 @@
                         </h3>
 
                         <div class="tp-caption tp-resizeme customin customout rs-parallaxlevel-3" data-x="right" data-y="210" data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="800" data-start="1400" data-easing="Power3.easeInOut" data-endspeed="300" style="z-index: 5">
-                            <a href="besoinsByEtablissement" class="btn btn-default btn-lg">Lancez-vous ! Faire un DON</a>
+                            <a href="besoinsByEtablissement?currentPage=1" class="btn btn-default btn-lg">Lancez-vous ! Faire un DON</a>
                         </div>
 
                     </div>
@@ -55,7 +56,7 @@
                         </h2>
 
                         <div class="tp-caption tp-resizeme customin customout rs-parallaxlevel-3" data-x="right" data-y="210" data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="800" data-start="1400" data-easing="Power3.easeInOut" data-endspeed="300" style="z-index: 5">
-                            <a href="besoinsByEtablissement" class="btn btn-default btn-lg">Lancez-vous ! Faire un DON</a>
+                            <a href="besoinsByEtablissement?currentPage=1" class="btn btn-default btn-lg">Lancez-vous ! Faire un DON</a>
                         </div>
 
                     </div>
@@ -70,7 +71,7 @@
                         </h3>
 
                         <div class="tp-caption tp-resizeme customin customout rs-parallaxlevel-3" data-x="right" data-y="210" data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="800" data-start="1400" data-easing="Power3.easeInOut" data-endspeed="300" style="z-index: 5">
-                            <a href="besoinsByEtablissement" class="btn btn-default btn-lg">Lancez-vous ! Faire un DON</a>
+                            <a href="besoinsByEtablissement?currentPage=1" class="btn btn-default btn-lg">Lancez-vous ! Faire un DON</a>
                         </div>
 
                     </div>
@@ -85,7 +86,7 @@
                         </h3>
 
                         <div class="tp-caption tp-resizeme customin customout rs-parallaxlevel-3" data-x="right" data-y="210" data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="800" data-start="1400" data-easing="Power3.easeInOut" data-endspeed="300" style="z-index: 5">
-                            <a href="besoinsByEtablissement" class="btn btn-default">Lancez-vous ! Faire un DON</a>
+                            <a href="besoinsByEtablissement?currentPage=1" class="btn btn-default">Lancez-vous ! Faire un DON</a>
                         </div>
 
                     </div>
@@ -191,16 +192,11 @@
 				<hr class="margin-20">
 				</c:if>
 			</c:forEach>
-			<div class="row">
-				<div class="col-md-12 text-center top-pad-20">
-					<div>
-						<a href="#"
-							class="btn btn-box btn-default fs20 pad-20 animated fadeInDown visible"
-							style="min-width: 240px;" data-animation="fadeInDown">Voir
-							plus</a>
-					</div>
-				</div>
-			</div>
+			<jsp:include page="../pagination.jsp">
+	        	<jsp:param name="currentPage" value="${currentPage}"/>
+	        	<jsp:param name="noOfPages" value="${noOfPages}"/>
+	        	<jsp:param name="link" value="besoinsByEtablissement"/>
+	    </jsp:include>
 		</div>
 	</section>
 

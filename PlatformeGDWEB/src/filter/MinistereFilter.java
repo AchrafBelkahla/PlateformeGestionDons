@@ -20,7 +20,7 @@ import metier.entities.Utilisateur;
 		 "/Liste_categories", "/Demandes_inscrit", "/editFournisseur", "/editProduitMinistere","/Liste_Besoins"
 		,"/Liste_Donnateurs", "/Liste_Dons", "/Liste_DRS", "/Liste_Etablissements", "/Liste_Fournisseurs", "/Liste_Intermediaire"
 		, "/Ministere", "/produitMinistere", "/Liste_produits", "/supprimer_inscrit", "/Liste_unite_de_mesure", "/supprimer_don", 
-		"/accepter_don_reglement", "supprimer_don_reglement"})
+		"/accepter_don_reglement", "/supprimer_don_reglement", "/Importer_Etablissement","/Importer_Dons","/Importer_fournisseur","/Importer_produit"})
 public class MinistereFilter implements Filter {
 
     

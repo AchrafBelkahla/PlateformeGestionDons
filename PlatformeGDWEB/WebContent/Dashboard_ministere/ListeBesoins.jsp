@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ include file="__header.jsp"%>
 <%@ include file="menu_ministere.jsp"%>
 <section class="page-section">
@@ -12,11 +14,11 @@
 			<thead class="thead-dark">
 				<tr>
 					<th scope="col">Nom produit</th>
-					<th scope="col">Date création</th>
-					<th scope="col">Bénéficiaire</th>
-					<th scope="col">Quantité initiale</th>
-					<th scope="col">Quantité restante</th>
-					<th scope="col">Priorité</th>
+					<th scope="col">Date crÃ©ation</th>
+					<th scope="col">BÃ©nÃ©ficiaire</th>
+					<th scope="col">QuantitÃ© initiale</th>
+					<th scope="col">QuantitÃ© restante</th>
+					<th scope="col">PrioritÃ©</th>
 					<th></th>
 				</tr>
 			</thead>

@@ -25,7 +25,7 @@
                         <ul class="nav navbar-nav">
                             
                             <li >
-                                <a href="Liste_Intermediaire">Intermédiaires</a>
+                                <a href="Liste_Intermediaire?currentPage=1">Intermédiaires</a>
                             </li>
                             <li>
                                 <a href="Liste_Fournisseurs?currentPage=1">Fournisseurs</a>

@@ -5,7 +5,8 @@
 <div class="overlay"></div>
  <form name="formAjoutBesoin" action="Importer_fournisseur" method="post" class="col-md-6 col-md-offset-3 form-box-cha9a9a" enctype="multipart/form-data"> 
 <h1>importer fournisseur</h1>
-
+<p style="color: red;">Le fichier excel doit avoir les colonnes suivantes:</p>
+<p>Nom fournisseur</p>
 <div class="form-group">
 	
 	<div class="form-group">
