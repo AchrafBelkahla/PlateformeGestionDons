@@ -13,6 +13,7 @@ import metier.entities.Categorie;
 import metier.entities.Produit;
 import metier.entities.UniteDeMesure;
 import metier.session.PlatformGDLocal;
+import web.GlobalConfig;
 
 
 @WebServlet("/Liste_produits_Drs")
@@ -29,9 +30,22 @@ public class ServletProduits extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-			List<Produit> produits = dao.getAllProduit();
-			request.setAttribute("ListProduits", produits);
-			request.getRequestDispatcher("Dashboard_drs/produits_drs.jsp").forward(request,response);
+		int currentPage = Integer.valueOf(request.getParameter("currentPage"));
+		List<Produit> produits = dao.getAllProduit(currentPage,GlobalConfig.recordsPerPage);
+        int rows = (int) dao.getNumberOfRows("Produit");
+
+        int nOfPages = rows / GlobalConfig.recordsPerPage;
+        if (nOfPages % GlobalConfig.recordsPerPage > 0) {
+            nOfPages++;
+        }
+        
+        request.setAttribute("noOfPages", nOfPages);
+        request.setAttribute("currentPage", currentPage);
+        request.setAttribute("recordsPerPage", GlobalConfig.recordsPerPage);
+		
+		
+		request.setAttribute("ListProduits", produits);
+		request.getRequestDispatcher("Dashboard_drs/produits_drs.jsp").forward(request,response);
 
 
 	}

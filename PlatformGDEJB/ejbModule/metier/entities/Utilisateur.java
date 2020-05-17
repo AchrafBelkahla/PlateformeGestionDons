@@ -33,7 +33,9 @@ public class Utilisateur implements Serializable {
 	private Boolean etatDecompte;
 	private String role;
 	private Boolean accepted;
-
+	private Boolean confirmed;
+	private String confirmId;
+	
 	@OneToMany(targetEntity = Reclamation.class, mappedBy = "utilisateur")
 	private Collection<Reclamation> reclamations;
 
@@ -64,6 +66,7 @@ public class Utilisateur implements Serializable {
 		this.mdp = mdp;
 		this.etatDecompte = etatDecompte;
 		this.role = role;
+		this.confirmed = false;
 	}
 
 	public String getIdut() {
@@ -183,6 +186,22 @@ public class Utilisateur implements Serializable {
 
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
+	}
+
+	public String getConfirmId() {
+		return confirmId;
+	}
+
+	public void setConfirmId(String confirmId) {
+		this.confirmId = confirmId;
+	}
+
+	public Boolean getConfirmed() {
+		return confirmed;
+	}
+
+	public void setConfirmed(Boolean confirmed) {
+		this.confirmed = confirmed;
 	}
 	
 }

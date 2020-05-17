@@ -3,6 +3,7 @@ package web;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.regex.Pattern;
 
 import javax.ejb.EJB;
@@ -19,6 +20,7 @@ import metier.entities.Utilisateur;
 import metier.session.PlatformGDImpl;
 import metier.session.PlatformGDLocal;
 import service.DaoManagement;
+import service.emailManagement;
 
 /**
  * Servlet implementation class AjoutEtudiant
@@ -86,26 +88,55 @@ public class InscriptionUtilisateur extends HttpServlet {
 			adresse.setAdresse(c2);
 			
 			System.out.println("**********************************************************************");
-//			if (Pattern.matches("[7]{1}[0-9]{7}", Tel) && Pattern.matches("[a-zA-Z] ", role)
-//					&& Pattern.matches("[0-9] ", c3) && Pattern.matches("[a-zA-Z] ", c2)
-//
-//					&& Pattern.matches("[a-zA-Z] ", nom) && Pattern.matches("[a-zA-Z]", prenom)
-//					&& Pattern.matches("[a-zA-Z 0-9]", password)
-//					&& email.matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")) {
-				if (metier.veriff(email) == false) {
+
+				if (metier.veriff(email) == null) 
+				{
 					metier.ajouteadresse(adresse);
 					metier.ajoutetelephone(telephone);
 					utilisateur.setAdresse(adresse);
 					utilisateur.setTelephone(liste_telephone);
-//					String l3 = daoManagement.ajouteUtilisateur(utilisateur);
-//					String l1 = metier.ajoutetelephone(telephone);
-//					String l2 = metier.ajouteadresse(adresse);
-					//metier.ajout_ut_tel(l1, l2, l3);
+					String confirmId = UUID.randomUUID().toString();
+					utilisateur.setConfirmId(confirmId);
+					utilisateur.setConfirmed(true);
 					daoManagement.ajouteUtilisateur(utilisateur);
-				} else {
+
+					
+					String to = utilisateur.getEmail();
+					String subject = "subject";
+					String body = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n" + 
+							"<html>\n" + 
+							"    <head>\n" + 
+							"        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n" + 
+							"        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>\n" + 
+							"    </head>\n" + 
+							"    <body>\n" + 
+							"    <p>\n" + 
+							"        Chere/Cher," + utilisateur.getPrenom()+
+							"    </p>\n" +
+							"<br>"+
+							"    <p>\n" + 
+							"Merci de vous etre inscrit/e a la platforme X. Veullez cliquer sur le lien suivant pour terminer votre inscription " + 
+							"<a href="+"http://localhost:8080/PlatformeGDWEB/confirmUser?"+"userId="+utilisateur.getIdut()+"&confirmId="+confirmId+">Confirmer mon inscription</a>"+
+							"    </p>\n" +
+							"    </body>\n" + 
+							"</html>";
+					emailManagement emailManagement = new emailManagement();
+					javax.mail.internet.InternetAddress ia;
+					try {
+						ia = new javax.mail.internet.InternetAddress(to);
+					    ia.validate();
+					} catch (javax.mail.internet.AddressException ae) {
+
+					}
+					emailManagement.sendEmail(to, subject, body);
+					request.setAttribute("errur1", "un email de confirmation vous a été envoyé, veuillez cliquer sur le lien de confirmation !");
+					request.getRequestDispatcher("LoginPage.jsp").forward(request, response);
+				} 
+				else 
+				{
 					request.setAttribute("erreur", "adresse email existe");
-				
-			}
+					request.getRequestDispatcher("InscriptionUtilisateur.jsp").forward(request, response);
+				}
 
 		} catch (Exception e) {
 			// TODO: handle exception

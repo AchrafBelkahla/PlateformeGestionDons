@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import metier.entities.Fournisseur;
 import metier.session.PlatformGDLocal;
+import web.GlobalConfig;
 
 
 @WebServlet("/fournisseurs")
@@ -24,12 +25,23 @@ public class ServletFournisseurs extends HttpServlet {
 		super();
 		
 	}
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void doGet(HttpServletRequest req, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-			List<Fournisseur> fournisseurs = dao.getAllFournisseur();
-			request.setAttribute("fournisseurs", fournisseurs);
-			request.getRequestDispatcher("Dashboard_etablissement/fournisseurs.jsp").forward(request,response);
+		int currentPage = Integer.valueOf(req.getParameter("currentPage"));
+		List<Fournisseur> fournisseurs = dao.getAllFournisseur(currentPage,GlobalConfig.recordsPerPage);
+        int rows = (int) dao.getNumberOfRows("Fournisseur");
+        int nOfPages = rows / GlobalConfig.recordsPerPage;
+        
+        if (nOfPages % GlobalConfig.recordsPerPage > 0) {
+            nOfPages++;
+        }
+        
+        req.setAttribute("noOfPages", nOfPages);
+        req.setAttribute("currentPage", currentPage);
+        req.setAttribute("recordsPerPage", GlobalConfig.recordsPerPage);
+		req.setAttribute("fournisseurs", fournisseurs);
+			req.getRequestDispatcher("Dashboard_etablissement/fournisseurs.jsp").forward(req,response);
 
 
 	}

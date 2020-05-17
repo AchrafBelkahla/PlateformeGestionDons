@@ -129,41 +129,49 @@ public class ServletManagement extends HttpServlet {
 			// User found
 			if (utilisateur!=null) 
 			{
-				session.setAttribute("user", utilisateur);
-				session.setAttribute("utilisateur", utilisateur);
-				
-				Utilisateur user = (Utilisateur) session.getAttribute("user");
-				if(user.getRole().equals("ministere"))
+				if(utilisateur.getConfirmed())
 				{
-					request.getRequestDispatcher("/Ministere").forward(request, response);
+					session.setAttribute("user", utilisateur);
+					session.setAttribute("utilisateur", utilisateur);
+					
+					Utilisateur user = (Utilisateur) session.getAttribute("user");
+					if(user.getRole().equals("ministere"))
+					{
+						request.getRequestDispatcher("/Ministere").forward(request, response);
+					}
+					else
+					{
+						if(user.getRole().equals("responsable") && user.getAccepted().equals(true))
+						{
+							if(user.getEtablissement().getHospital())
+							{
+								System.out.println("**************************** hopital ******************************************");
+								 //request.getRequestDispatcher("/besoins").forward(request, response);
+								 response.sendRedirect("/PlatformeGDWEB/besoins");
+							}
+							else if(user.getEtablissement().getDrs())
+							{
+								System.out.println("**************************** drs ******************************************");
+								 request.getRequestDispatcher("/Liste_Etablissements_Drs").forward(request, response);
+							}
+						}
+						else {
+							if(user.getRole().equals("donateur"))
+							{
+								request.getRequestDispatcher("/besoinsByEtablissement").forward(request, response);
+							} else {
+							request.setAttribute("errur1", "Votre compte n'est pas encore validé par le ministere !");
+							session.invalidate();
+							request.getRequestDispatcher("LoginPage.jsp").forward(request, response);
+							}
+						}
+					}
 				}
 				else
 				{
-					if(user.getRole().equals("responsable") && user.getAccepted().equals(true))
-					{
-						if(user.getEtablissement().getHospital())
-						{
-							System.out.println("**************************** hopital ******************************************");
-							 //request.getRequestDispatcher("/besoins").forward(request, response);
-							 response.sendRedirect("/PlatformeGDWEB/besoins");
-						}
-						else if(user.getEtablissement().getDrs())
-						{
-							System.out.println("**************************** drs ******************************************");
-							 request.getRequestDispatcher("/Liste_Etablissements_Drs").forward(request, response);
-						}
-					}
-					else {
-						if(user.getRole().equals("donateur"))
-						{
-							request.getRequestDispatcher("/besoinsByEtablissement").forward(request, response);
-						} else {
-						request.setAttribute("errur1", "Votre compte n'est pas encore validé par le ministere !");
-						session.invalidate();
-						request.getRequestDispatcher("LoginPage.jsp").forward(request, response);
-						}
-					}
-				}	
+					request.setAttribute("errur1", "Veuillez vérifier votre compte !");
+					request.getRequestDispatcher("LoginPage.jsp").forward(request, response);
+				}
 			}
 			
 			else 

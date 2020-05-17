@@ -24,14 +24,14 @@
 
                             <div class="form-group">
                                 <div class="col-md-10 col-md-offset-1">
-                                    <label for="inputEmail3" class="control-label">Adresse e-mail(numéro de télèphone) </label>
+                                    <label for="inputEmail3" class="control-label">Adresse e-mail </label>
                                     </i><span class="required text-danger form-asterisk" title="Ce champ est requis">*</span>
                                     <input type="Email" id="username" name="username" value="" required="required" class="form-control bg-white" placeholder="Email"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-10 col-md-offset-1">
-                                    <a class="pull-right control-label" href="resetting/request.html">Mot de passe oublié ? </a>
+                                    <a class="pull-right control-label" href="resetPwdEmail">Mot de passe oublié ? </a>
                                     <label for="inputPassword3" class="control-label">Mot de passe </label>
                                     </i><span class="required text-danger form-asterisk" title="Ce champ est requis">*</span>
                                     <input type="password" id="password" name="password" required="required" class="form-control bg-white" placeholder="Password"/>

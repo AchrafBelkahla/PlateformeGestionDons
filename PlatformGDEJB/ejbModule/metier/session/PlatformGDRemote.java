@@ -91,10 +91,12 @@ public interface PlatformGDRemote {
 		public long getNumberOfRows(String type);
 		public List<Besoin> getAllBesoin();
 		public List<Produit> getAllProduit(int current, int nbRecords);
+		public List<Produit> getAllProduit();
 		public List<Categorie> getAllCategorie();
 		public List<PhotoBesoin> getAllPhotoBesoin();
 		public List<UniteDeMesure> getAllUniteDeMesure();
 		public List<Fournisseur> getAllFournisseur(int current, int nbRecords);
+		public List<Fournisseur> getAllFournisseur();
 		
 		public List<Produit> getProduitByCategorie(String idc);
 		public List<Produit> getProduitByFounisseur(String idF);
@@ -118,7 +120,7 @@ public interface PlatformGDRemote {
 		//public Utilisateur getUtilisateurByEmail(String email );
 		public Etablisement verification_du_compte(Utilisateur utilisateur);
 		public Utilisateur authentification(String mail, String hashedPassword);
-		public boolean veriff(String mail);
+		public Utilisateur veriff(String mail);
 
 		// delete
 		
@@ -137,7 +139,8 @@ public interface PlatformGDRemote {
 		public Reclamation findreclamation(String codeReclamation);
 		public Telephone findtelephone(String idTel);
 		public Utilisateur getDonnateurByEtablissement(String id_Etablissemment);
-		
+		public Utilisateur getUtilisateurById(String userId);
+
 		//Get
 		
 		public List<Utilisateur> getUtilisateur();

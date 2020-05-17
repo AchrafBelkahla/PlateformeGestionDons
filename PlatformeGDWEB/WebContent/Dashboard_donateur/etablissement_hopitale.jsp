@@ -218,73 +218,73 @@
 						</div>
 					</div>
 				</div>
-				<div class="form-box-cha9a9a top-margin-20"
-					style="padding: 10px !important;">
-					<div class="container">
-						<h1>Liste des Fournisseurs</h1>
-						<div class="row">
-							<div
-								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Libellé
-										Fournisseur</span></strong>
-							</div>
-							<div
-								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Adresse</span></strong>
-							</div>
-							<div
-								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Code Postal</span></strong>
-							</div>
-							<div
-								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">E mail</span></strong>
-							</div>
-							<div
-								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Gouvernorat</span></strong>
-							</div>
-							<div
-								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Numéro de Tel</span></strong>
-							</div>
-						</div>
-						<hr class="margin-20">
-						<c:forEach items="${fournisseur}" var="b">
-							<div class="row">
-								<div class="col-xs-2 col-sm-2 fund-bottom-border text-center">
-									<h5>${b.getLibelle()}</h5>
-								</div>
-								<div class="col-xs-2 col-sm-2 fund-bottom-border text-center">
-									<h5>${b.getAdresseF()}</h5>
-								</div>
-								<div class="col-xs-2 col-sm-2 fund-bottom-border text-center">
-									<h5>${b.getCodePostal()}</h5>
-								</div>
-								<div class="col-xs-2 col-sm-2 fund-bottom-border text-center">
-									<h5>${b.getEmailF()}</h5>
-								</div>
-								<div class="col-xs-2 col-sm-2 fund-bottom-border text-center">
-									<h5>${b.getGouvernorat()}</h5>
-								</div>
-								<div class="col-xs-2 col-sm-2 fund-bottom-border text-center">
-									<h5>${b.getNumTelF()}</h5>
-								</div>
-							</div>
-						</c:forEach> 
-						<hr class="margin-20">
-						<div class="row">
-							<div class="col-md-12 text-center top-pad-10">
-								<div>
-									<a href="#"
-										class="btn btn-box btn-default fs20 pad-10 animated fadeInDown visible"
-										style="min-width: 100px;" data-animation="fadeInDown">Voir
-										plus</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+<!-- 				<div class="form-box-cha9a9a top-margin-20" -->
+<!-- 					style="padding: 10px !important;"> -->
+<!-- 					<div class="container"> -->
+<!-- 						<h1>Liste des Fournisseurs</h1> -->
+<!-- 						<div class="row"> -->
+<!-- 							<div -->
+<!-- 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10"> -->
+<!-- 								<strong><span class="text-color">Libellé -->
+<!-- 										Fournisseur</span></strong> -->
+<!-- 							</div> -->
+<!-- 							<div -->
+<!-- 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10"> -->
+<!-- 								<strong><span class="text-color">Adresse</span></strong> -->
+<!-- 							</div> -->
+<!-- 							<div -->
+<!-- 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10"> -->
+<!-- 								<strong><span class="text-color">Code Postal</span></strong> -->
+<!-- 							</div> -->
+<!-- 							<div -->
+<!-- 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10"> -->
+<!-- 								<strong><span class="text-color">E mail</span></strong> -->
+<!-- 							</div> -->
+<!-- 							<div -->
+<!-- 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10"> -->
+<!-- 								<strong><span class="text-color">Gouvernorat</span></strong> -->
+<!-- 							</div> -->
+<!-- 							<div -->
+<!-- 								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10"> -->
+<!-- 								<strong><span class="text-color">Numéro de Tel</span></strong> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 						<hr class="margin-20"> -->
+<%-- 						<c:forEach items="${fournisseur}" var="b"> --%>
+<!-- 							<div class="row"> -->
+<!-- 								<div class="col-xs-2 col-sm-2 fund-bottom-border text-center"> -->
+<%-- 									<h5>${b.getLibelle()}</h5> --%>
+<!-- 								</div> -->
+<!-- 								<div class="col-xs-2 col-sm-2 fund-bottom-border text-center"> -->
+<%-- 									<h5>${b.getAdresseF()}</h5> --%>
+<!-- 								</div> -->
+<!-- 								<div class="col-xs-2 col-sm-2 fund-bottom-border text-center"> -->
+<%-- 									<h5>${b.getCodePostal()}</h5> --%>
+<!-- 								</div> -->
+<!-- 								<div class="col-xs-2 col-sm-2 fund-bottom-border text-center"> -->
+<%-- 									<h5>${b.getEmailF()}</h5> --%>
+<!-- 								</div> -->
+<!-- 								<div class="col-xs-2 col-sm-2 fund-bottom-border text-center"> -->
+<%-- 									<h5>${b.getGouvernorat()}</h5> --%>
+<!-- 								</div> -->
+<!-- 								<div class="col-xs-2 col-sm-2 fund-bottom-border text-center"> -->
+<%-- 									<h5>${b.getNumTelF()}</h5> --%>
+<!-- 								</div> -->
+<!-- 							</div> -->
+<%-- 						</c:forEach>  --%>
+<!-- 						<hr class="margin-20"> -->
+<!-- 						<div class="row"> -->
+<!-- 							<div class="col-md-12 text-center top-pad-10"> -->
+<!-- 								<div> -->
+<!-- 									<a href="#" -->
+<!-- 										class="btn btn-box btn-default fs20 pad-10 animated fadeInDown visible" -->
+<!-- 										style="min-width: 100px;" data-animation="fadeInDown">Voir -->
+<!-- 										plus</a> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
 
 
 			</div>

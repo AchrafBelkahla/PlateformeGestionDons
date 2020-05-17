@@ -31,7 +31,7 @@ public class FaireUnDonServlet extends HttpServlet {
 		
 		req.setAttribute("dons_en_nature", metier.getAllDonsEnNature());
 		req.setAttribute("don_reglements", metier.getAllDonsReglement());
-		req.setAttribute("fournisseur",metier.getAllFournisseur());
+//		req.setAttribute("fournisseur",metier.getAllFournisseur());
 		req.getRequestDispatcher("Dashboard_donateur/etablissement_hopitale.jsp").forward(req, resp);
 		
 	}

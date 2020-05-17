@@ -13,6 +13,7 @@ import metier.entities.Categorie;
 import metier.entities.Produit;
 import metier.entities.UniteDeMesure;
 import metier.session.PlatformGDLocal;
+import web.GlobalConfig;
 
 
 @WebServlet("/produits")
@@ -29,34 +30,29 @@ public class ServletProduits extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-			List<Produit> produits = dao.getAllProduit();
-			request.setAttribute("ListProduits", produits);
-			request.getRequestDispatcher("Dashboard_etablissement/produits.jsp").forward(request,response);
+		int currentPage = Integer.valueOf(request.getParameter("currentPage"));
+		List<Produit> produits = dao.getAllProduit(currentPage,GlobalConfig.recordsPerPage);
+        int rows = (int) dao.getNumberOfRows("Produit");
+
+        int nOfPages = rows / GlobalConfig.recordsPerPage;
+        if (nOfPages % GlobalConfig.recordsPerPage > 0) {
+            nOfPages++;
+        }
+        
+        request.setAttribute("noOfPages", nOfPages);
+        request.setAttribute("currentPage", currentPage);
+        request.setAttribute("recordsPerPage", GlobalConfig.recordsPerPage);
+		
+		
+		request.setAttribute("ListProduits", produits);
+		request.getRequestDispatcher("Dashboard_etablissement/produits.jsp").forward(request,response);
 
 
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String libelle = request.getParameter("libelle");
-		String description =request.getParameter("description");
-		double prixMin =Double.parseDouble(request.getParameter("prixMin"));
-		double prixMax= Double.parseDouble(request.getParameter("prixMax"));
-		String idUnite=request.getParameter("udm");
-		String idC = request.getParameter("categorie");
-		
-		Produit p = new Produit( libelle, description,  prixMax, prixMin );
-				
-		UniteDeMesure udm = dao.getUniteDeMesureById(idUnite);
-		p.setUniteDeMesure(udm);
-		Categorie categorie = dao.getCategorieById(idC);
-		p.setCategorie(categorie);
-		
-		dao.ajoutProduit(p);
-
-	    List<Produit> produits = dao.getAllProduit();
-		request.setAttribute("ListProduits", produits);
-		request.getRequestDispatcher("Dashboard_etablissement/produits.jsp").forward(request, response);
+		doGet(request,response);
 			
 		
 	}

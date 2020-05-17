@@ -326,6 +326,11 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		int start = current * nbRecords - nbRecords;
 		return em.createNamedQuery("Produit.findAll",Produit.class).setFirstResult(start).setMaxResults(nbRecords).getResultList();
 	}
+	@Override
+	public List<Produit> getAllProduit() 
+	{
+		return em.createNamedQuery("Produit.findAll",Produit.class).getResultList();
+	}
 
 	@Override
 	public List<Categorie> getAllCategorie() {
@@ -348,6 +353,13 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 	{
 		int start = current * nbRecords - nbRecords;
 		return em.createNamedQuery("Fournisseur.findAll",Fournisseur.class).setFirstResult(start).setMaxResults(nbRecords).getResultList();
+
+	}
+	
+	@Override
+	public List<Fournisseur> getAllFournisseur() 
+	{
+		return em.createNamedQuery("Fournisseur.findAll",Fournisseur.class).getResultList();
 
 	}
 
@@ -659,15 +671,14 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 	}
 
 	@Override
-	public boolean veriff(String mail) {
+	public Utilisateur veriff(String mail) {
 		try {
-			Query tq = em.createQuery("select u from Utilisateur u WHERE email=?", Utilisateur.class);
-			tq.setParameter(1, mail);
+			Query tq = em.createQuery("select u from Utilisateur u WHERE u.email =:x", Utilisateur.class);
+			tq.setParameter("x", mail);
 			Utilisateur utilisateur = (Utilisateur) tq.getSingleResult();
-			em.merge(utilisateur);
-			return true;
+			return utilisateur;
 		} catch (Exception noresult) {
-			return false;
+			return null;
 		}
 	}
 	@Override
@@ -801,6 +812,13 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
         Query req = em.createQuery(reqString);
 		numOfRows = (long) req.getSingleResult();
         return numOfRows;
+	}
+
+	@Override
+	public Utilisateur getUtilisateurById(String userId) 
+	{
+		Utilisateur utilisateur = em.find(Utilisateur.class, userId);
+		return utilisateur;
 	}
 
 }
