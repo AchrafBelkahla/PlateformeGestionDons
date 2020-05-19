@@ -20,15 +20,15 @@ public class DaoManagement {
 	private PlatformGDLocal metier;
 	
 	public DaoManagement() {
-		try {
-			final Hashtable<String, String> jndiProperties = new Hashtable<String, String>();
-			jndiProperties.put(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
-			final Context context = new InitialContext(jndiProperties);
-			metier = (PlatformGDLocal) context
-					.lookup("java:global/PlatformeGDEAR/PlatformGDEJB/BK!metier.session.PlatformGDLocal");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//		try {
+//			final Hashtable<String, String> jndiProperties = new Hashtable<String, String>();
+//			jndiProperties.put(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
+//			final Context context = new InitialContext(jndiProperties);
+//			metier = (PlatformGDLocal) context
+//					.lookup("java:global/PlatformeGDEAR/PlatformGDEJB/BK!metier.session.PlatformGDLocal");
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 
 	}
 	public Utilisateur checkUser(String username, String clearPassword) {

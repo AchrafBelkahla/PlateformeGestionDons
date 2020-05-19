@@ -12,11 +12,11 @@ public class GlobalConfig
 	}
 	public static int port = 465;
 	public static String host = "smtp.gmail.com";
-	public static String from = "achraf0587@gmail.com";
+	public static String from = "gestiondons2020@gmail.com";
 	public static  boolean auth = true;
 	public static boolean secureConnection = true;
-	public static String username = "achraf0587@gmail.com";
-	public static String password = "infoenit46";
+	public static String username = "gestiondons2020@gmail.com";
+	public static String password = "gestiondons123$";
 	public static GlobalConfig.Protocol protocol = Protocol.SMTPS;
 //	private boolean debug = true;
 
