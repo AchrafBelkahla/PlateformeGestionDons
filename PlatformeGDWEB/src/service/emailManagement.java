@@ -11,9 +11,9 @@ import java.util.Date;
 import java.util.Hashtable;
 import java.util.Properties;
 
+
 import metier.session.PlatformGDLocal;
 import web.GlobalConfig;
-import web.GlobalConfig.Protocol;
 
 public class emailManagement {
 	@EJB
@@ -21,14 +21,14 @@ public class emailManagement {
 	
 	public emailManagement() {
 		try {
-			final Hashtable<String, String> jndiProperties = new Hashtable<String, String>();
-			jndiProperties.put(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
-			final Context context = new InitialContext(jndiProperties);
-			metier = (PlatformGDLocal) context
-					.lookup("java:global/ear/PlatformGDEJB/BK!metier.session.PlatformGDLocal");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		final Hashtable<String, String> jndiProperties = new Hashtable<String, String>();
+		jndiProperties.put(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
+		final Context context = new InitialContext(jndiProperties);
+		metier = (PlatformGDLocal) context
+				.lookup("java:global/PlatformeGDEAR/PlatformGDEJB/BK!metier.session.PlatformGDLocal");
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
 	}
 	
 

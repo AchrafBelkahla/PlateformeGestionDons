@@ -112,7 +112,7 @@ public class InscriptionEtablissement extends HttpServlet {
 							"<br>"+
 							"    <p>\n" + 
 							"Merci de vous etre inscrit/e a la platforme X. Veullez cliquer sur le lien suivant pour terminer votre inscription " + 
-							"<a href="+"http://localhost:8080/PlatformeGDWEB/confirmUser?"+"userId="+utilisateur.getIdut()+"&confirmId="+confirmId+">Confirmer mon inscription</a>"+
+							"<a href="+"http://197.14.56.37:8080/PlatformeGDWEB/confirmUser?"+"userId="+utilisateur.getIdut()+"&confirmId="+confirmId+">Confirmer mon inscription</a>"+
 							"    </p>\n" +
 							"<br>"+
 							"    <p>\n" + 

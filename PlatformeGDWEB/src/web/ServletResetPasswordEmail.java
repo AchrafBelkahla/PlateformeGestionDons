@@ -66,7 +66,7 @@ public class ServletResetPasswordEmail extends HttpServlet {
 					"<br>"+
 					"    <p>\n" + 
 					"Veullez cliquer sur le lien suivant pour réinitialiser votre mot de passe " + 
-					"<a href="+"http://localhost:8080/PlatformeGDWEB/resetPwd?"+"userId="+utilisateur.getIdut()+">réinitialiser mon mot de passe</a>"+
+					"<a href="+"http://197.14.56.37:8080/PlatformeGDWEB/resetPwd?"+"userId="+utilisateur.getIdut()+">réinitialiser mon mot de passe</a>"+
 					"    </p>\n" +
 					"    </body>\n" + 
 					"</html>";
