@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 import java.util.stream.Collectors;
@@ -95,7 +94,7 @@ public class ServletBesoins extends HttpServlet {
 			 
 			// Handle photos
 			String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
-			File uploadDir = new File(uploadPath);
+			File uploadDir = new File(UPLOAD_DIRECTORY);
 			if (!uploadDir.exists()) uploadDir.mkdir();
 			String fileName;
 			String extension; 
@@ -117,9 +116,10 @@ public class ServletBesoins extends HttpServlet {
 				    photo.setIdP(fileName);    // Id photo = filename in directory
 				    dao.ajoutPhoto(photo);
 				    photos.add(photo);
-				    part.write(uploadPath + File.separator + fileName);
+				    part.write(UPLOAD_DIRECTORY + File.separator + fileName);
 				}
 				 photoBesoin.setPhotos(photos);
+				 dao.ajoutPhotoBesoin(photoBesoin);
 				 b.setPhotoBesoin(photoBesoin);
 			 }
 			 dao.ajoutBesoin(b);

@@ -17,7 +17,7 @@
 						<h1>Liste des Fournisseurs</h1>
 						<div class="row">
 							<div
-								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
+								class="col-xs-4 col-sm-4 text-center fund-bottom-border lr-pad-10">
 								<strong><span class="text-color">Nom fournisseur</span></strong>
 							</div>
 							<div
@@ -38,10 +38,10 @@
 								<strong><span class="text-color">Produits
 										</span></strong>
 							</div>
-							<div
-								class="col-xs-1 col-sm-1 text-center  lr-pad-10">
-							</div>
-							<div class="col-xs-1 col-sm-1 text-center lr-pad-10"></div>
+<!-- 							<div -->
+<!-- 								class="col-xs-1 col-sm-1 text-center  lr-pad-10"> -->
+<!-- 							</div> -->
+<!-- 							<div class="col-xs-1 col-sm-1 text-center lr-pad-10"></div> -->
 						</div>
 						<hr class="margin-20">
 						<c:forEach var="fournisseur" items="${fournisseurs}">

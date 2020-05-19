@@ -142,17 +142,16 @@
 
 							<div class="row">
 								<div class="col-md-12">
-									<input type="submit"
-										class="btn btn-default register pull-right"
-										value="Valider l&#039;inscription" />
+									 <button type="submit" class="btn btn-default btn-block">Valider l'inscription</button>
+<!-- 									<input type="submit" -->
+<!-- 										class="btn btn-default register pull-right" -->
+<!-- 										value="Valider l&#039;inscription" /> -->
+									 <a href="Liste_Etablissements?currentPage=1" 
+									 class="btn btn-default btn-block" role="button">Annuler</a>
 								</div>
 							</div>
 							
 							<div class="clearfix"></div>
-
-							<input type="hidden" id="registration_association_form__token"
-								name="registration_association_form[_token]"
-								value="2sgpUWUPlUZB6br8bJygmYe7UVpD9LEvKdd0jeglrIQ" />
 						</form>
 					</div>
 				</div>

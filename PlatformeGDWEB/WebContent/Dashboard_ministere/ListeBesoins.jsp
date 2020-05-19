@@ -4,12 +4,31 @@
 <%@ include file="menu_ministere.jsp"%>
 <section class="page-section">
 	<div class="container">
+
 		<div class="row text-center">
 
 			<h1>Liste des Besoins</h1>
 		</div>
 	</div>
 	<div class="container">
+<!-- 			<div class="col-sm-9"> -->
+<!-- 				<span class="hidden-sm-down sort-by text-xs-right">Trier par :</span> -->
+<!--                 <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></button> -->
+<!--                 <ul class="dropdown-menu"> -->
+<!--                     <li> -->
+<!--                         <a href="#">Action</a> -->
+<!--                     </li> -->
+<!--                     <li> -->
+<!--                         <a href="#">Another action</a> -->
+<!--                     </li> -->
+<!--                     <li> -->
+<!--                         <a href="#">Something else here</a> -->
+<!--                     </li> -->
+<!--                 </ul> -->
+<!-- 			</div> -->
+			<div class="col-sm-3">
+				<a href="ajoutBesoinMinistere" class="btn btn-success">Ajouter besoin</a>
+			</div>			
 		<table class="table">
 			<thead class="thead-dark">
 				<tr>
@@ -46,4 +65,5 @@
 	</div>
 
 </section>
+
 <%@ include file="__footer.jsp"%>

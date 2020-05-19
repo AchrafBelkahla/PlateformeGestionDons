@@ -30,11 +30,11 @@
 				<h1>Besoin : ${besoin.getProduit().getLibelle()}</h1>
 			</div>
 			<div class="col-sm-5" id="${besoin.getIdBesoin()}">
-				<a href="Liste_Besoins" class="btn btn-default" role="button">Retour</a>
-				<a href="editBesoin?idBesoin=${besoin.getIdBesoin()}"
+				<a href="Liste_Besoins?currentPage=1" class="btn btn-default" role="button">Retour</a>
+				<a href="editBesoinMinistere?idBesoin=${besoin.getIdBesoin()}"
 					class="btn btn-warning " role="button" id="editbesoin">Editer</a> 
-				<button type="button" class="btn btn-success" onclick="document.getElementById('forma').style.display = 'block'">Réaffecter</button>
-				<button class="btn btn-danger" id="deletebesoin">Supprimer</button>
+<!-- 				<button type="button" class="btn btn-success" onclick="document.getElementById('forma').style.display = 'block'">Réaffecter</button> -->
+<!-- 				<button class="btn btn-danger" id="deletebesoin">Supprimer</button> -->
 			</div>
 		</div>
 
@@ -132,7 +132,7 @@
 			function async(method,data){
 				console.log(data);
 				$.ajax({
-					url:"Liste_Besoins",
+					url:"Liste_Besoins?currentPage=1",
 					data:data,
 					method:method
 			})
@@ -140,7 +140,7 @@
 					function(data){
 						console.log(data);
 						if(data){
-							location.href="Liste_Besoins"
+							location.href="Liste_Besoins?currentPage=1"
 						}
 					}
 			);

@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Besoin")
-@NamedQuery(name="Besoin.findAll", query="SELECT b FROM Besoin b")
+@NamedQuery(name="Besoin.findAll", query="SELECT b FROM Besoin b ORDER BY b.dateBesoin DESC")
 public class Besoin implements Serializable 
 {
 

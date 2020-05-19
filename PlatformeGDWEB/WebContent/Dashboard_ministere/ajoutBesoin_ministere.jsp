@@ -1,21 +1,36 @@
 <%@ include file="__header.jsp"%>
-<%@ include file="menu_etablissement.jsp"%>
+<%@ include file="menu_ministere.jsp"%>
 <section class="page-section light-bg">
 <div class="container">	
 <div class="overlay"></div>
- <form name="formAjoutBesoin" action="besoins?currentPage=1" method="post" class="col-md-6 col-md-offset-3 form-box-cha9a9a" enctype="multipart/form-data"> 
+ <form name="formAjoutBesoinMinistere" action="Liste_Besoins?currentPage=1" method="post" class="col-md-6 col-md-offset-3 form-box-cha9a9a" enctype="multipart/form-data"> 
 <h1>Ajouter un besoin</h1>
 
 <div class="form-group">
-	<div class="form-group">
-		<label class="control-label required" for="produit">Produit</label>
-		<span class="required text-danger form-asterisk" title="Ce champ est requis">*</span>
-		<select name="produit" class ="form-control" required="required">
-			<c:forEach var="produit" items="${produits}">
-				<option value="${produit.getIdProduit()}">${produit.getLibelle()}</option>
-			</c:forEach>
-		</select>
-	</div>
+					<div class="form-group">
+						<label class="control-label required" for="nom_etablissement">Nom établissement</label> 
+							<span
+							class="required text-danger form-asterisk"
+							title="Ce champ est requis">*</span>
+						<div class="cha9a9a-title text-center pad-5">
+							<select id="idEtab" name="idEtab" class="form-control"  required >
+								<option disabled selected value=" ">--Veuillez choisir un etablissement--</option>
+								<c:forEach items="${etablissements}" var="b">
+									<option value="${b.getIdEtablissement()}">
+									${b.getNomEtablissement()} </option>
+								</c:forEach>
+							</select>
+						</div>
+					</div>
+				<div class="form-group">
+					<label class="control-label required" for="produit">Produit</label>
+					<span class="required text-danger form-asterisk" title="Ce champ est requis">*</span>
+					<select name="produit" class ="form-control" required="required">
+						<c:forEach var="produit" items="${produits}">
+							<option value="${produit.getIdProduit()}">${produit.getLibelle()}</option>
+						</c:forEach>
+					</select>
+				</div>
 
 	<div class="form-group">
 		<label class="control-label required" for="quantite">Quantité demandée</label>
@@ -45,7 +60,7 @@
 	</div>
 		<div class="form-group">
 	 <button type="submit" class="btn btn-default btn-block">Confirmer</button>
-	 <a href="besoins?currentPage=1" class="btn btn-default btn-block" role="button">Annuler</a>
+	 <a href="Liste_Besoins?currentPage=1" class="btn btn-default btn-block" role="button">Annuler</a>
 	</div>
 </div>
 </form> 

@@ -16,7 +16,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span></button>
 
-                        <a class="navbar-brand scroll" href="Ministere">
+                        <a class="navbar-brand scroll" href="Ministere?currentPage=1">
                             <img src="images/Logo/Capture.PNG" style="width: 70px; height: 60px;">
                         </a></div>
                     <!-- Navbar Collapse -->

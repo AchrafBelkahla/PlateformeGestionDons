@@ -4,7 +4,7 @@
 <div class="overlay"></div>
 <div class="container">	
 
- <form name="formAjoutProduit" action="Liste_produits" method="post" class="col-md-6 col-md-offset-3 form-box-cha9a9a">
+ <form name="formAjoutProduit" action="Liste_produits?currentPage=1" method="post" class="col-md-6 col-md-offset-3 form-box-cha9a9a">
 <h1>Ajouter un produit</h1>
 
   <div class="form-group">
@@ -63,7 +63,7 @@
 
   	<div class="form-group">
 	 <button type="submit" class="btn btn-default btn-block">Ajouter</button>
-	 <a href="Liste_produits" class="btn btn-default btn-block" role="button">Annuler</a>
+	 <a href="Liste_produits?currentPage=1" class="btn btn-default btn-block" role="button">Annuler</a>
 	</div>
   </div>
 </form>

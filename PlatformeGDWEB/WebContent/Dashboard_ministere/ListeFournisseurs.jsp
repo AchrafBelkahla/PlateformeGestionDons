@@ -11,7 +11,7 @@
 		<a href="ajoutFournisseurMinistere" class="btn btn-success">Ajouter
 			un fournisseur</a>
 		<a href="Importer_fournisseur" class="btn btn-default">Importer un fichier des fournisseurs</a>
-		<table class="table">
+		<table class="table sortable">
 			<thead class="thead-dark">
 				<tr>
 					<th scope="col">Nom fournisseur</th>
@@ -78,8 +78,8 @@
 					}
 				});
 			}
-
 		})
+	    
 	</script>
 </section>
 <%@ include file="__footer.jsp"%>

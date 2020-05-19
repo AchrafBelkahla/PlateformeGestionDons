@@ -81,7 +81,7 @@
 											<h5>${d.getEtablissement().getNomEtablissement()}</h5>
 											</td>
 											<td>
-											<h5>${d.getUtilisateur().getNom(), ${d.getUtilisateur().getPrenom()}</h5>
+											<h5>${d.getUtilisateur().getNom()}, ${d.getUtilisateur().getPrenom()}</h5>
 											</td>
 											<td>
 											<h5>${d.getPrix_totale()}</h5>
@@ -157,7 +157,7 @@
 											<h5>${r.getEtablissement().getNomEtablissement()}</h5>
 											</td>
 											<td>
-											<h5>${r.getUtilisateur().getNom(), ${d.getUtilisateur().getPrenom()}</h5>
+											<h5>${r.getUtilisateur().getNom()}, ${d.getUtilisateur().getPrenom()}</h5>
 											</td>
 											<td>
 											<h5>${r.getModeReglement()}</h5>

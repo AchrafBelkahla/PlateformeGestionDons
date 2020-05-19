@@ -14,7 +14,7 @@ import org.hibernate.annotations.LazyCollectionOption;
 
 @Entity
 @Table(name = "Fournisseur")
-@NamedQuery(name="Fournisseur.findAll", query="SELECT f FROM Fournisseur f")
+@NamedQuery(name="Fournisseur.findAll", query="SELECT f FROM Fournisseur f ORDER BY f.Libelle")
 public class Fournisseur 
 {
 	@Id 
