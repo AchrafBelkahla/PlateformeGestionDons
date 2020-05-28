@@ -50,6 +50,8 @@ public class Importer_Etablissement extends HttpServlet {
 	
 	protected Boolean find_etablissement(List<Etablisement> liste, String name) {
 		for (Etablisement etab : liste) {
+
+
 			if(etab.getNomEtablissement().toLowerCase().equals(name.toLowerCase())){
 				return true;
 			}
@@ -91,36 +93,42 @@ public class Importer_Etablissement extends HttpServlet {
      ///////////////////////////////////////////
 		if (fileParts.get(0).getSubmittedFileName().length() > 0) {
 			for (Part part : fileParts) {
-				System.out.println(part);
 				fileName = part.getSubmittedFileName();
-				System.out.println("\n" + fileName);
 				part.write(uploadPath + File.separator + s+fileName);
-				System.out.println("////////////////////");
 				System.out.println(uploadPath + File.separator + fileName);
 
 			}
 
 		}
-		int numLigne = 1;
+		
 
 		File initialFile = new File(uploadPath + File.separator +s+ fileName);
-
+		String message ="";
+		if(initialFile!=null)
+		{
 		XSSFWorkbook workbook = new XSSFWorkbook(new FileInputStream(initialFile));
 		int sheetIndex = 0;
 		XSSFSheet datatypeSheet = workbook.getSheetAt(sheetIndex);
-		System.out.println("\n+++++++++++////////////////////");
-
+		System.out.println("\n++++++++++++++++++ Hopital ++++++++++++++++++++++++++");
+		int clean =0;
+		int notClean = 0;
 		Iterator<Row> iterator = datatypeSheet.iterator();
 		Row currentRow = iterator.next();
 		try {
+			int numLigne = 1;
 			while (iterator.hasNext()) {
 
 				numLigne++;
 				currentRow = iterator.next();
 				int nbCells = currentRow.getLastCellNum();
-				if (nbCells < 3) {
-
-					request.setAttribute("msg", "verifier les nomres de colonnes");
+				if(nbCells >=8 &&( clean>0 || notClean>0)) {
+					message = message + "Hopitaux ajoutés";
+					break;
+				}
+				if (nbCells <8 && clean ==0 && notClean==0) {
+					System.out.println("Hopital not OK");
+					message = message + "Verifier le nombre de colonnes hopital";
+					break;
 				} else {
 					Iterator<Cell> cellIterator = currentRow.cellIterator();
 					String Nom_établissement = "";
@@ -129,7 +137,9 @@ public class Importer_Etablissement extends HttpServlet {
 					Cell currentCell = cellIterator.next();
 					if (currentCell.getCellType() != CellType.BLANK && currentCell.getCellType() == CellType.STRING) {
 						Nom_établissement = currentCell.getStringCellValue();
+						notClean++;
 					} else {
+						clean++;
 						continue;
 					}
 					currentCell = cellIterator.next();
@@ -140,8 +150,7 @@ public class Importer_Etablissement extends HttpServlet {
 					if (currentCell.getCellType() != CellType.BLANK && currentCell.getCellType() == CellType.STRING) {
 						Adresse = currentCell.getStringCellValue();
 					}
-					if (!Nom_établissement.equals(null) && find_etablissement(metier.getAllHospital(), Nom_établissement)) {
-						
+					if (!Nom_établissement.equals(null) && !find_etablissement(metier.getAllHospital(), Nom_établissement)) {
 						///////////////////////////////////////////////////////////////////////
 						Etablisement etablisement = new Etablisement();
 						etablisement.setNomEtablissement(Nom_établissement);
@@ -167,17 +176,24 @@ public class Importer_Etablissement extends HttpServlet {
 			//////////////////////////////////////////// DRS//////////////////////////////////////////////
 			numLigne = 0;
 			XSSFSheet datatypeSheet1 = workbook.getSheetAt(1);
-
+			System.out.println("\n++++++++++++++++++ DRS ++++++++++++++++++++++++++");
 			Iterator<Row> iterator1 = datatypeSheet1.iterator();
 			currentRow = iterator1.next();
-
+			clean = 0;
+			notClean = 0;
 			while (iterator1.hasNext()) {
-
+				
 				numLigne++;
 				currentRow = iterator1.next();
 				int nbCells = currentRow.getLastCellNum();
-				if (nbCells < 2) {
-					request.setAttribute("msg", "verifier les nomres de colonnes");
+				if(nbCells <2 &&( clean>0 || notClean>0)) {
+					message = message + ", DRS ajoutés";
+					break;
+				}
+				if (nbCells < 2 && clean ==0 && notClean==0) {
+					System.out.println("DRS not OK");
+					message = message + ", verifier le nombre de colonnes DRS";
+					break;
 				} else {
 					Iterator<Cell> cellIterator = currentRow.cellIterator();
 					String Nom_établissement = "";
@@ -186,7 +202,9 @@ public class Importer_Etablissement extends HttpServlet {
 					Cell currentCell = cellIterator.next();
 					if (currentCell.getCellType() != CellType.BLANK && currentCell.getCellType() == CellType.STRING) {
 						Nom_établissement = currentCell.getStringCellValue();
+						notClean++;
 					} else {
+						clean++;
 						continue;
 					}
 					currentCell = cellIterator.next();
@@ -201,7 +219,7 @@ public class Importer_Etablissement extends HttpServlet {
 						etablisement.setHospital(false);
 						etablisement.setMinistraire(false);
 						etablisement.setDrs(true);
-						etablisement.setLibelle("HR");
+						etablisement.setLibelle("DRS");
 
 						//////////////////////////////////////////////////////////////////////////////
 						Adresse adresse = new Adresse();
@@ -211,8 +229,6 @@ public class Importer_Etablissement extends HttpServlet {
 						etablisement.setAdresse(adresse);
 
 						metier.ajouteetablissement(etablisement);
-						System.out.println(etablisement.toString());
-
 					}
 				}
 
@@ -221,24 +237,30 @@ public class Importer_Etablissement extends HttpServlet {
 			//////////////////////////////////////////// INTERMEDIAIRE//////////////////////////////////////////////
 			numLigne = 0;
 			XSSFSheet datatypeSheet2 = workbook.getSheetAt(2);
-			System.out.println("\n+++++++++++////////////////////");
+
 
 			Iterator<Row> iterator2 = datatypeSheet2.iterator();
 			currentRow = iterator2.next();
 			currentRow = iterator2.next();
 
 			System.out.println("+++++++++++INTERMEDIAIRE+++++++++++++++++");
-
+			clean = 0;
+			notClean = 0;
 			while (iterator2.hasNext()) {
 				try {
 				numLigne++;
 				currentRow = iterator2.next();
 				int nbCells = currentRow.getLastCellNum();
-				if (nbCells < 8) {
-
-					request.setAttribute("msg", "verifier les nomres de colonnes");
+				if(nbCells <8 &&( clean>0 || notClean>0)) {
+					message = message + ", Intermediares ajoutés";
+					break;
+				}
+				// file does not contain any data
+				if (nbCells < 8 && clean ==0 && notClean==0) {
+					System.out.println("intermediare not OK");
+					message = message + ", verifier le nombre de colonnes intermediaire";
+					break;
 				} else {
-					System.out.println(numLigne);
 					Iterator<Cell> cellIterator = currentRow.cellIterator();
 					String Nom_établissement = "";
 					String Gouvernorat = "";
@@ -247,7 +269,9 @@ public class Importer_Etablissement extends HttpServlet {
 					Cell currentCell = cellIterator.next();
 					if (currentCell.getCellType() != CellType.BLANK && currentCell.getCellType() == CellType.STRING) {
 						Nom_établissement = currentCell.getStringCellValue();
+						notClean++;
 					} else {
+						clean++;
 						continue;
 					}
 					currentCell = cellIterator.next();
@@ -260,7 +284,7 @@ public class Importer_Etablissement extends HttpServlet {
 					}
 					
 
-					if (!Nom_établissement.equals(null) && find_etablissement(metier.getAllIntermediaire(), Nom_établissement)) {
+					if (!Nom_établissement.equals(null) && !find_etablissement(metier.getAllIntermediaire(), Nom_établissement)) {
 						
 						///////////////////////////////////////////////////////////////////////
 						Etablisement etablisement = new Etablisement();
@@ -269,7 +293,7 @@ public class Importer_Etablissement extends HttpServlet {
 						etablisement.setHospital(false);
 						etablisement.setMinistraire(false);
 						etablisement.setDrs(false);
-						etablisement.setLibelle("HR");
+						etablisement.setLibelle("Intermediare");
 						////////////////////////////////////////////
 
 
@@ -299,7 +323,12 @@ public class Importer_Etablissement extends HttpServlet {
 			workbook.close();
 
 		}
-
+	}
+		else
+		{
+			message = message + "veuillez ajouter un fichier";
+		}
+		request.setAttribute("msg", message);
 		request.getRequestDispatcher("Dashboard_ministere/Upload_Etablissement.jsp").forward(request, response);
 	}
 
