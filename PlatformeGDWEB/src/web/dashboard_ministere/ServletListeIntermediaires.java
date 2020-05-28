@@ -28,7 +28,7 @@ public class ServletListeIntermediaires extends HttpServlet{
 
 		int currentPage = Integer.valueOf(req.getParameter("currentPage"));
 		List<Etablisement> etablissements = dao.getAllIntermediaire(currentPage,GlobalConfig.recordsPerPage);
-		int rows = (int) dao.getNumberOfRows("Categorie");
+		int rows = (int) dao.getNumberOfRowsIntermediaire("Etablisement");
         int nOfPages = rows / GlobalConfig.recordsPerPage;
         
         if (nOfPages % GlobalConfig.recordsPerPage > 0) {

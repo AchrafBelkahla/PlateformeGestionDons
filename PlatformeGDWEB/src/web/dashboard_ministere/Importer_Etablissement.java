@@ -121,7 +121,7 @@ public class Importer_Etablissement extends HttpServlet {
 				numLigne++;
 				currentRow = iterator.next();
 				int nbCells = currentRow.getLastCellNum();
-				if(nbCells >=8 &&( clean>0 || notClean>0)) {
+				if(clean>1) {
 					message = message + "Hopitaux ajoutés";
 					break;
 				}
@@ -138,6 +138,7 @@ public class Importer_Etablissement extends HttpServlet {
 					if (currentCell.getCellType() != CellType.BLANK && currentCell.getCellType() == CellType.STRING) {
 						Nom_établissement = currentCell.getStringCellValue();
 						notClean++;
+						clean=0;
 					} else {
 						clean++;
 						continue;
@@ -324,10 +325,8 @@ public class Importer_Etablissement extends HttpServlet {
 
 		}
 	}
-		else
-		{
-			message = message + "veuillez ajouter un fichier";
-		}
+		else message = message + "veuillez ajouter un fichier";
+
 		request.setAttribute("msg", message);
 		request.getRequestDispatcher("Dashboard_ministere/Upload_Etablissement.jsp").forward(request, response);
 	}

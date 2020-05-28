@@ -112,7 +112,9 @@ public interface PlatformGDLocal {
 	//read
 	
 	public long getNumberOfRows(String type);
-
+	public long getNumberOfRowsHopitaux(String type);
+	public long getNumberOfRowsIntermediaire(String type);
+	public long getNumberOfRowsDRS(String type);
 	
 	public List<Besoin> getAllBesoin();
 	public List<Produit> getAllProduit(int current, int nbRecords);
@@ -202,5 +204,9 @@ public interface PlatformGDLocal {
 		public Utilisateur authentification_Utilisateur(String email);
 		public List<Etablisement> getIntermediaireByGouvernorat(String gouvernorat, int current, int nbRecords);
 		public List<Utilisateur> getAllDonnateurs();
+
+
+
+		
 
 }

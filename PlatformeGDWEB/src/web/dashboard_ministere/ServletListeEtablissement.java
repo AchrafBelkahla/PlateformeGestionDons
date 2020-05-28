@@ -30,7 +30,7 @@ public class ServletListeEtablissement extends HttpServlet{
 
 		int currentPage = Integer.valueOf(req.getParameter("currentPage"));
 		List<Etablisement> etablissements = dao.getAllHospital(currentPage,GlobalConfig.recordsPerPage);
-        int rows = (int) etablissements.size();
+        int rows = (int) dao.getNumberOfRowsHopitaux("Etablisement");
         int nOfPages = rows / GlobalConfig.recordsPerPage;
         
         if (nOfPages % GlobalConfig.recordsPerPage > 0) {

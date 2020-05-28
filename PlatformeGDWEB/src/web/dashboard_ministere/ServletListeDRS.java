@@ -28,7 +28,7 @@ public class ServletListeDRS extends HttpServlet{
 		
 		int currentPage = Integer.valueOf(req.getParameter("currentPage"));
 		List<Etablisement> etablissements = dao.getAllDrs(currentPage,GlobalConfig.recordsPerPage);
-		int rows = (int) dao.getNumberOfRows("Etablisement");
+		int rows = (int) dao.getNumberOfRowsDRS("Etablisement");
         int nOfPages = rows / GlobalConfig.recordsPerPage;
         
         if (nOfPages % GlobalConfig.recordsPerPage > 0) {

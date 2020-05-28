@@ -110,7 +110,9 @@ public interface PlatformGDRemote {
 	//read
 	
 	public long getNumberOfRows(String type);
-
+	public long getNumberOfRowsHopitaux(String type);
+	public long getNumberOfRowsIntermediaire(String type);
+	public long getNumberOfRowsDRS(String type);
 	
 	public List<Besoin> getAllBesoin();
 	public List<Produit> getAllProduit(int current, int nbRecords);

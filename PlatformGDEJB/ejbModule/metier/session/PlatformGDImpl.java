@@ -837,6 +837,33 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		numOfRows = (long) req.getSingleResult();
         return numOfRows;
 	}
+	@Override
+	public long getNumberOfRowsDRS(String type)
+	{
+        long numOfRows = 0;
+        String reqString = "SELECT COUNT(*) FROM "+type + " where drs=1";
+        Query req = em.createQuery(reqString);
+		numOfRows = (long) req.getSingleResult();
+        return numOfRows;
+	}
+	@Override
+	public long getNumberOfRowsIntermediaire(String type)
+	{
+        long numOfRows = 0;
+        String reqString = "SELECT COUNT(*) FROM "+type + " where Intermediaire=1";
+        Query req = em.createQuery(reqString);
+		numOfRows = (long) req.getSingleResult();
+        return numOfRows;
+	}
+	@Override
+	public long getNumberOfRowsHopitaux(String type)
+	{
+        long numOfRows = 0;
+        String reqString = "SELECT COUNT(*) FROM "+type + " where hospital=1";
+        Query req = em.createQuery(reqString);
+		numOfRows = (long) req.getSingleResult();
+        return numOfRows;
+	}
 
 	@Override
 	public Utilisateur getUtilisateurById(String userId) 
