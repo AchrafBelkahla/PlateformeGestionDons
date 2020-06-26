@@ -43,7 +43,7 @@
                                 <a href="Liste_unite_de_mesure?currentPage=1">Unité</a>
                             </li>
                             <li >
-                                <a href="Liste_Etablissements?currentPage=1">Etablissments</a>
+                                <a href="Liste_Etablissements?currentPage=1">Hopitaux</a>
                             </li>
 
                             <li >

@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import javax.ejb.EJB;
@@ -80,21 +81,13 @@ public class Importer_Etablissement extends HttpServlet {
 		int photoIndex = 1;
 		List<Part> fileParts = request.getParts().stream().filter(part -> "file".equals(part.getName()))
 				.collect(Collectors.toList());
-		/////////////////////////////////
-		 String str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                 + "abcdefghijklmnopqrstuvxyz"; 
 
-     StringBuilder s = new StringBuilder(); 
 
-     for (int i = 0; i < 5; i++) { 
-         int index = (int)(str.length() * Math.random()); 
-         s.append(str.charAt(index)); 
-     } 
-     ///////////////////////////////////////////
 		if (fileParts.get(0).getSubmittedFileName().length() > 0) {
 			for (Part part : fileParts) {
 				fileName = part.getSubmittedFileName();
-				part.write(uploadPath + File.separator + s+fileName);
+				fileName = fileName+ "-" +UUID.randomUUID().toString();
+				part.write(uploadPath + File.separator +fileName);
 				System.out.println(uploadPath + File.separator + fileName);
 
 			}
@@ -102,7 +95,7 @@ public class Importer_Etablissement extends HttpServlet {
 		}
 		
 
-		File initialFile = new File(uploadPath + File.separator +s+ fileName);
+		File initialFile = new File(uploadPath + File.separator + fileName);
 		String message ="";
 		if(initialFile!=null)
 		{

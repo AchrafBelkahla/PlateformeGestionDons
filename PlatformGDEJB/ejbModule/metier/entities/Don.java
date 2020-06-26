@@ -46,6 +46,7 @@ public class Don implements Serializable{
 	
 	
 	public Don() {
+		this.id_don = UUID.randomUUID().toString();
 	}
 	public Don(Date datePlanifiee, boolean estAccepte, boolean estSupprime, String visibilite, boolean vu) {
 		this.id_don = UUID.randomUUID().toString();

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import metier.entities.Besoin;
+import metier.entities.Utilisateur;
 import metier.session.PlatformGDLocal;
 import web.GlobalConfig;
 
@@ -22,15 +22,14 @@ public class ServletListeDonnateurs extends HttpServlet{
 	private PlatformGDLocal dao;
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setAttribute("don_en_nature", dao.getAllDonsEnNature());
-		req.setAttribute("reglement", dao.getAllDonsReglement());
-		req.getRequestDispatcher("Dashboard_ministere/ListeDonnateurs.jsp").forward(req,resp);
+//		req.setAttribute("donateurs", dao.getAllDonnateurs());
+//		req.getRequestDispatcher("Dashboard_ministere/ListeDonnateurs.jsp").forward(req,resp);
 		
 		
 
 		int currentPage = Integer.valueOf(req.getParameter("currentPage"));
-		List<Besoin> besoins = dao.getAllBesoin(currentPage,GlobalConfig.recordsPerPage);
-        int rows = (int) dao.getNumberOfRows("Besoin");
+		List<Utilisateur> donateurs = dao.getAllDonnateurs(currentPage,GlobalConfig.recordsPerPage);
+        int rows = (int) dao.getNumberOfRowsDonateurs("Utilisateur");
         int nOfPages = rows / GlobalConfig.recordsPerPage;
         
         if (nOfPages % GlobalConfig.recordsPerPage > 0) {
@@ -40,7 +39,7 @@ public class ServletListeDonnateurs extends HttpServlet{
         req.setAttribute("noOfPages", nOfPages);
         req.setAttribute("currentPage", currentPage);
         req.setAttribute("recordsPerPage", GlobalConfig.recordsPerPage);
-		req.setAttribute("besoins", besoins);
+		req.setAttribute("donateurs", donateurs);
 		req.getRequestDispatcher("Dashboard_ministere/ListeDonnateurs.jsp").forward(req,resp);
 	}
 	@Override

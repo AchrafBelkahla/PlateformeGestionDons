@@ -10,7 +10,7 @@
 	</div>
 		<div class="container">
 				<a href="ajoutProduitMinistere" class="btn btn-success">Ajouter un produit</a>
-				<a href="Importer_produit" class="btn btn-default">Importer un fichier excel des produits</a>
+<!-- 				<a href="Importer_produit" class="btn btn-default">Importer un fichier excel des produits</a> -->
 		<table class="table">
 			<thead class="thead-dark">
 				<tr>
@@ -21,7 +21,7 @@
 					<th scope="col">Catégorie</th>
 					<th scope="col">Fournisseurs</th>
 					<th></th>
-					<th></th>
+<!-- 					<th></th> -->
 				</tr>
 			</thead>
 			<tbody>
@@ -44,7 +44,7 @@
       					<td>
       						<a href="editProduitMinistere?idProduit=${produit.getIdProduit()}" class="btn btn-warning btn-sm" role="button" id="editproduit">Editer</a>
 						</td>
-						<td><button class="btn btn-danger btn-sm" id="deleteproduct">Supprimer </button></td>
+<!-- 						<td><button class="btn btn-danger btn-sm" id="deleteproduct">Supprimer </button></td> -->
 					</tr>
 				</c:forEach>
 			</tbody>

@@ -31,6 +31,14 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		Query req = em.createQuery("select d from DonEnNature d");
 		return req.getResultList();
 	}
+	
+	@Override
+	public List<Don> getAllDonsEnNature(int current, int nbRecords) {
+		int start = current * nbRecords - nbRecords;
+		Query req = em.createQuery("SELECT d FROM DonEnNature d");
+		return req.setFirstResult(start).setMaxResults(nbRecords).getResultList();
+	}
+	
 	@Override
 	public List<Reglement> getAllDonsReglement() {
 		Query req = em.createQuery("select r from Reglement r");
@@ -530,13 +538,7 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		return req.getResultList();
 	}
 
-	@Override
-	public List<Utilisateur> getAllDonnateurs(){
-		String role = "donateur";
-		Query req = em.createNativeQuery("SELECT u FROM Utilisateur u where u.role=:x");
-		req.setParameter("x", role);
-		return req.getResultList();
-	}
+
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -617,19 +619,9 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 //			return null;
 //		}
 //	}
-	
-	public Utilisateur authentification_Utilisateur(String email) {
-		try {
-			Query tq = em.createQuery("select u from Utilisateur u WHERE email=? ", Utilisateur.class);
-			tq.setParameter(1, email);
-			Utilisateur utilisateur = (Utilisateur) tq.getSingleResult();
-			em.merge(utilisateur);
-			return utilisateur;
-		} catch (Exception noresult) {
-			return null;
-		}
-	}
 
+	
+	
 	@Override
 	public Etablisement verification_du_compte(Utilisateur utilisateur) {
 		Query query1 = em.createQuery("SELECT E.IdEtablissement FROM t_etablissement_utilisateur E WHERE E.idut  = '"
@@ -677,17 +669,7 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 			return utilisateur;
 	}
 
-	@Override
-	public Utilisateur veriff(String mail) {
-		try {
-			Query tq = em.createQuery("select u from Utilisateur u WHERE u.email =:x", Utilisateur.class);
-			tq.setParameter("x", mail);
-			Utilisateur utilisateur = (Utilisateur) tq.getSingleResult();
-			return utilisateur;
-		} catch (Exception noresult) {
-			return null;
-		}
-	}
+
 	@Override
 	public List<Besoin> getBesoinsByEtablissement(String idE) {
 		
@@ -800,7 +782,25 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		req.setParameter("x", gouvernorat);
 		return req.getResultList();
 	}
+	
+	
+	@Override
+	public List<Utilisateur> getAllDonnateurs(){
+		String role = "donateur";
+		Query req = em.createQuery("SELECT u FROM Utilisateur u where u.role=:x");
+		req.setParameter("x", role);
+		return req.getResultList();
+	}
 
+	@Override
+	public List<Utilisateur> getAllDonnateurs(int current, int nbRecords) {
+		int start = current * nbRecords - nbRecords;
+		String role = "donateur";
+		Query req = em.createQuery("SELECT u FROM Utilisateur u where u.role=:x");
+		req.setParameter("x", role);
+		return req.setFirstResult(start).setMaxResults(nbRecords).getResultList();
+	}
+	
 	@Override
 	public List<DonEnNature> getAllDonsEnNatureByGouvernorat(String gouvernorat) {
 		Query req = em.createQuery("select d from DonEnNature d where d.etablissement.adresse.gouvernorat=:x");
@@ -861,6 +861,17 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
         long numOfRows = 0;
         String reqString = "SELECT COUNT(*) FROM "+type + " where hospital=1";
         Query req = em.createQuery(reqString);
+		numOfRows = (long) req.getSingleResult();
+        return numOfRows;
+	}
+	
+	@Override
+	public long getNumberOfRowsDonateurs(String type)
+	{
+        long numOfRows = 0;
+        String reqString = "SELECT COUNT(*) FROM "+type + " where role=:x";
+        Query req = em.createQuery(reqString);
+        req.setParameter("x", "donateur");
 		numOfRows = (long) req.getSingleResult();
         return numOfRows;
 	}
@@ -969,14 +980,40 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		req.setParameter("x", intermediaire);
 		return req.setFirstResult(start).setMaxResults(nbRecords).getResultList();
 	}
+
+	
+	@Override
+	public Utilisateur authentification_Utilisateur(String email) {
+		try {
+			Query tq = em.createQuery("select u from Utilisateur u WHERE email=? ", Utilisateur.class);
+			tq.setParameter(1, email);
+			Utilisateur utilisateur = (Utilisateur) tq.getSingleResult();
+			em.merge(utilisateur);
+			return utilisateur;
+		} catch (Exception noresult) {
+			return null;
+		}
+	}
+
+	
+	@Override
+	public Utilisateur veriff(String mail) {
+		try {
+			Query tq = em.createQuery("select u from Utilisateur u WHERE u.email =:x", Utilisateur.class);
+			tq.setParameter("x", mail);
+			Utilisateur utilisateur = (Utilisateur) tq.getSingleResult();
+			return utilisateur;
+		} catch (Exception noresult) {
+			return null;
+		}
+	}		
 	
 	@Override
 	public Etablisement authentification_Etablissement(String nom) {
 		try {
-			Query tq = em.createQuery("select u from Etablisement u WHERE NomEtablissement=? ", Etablisement.class);
-			tq.setParameter(1, nom);
-			Etablisement etablisement = (Etablisement) tq.getSingleResult();
-			em.merge(etablisement);
+			Query tq = em.createQuery("select u from Etablisement u WHERE u.NomEtablissement=:x ", Etablisement.class);
+			tq.setParameter("x", nom);
+			Etablisement etablisement = (Etablisement) tq.getSingleResult();	
 			return etablisement;
 		} catch (Exception noresult) {
 			return null;
@@ -985,10 +1022,9 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 	@Override
 	public boolean veriff_nom_etablissement(String nom) {
 		try {
-			Query tq = em.createQuery("select u from Etablisement u WHERE NomEtablissement=?", Etablisement.class);
+			Query tq = em.createQuery("select u from Etablisement u WHERE u.NomEtablissement=?", Etablisement.class);
 			tq.setParameter(1, nom);
 			Etablisement etablisement = (Etablisement) tq.getSingleResult();
-			em.merge(etablisement);
 			return true;
 		} catch (Exception noresult) {
 			return false;

@@ -205,8 +205,12 @@ public interface PlatformGDLocal {
 		public List<Etablisement> getIntermediaireByGouvernorat(String gouvernorat, int current, int nbRecords);
 		public List<Utilisateur> getAllDonnateurs();
 
+		public List<Utilisateur> getAllDonnateurs(int current, int nbRecords);
 
 
+		public long getNumberOfRowsDonateurs(String type);
+
+		public List<Don> getAllDonsEnNature(int current, int nbRecords);
 		
 
 }

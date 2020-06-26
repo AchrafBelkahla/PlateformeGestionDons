@@ -10,7 +10,7 @@
 	<div class="container">
 		<a href="ajoutFournisseurMinistere" class="btn btn-success">Ajouter
 			un fournisseur</a>
-		<a href="Importer_fournisseur" class="btn btn-default">Importer un fichier des fournisseurs</a>
+<!-- 		<a href="Importer_fournisseur" class="btn btn-default">Importer un fichier des fournisseurs</a> -->
 		<table class="table sortable">
 			<thead class="thead-dark">
 				<tr>
@@ -20,7 +20,7 @@
 					<th scope="col">Télèphone</th>
 					<th scope="col">Produits</th>
 					<th></th>
-					<th></th>
+<!-- 					<th></th> -->
 				</tr>
 			</thead>
 			<tbody>
@@ -38,8 +38,8 @@
 							href="editFournisseur?idFournisseur=${fournisseur.getIdF()}"
 							class="btn btn-warning btn-sm" role="button" id="editfournisseur">Editer</a>
 						</td>
-						<td><button class="btn btn-danger btn-sm"
-								id="deletefournisseur">Supprimer</button></td>
+<!-- 						<td><button class="btn btn-danger btn-sm" -->
+<!-- 								id="deletefournisseur">Supprimer</button></td> -->
 
 					</tr>
 				</c:forEach>

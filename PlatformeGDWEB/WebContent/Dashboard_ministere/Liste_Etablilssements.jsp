@@ -8,7 +8,7 @@
 		</div>
 		<a href="AjoutEtablissement" class="btn btn-success">Ajouter un
 			établissement</a>
-			<a href="Importer_Etablissement" class="btn btn-default">Importer un fichier excel des établissements</a>
+<!-- 			<a href="Importer_Etablissement" class="btn btn-default">Importer un fichier excel des établissements</a> -->
 	</div>
 	<div class="container">
 		<table class="table">
@@ -17,7 +17,7 @@
 					<th scope="col">Nom établissement</th>
 					<th scope="col">Libellé</th>
 					<th scope="col">Adresse</th>
-					<th scope="col">Nom&Prenom responsable</th>
+					<th scope="col">Nom & Prénom du responsable</th>
 					<th scope="col">Télèphone responsable</th>
 				</tr>
 			</thead>
@@ -48,9 +48,6 @@
 											</c:if>
 										</c:forEach>
 						</td>
-						<td><c:out value="${besoin.getPriorite()}"></c:out></td>
-						<td><a href="besoinMinistere?idBesoin=${besoin.getIdBesoin()}" 
-										class="btn btn-default" id="consulter">Consulter</a></td>
 
 					</tr>
 				</c:forEach>

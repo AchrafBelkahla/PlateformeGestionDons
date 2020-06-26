@@ -1,95 +1,79 @@
 <%@ include file="__header.jsp"%>
 <%@ include file="menu_ministere.jsp"%>
 <section class="page-section">
-	<div class="container">
-		<div class="row">	
-			<div class="vcenter col-md-12 text-center">
-				<div class="visible-sm-block visible-xs-block top-margin-10">
-					<div class="form-box-cha9a9a widget bottom-pad-0"
-						style="padding-top: 0px;"></div>
-				</div>
 
-				<div class="form-box-cha9a9a top-margin-20"
-					style="padding: 10px !important;">
-					<div class="container">
-						<h1>Liste des donateurs</h1>
-						<div class="row">
-							<div
-								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Nom donateur</span></strong>
-							</div>
-							<div
-								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Prénom</span></strong>
-							</div>
-							<div
-								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Adresse mail</span></strong>
-							</div>
-							<div
-								class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Numéro de télèphone</span></strong>
-							</div>
-							<div class="col-xs-2 col-sm-2 text-center fund-bottom-border lr-pad-10">
-								<strong><span class="text-color">Statut</span></strong>
-							</div>
-							<div class="col-xs-2 col-sm-2 text-center lr-pad-10">
-								<strong><span class="text-color">Région</span></strong>
-							</div>
-						</div>
-						<hr class="margin-20">
-						<c:forEach var="donnateur" items="${don_en_nature}">
-							<c:if test="${donnateur.isEstAccepte() == 'true'}">
-								<div class="row">
-									<div class="col-xs-2 col-sm-2 text-center">
-										<h5>${donnateur.getUtilisateur().getNom()}</h5>
-									</div>
-									<div class="col-xs-2 col-sm-2 text-center">
-										<h5>${donnateur.getUtilisateur().getPrenom()}</h5>
-									</div>
-									<div class="col-xs-2 col-sm-2 text-center">
-										<h5>${donnateur.getUtilisateur().getEmail()}</h5>
-									</div>
-									<div class="col-xs-2 col-sm-2 text-center">
-										<h5>${donnateur.getUtilisateur().getTelephone().iterator().next().getNumero()}</h5>
-									</div>
-									<div class="col-xs-2 col-sm-2 text-center">
-										<h5>${donnateur.getUtilisateur().getRole()}</h5>
-									</div>
-									<div class="col-xs-2 col-sm-2 text-center">
-										<h5>${donnateur.getUtilisateur().getAdresse().getGouvernorat()}</h5>
-									</div>
-								</div>
-							</c:if>
-						</c:forEach>
-						<c:forEach var="donnateur" items="${reglement}">
-							<c:if test="${donnateur.isEstAccepte() == 'true'}">
-								<div class="row">
-									<div class="col-xs-2 col-sm-2 text-center">
-										<h5>${donnateur.getUtilisateur().getNom()}</h5>
-									</div>
-									<div class="col-xs-2 col-sm-2 text-center">
-										<h5>${donnateur.getUtilisateur().getPrenom()}</h5>
-									</div>
-									<div class="col-xs-2 col-sm-2 text-center">
-										<h5>${donnateur.getUtilisateur().getEmail()}</h5>
-									</div>
-									<div class="col-xs-2 col-sm-2 text-center">
-										<h5>${donnateur.getUtilisateur().getTelephone().iterator().next()}</h5>
-									</div>
-									<div class="col-xs-2 col-sm-2 text-center">
-										<h5>${donnateur.getUtilisateur().getRole()}</h5>
-									</div>
-									<div class="col-xs-2 col-sm-2 text-center">
-										<h5>${donnateur.getUtilisateur().getAdresse().getGouvernorat()}</h5>
-									</div>
-								</div>
-							</c:if>
-						</c:forEach>
-					</div>
-				</div>
-			</div>
+	<div class="container">
+		<div class="row text-center">
+			<h1>Liste des donateurs</h1>
 		</div>
+<!-- 		<a href="Importer_Donateurs" class="btn btn-default">Importer des donateurs</a> -->
 	</div>
+	<div class="container">
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">Nom</th>
+					<th scope="col">Prénom</th>
+					<th scope="col">Email</th>
+					<th scope="col">Numéro de télèphone</th>
+					<th scope="col">Région</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="donnateur" items="${donateurs}">
+					<tr>
+						<c:choose>
+						    <c:when test="${not empty donnateur.getNom()}">
+								<td><c:out value="${donnateur.getNom()}"></c:out></td>
+						    </c:when>    
+						    <c:otherwise>
+						        <td> - </td> 
+						    </c:otherwise>
+						</c:choose>					
+						<c:choose>
+						    <c:when test="${not empty donnateur.getPrenom()}">
+						<td><c:out value="${donnateur.getPrenom()}"></c:out></td>
+						    </c:when>    
+						    <c:otherwise>
+						        <td> - </td> 
+						    </c:otherwise>
+						</c:choose>	
+						<c:choose>
+						    <c:when test="${not empty donnateur.getEmail()}">
+								<td><c:out value="${donnateur.getEmail()}"></c:out></td>
+						    </c:when>    
+						    <c:otherwise>
+						        <td> - </td> 
+						    </c:otherwise>
+						</c:choose>	
+
+
+						<c:choose>
+						    <c:when test="${not empty donnateur.getTelephone()}">
+								<td><c:out value="${donnateur.getTelephone().iterator().next().getNumero()}"></c:out></td>
+						    </c:when>    
+						    <c:otherwise>
+						        <td> - </td> 
+						    </c:otherwise>
+						</c:choose>
+						<c:choose>
+						    <c:when test="${not empty donnateur.getAdresse()}">
+								<td><c:out value="${donnateur.getAdresse().getGouvernorat()}"></c:out></td>	
+						    </c:when>    
+						    <c:otherwise>
+						        <td> - </td> 
+						    </c:otherwise>
+						</c:choose>															
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+		<jsp:include page="../pagination.jsp">
+	        	<jsp:param name="currentPage" value="${currentPage}"/>
+	        	<jsp:param name="noOfPages" value="${noOfPages}"/>
+	        	<jsp:param name="link" value="Liste_Donateurs"/>
+	    </jsp:include>
+	</div>
+
 </section>
 <%@ include file="__footer.jsp"%>

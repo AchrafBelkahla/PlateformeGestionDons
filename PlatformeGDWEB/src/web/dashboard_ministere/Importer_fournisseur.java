@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import javax.ejb.EJB;
@@ -70,19 +71,9 @@ public class Importer_fournisseur extends HttpServlet {
 
 		if (fileParts.get(0).getSubmittedFileName().length() > 0) {
 			for (Part part : fileParts) {
-				System.out.println(part);
 				fileName = part.getSubmittedFileName();
-//					extension = fileName.substring(fileName.lastIndexOf(".") + 1);
-//				    fileName = fileName.substring(0,fileName.lastIndexOf("."));
-//				    fileName = fileName + "__" + Integer.toString(photoIndex) + "." +extension;
-//				    photoIndex++;
-//				    Photo photo = new Photo();
-//				    photo.setIdP(fileName);    // Id photo = filename in directory
-//				    dao.ajoutPhoto(photo);
-//				    photos.add(photo);
-				System.out.println("\n" + fileName);
-				part.write(uploadPath + File.separator + fileName);
-				System.out.println("////////////////////");
+				fileName = fileName+ "-" +UUID.randomUUID().toString();
+				part.write(uploadPath + File.separator +fileName);
 				System.out.println(uploadPath + File.separator + fileName);
 
 			}
