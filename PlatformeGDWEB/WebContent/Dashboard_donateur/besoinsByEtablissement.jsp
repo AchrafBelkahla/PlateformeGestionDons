@@ -204,43 +204,43 @@
 
 
 	<section class="page-section dark-bg">
-		<div class="container">
-			<div class="row text-center fact-counter white">
-				<div class="col-sm-4 col-md-4 bottom-xs-pad-30"
-					data-animation="fadeInLeft">
-					<!-- Icon -->
-					<i class="icon-user7 fa-3x text-color"></i>
-					<!-- number -->
-					<div class="count-number" data-count="1024">
-						<span class="counter"></span>
-					</div>
-					<!-- Title -->
-					<h4 class="text-color">Utilisateurs</h4>
-				</div>
-				<div class="col-sm-4 col-md-4 bottom-xs-pad-30"
-					data-animation="fadeInRight">
-					<!-- Icon -->
-					<i class="icon-organization fa-3x text-color"></i>
-					<!-- number -->
-					<div class="count-number" data-count="148">
-						<span class="counter"></span>
-					</div>
-					<!-- Title -->
-					<h4 class="text-color">Etablissements</h4>
-				</div>
-				<div class="col-sm-4 col-md-4 bottom-xs-pad-30"
-					data-animation="fadeInRight">
-					<!-- Icon -->
-					<i class="icon-heart3 fa-3x text-color"></i>
-					<!-- number -->
-					<div class="count-number" data-count="3740">
-						<span class="counter"></span>
-					</div>
-					<!-- Title -->
-					<h4 class="text-color">Donateurs</h4>
-				</div>
-			</div>
-		</div>
+<!-- 		<div class="container"> -->
+<!-- 			<div class="row text-center fact-counter white"> -->
+<!-- 				<div class="col-sm-4 col-md-4 bottom-xs-pad-30" -->
+<!-- 					data-animation="fadeInLeft"> -->
+<!-- 					Icon -->
+<!-- 					<i class="icon-user7 fa-3x text-color"></i> -->
+<!-- 					number -->
+<!-- 					<div class="count-number" data-count="1024"> -->
+<!-- 						<span class="counter"></span> -->
+<!-- 					</div> -->
+<!-- 					Title -->
+<!-- 					<h4 class="text-color">Utilisateurs</h4> -->
+<!-- 				</div> -->
+<!-- 				<div class="col-sm-4 col-md-4 bottom-xs-pad-30" -->
+<!-- 					data-animation="fadeInRight"> -->
+<!-- 					Icon -->
+<!-- 					<i class="icon-organization fa-3x text-color"></i> -->
+<!-- 					number -->
+<!-- 					<div class="count-number" data-count="148"> -->
+<!-- 						<span class="counter"></span> -->
+<!-- 					</div> -->
+<!-- 					Title -->
+<!-- 					<h4 class="text-color">Etablissements</h4> -->
+<!-- 				</div> -->
+<!-- 				<div class="col-sm-4 col-md-4 bottom-xs-pad-30" -->
+<!-- 					data-animation="fadeInRight"> -->
+<!-- 					Icon -->
+<!-- 					<i class="icon-heart3 fa-3x text-color"></i> -->
+<!-- 					number -->
+<!-- 					<div class="count-number" data-count="3740"> -->
+<!-- 						<span class="counter"></span> -->
+<!-- 					</div> -->
+<!-- 					Title -->
+<!-- 					<h4 class="text-color">Donateurs</h4> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
 	</section>
 
 

@@ -68,7 +68,7 @@ public class ServletListeBesoins extends HttpServlet{
 		int quantite = Integer.parseInt(request.getParameter("quantite"));
 		String priorite =  request.getParameter("Priorite");		
 		String motif =  request.getParameter("motif");
-		
+		System.out.println("hhxxxaqaazrfhhhh");
 		Besoin b = new Besoin(new Date(), "Non servi", quantite, quantite, priorite, false, motif);
 		Produit produit = dao.getProduitById(idProduit);
 		b.setProduit(produit);

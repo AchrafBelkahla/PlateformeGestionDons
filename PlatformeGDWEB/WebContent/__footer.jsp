@@ -35,8 +35,8 @@
                         <a href="https://www.facebook.com/santetunisie.rns.tn" target="_blank">&nbsp;
                             <i class="fa fa-facebook"></i>
                         </a>
-                        <a href="#" target="_blank">&nbsp;
-                            <i class="fa fa-twitter"></i>
+                        <a href="http://www.santetunisie.rns.tn/fr/" target="_blank">&nbsp;
+                            <i class="fa fa-link"></i>
                         </a>
                     </div>
 
@@ -49,7 +49,7 @@
         <div class="container">
             <div class="row">
                 <!-- Copyrights -->
-                <div class="col-xs-10 col-sm-6 col-md-6"> &copy; 2020 <a href="index.html"></a>.
+                <div class="col-xs-10 col-sm-6 col-md-6"> &copy; 2020 <a href="index.html"></a> Elèves ingénieurs de l''ENIT
                 </div>
                 <div class="col-xs-2  col-sm-6 col-md-6 text-right page-scroll gray-bg icons-circle i-3x">
                     <!-- Goto Top -->

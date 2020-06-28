@@ -1,11 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page session="true" %>
 <%@ include file="__header.jsp"%>
 
-<%@ include file="menu.jsp"%>
 
 
+		            <c:choose>
+		                <c:when test="${sessionScope.user == null}">
+		                	<%@ include file="menu.jsp"%>
+		                </c:when>
+		                <c:otherwise>
+							<c:choose>
+				             	<c:when test="${sessionScope.user.role== 'donateur'}">
+				                	<%@ include file="Dashboard_donateur/menu_donnateur.jsp"%>	
+				              	</c:when>
+				              	<c:otherwise>
+					              	<c:choose>
+						        		<c:when test="${sessionScope.user.getEtablissement().getDrs()== true}">
+						                	<%@ include file="Dashboard_drs/menu_drs.jsp"%>	
+						              	</c:when>
+						              	<c:otherwise>
+						              		<%@ include file="Dashboard_etablissement/menu_etablissement.jsp"%>	
+						              	</c:otherwise>	
+						             </c:choose>					              	
+				              	</c:otherwise>
+				           </c:choose>
+				         </c:otherwise>
+				      </c:choose>
 
     
         <section class="slider rs-slider-full" id="home">
@@ -136,7 +158,7 @@
                         <h2 class="title"><strong>كيفيّة  <span class="text-color"> الوقاية</span></strong></h2>
                     </div>
                     <p class="card-text">احرص على العناية بصحتك وحماية الآخرين.</p>
-                    <a href="#" class="btn btn-primary">Voir plus</a>
+                    <a href="https://covid-19.tn/%d9%83%d9%8a%d9%81%d9%8a%d8%a9-%d8%a7%d9%84%d9%88%d9%82%d8%a7%d9%8a%d8%a9-%d8%a7%d9%84%d8%a3%d8%b3%d8%a7%d8%b3%d9%8a%d8%a9-%d9%85%d9%86-%d9%81%d9%8a%d8%b1%d9%88%d8%b3-%d9%83%d9%88%d8%b1%d9%88%d9%86/" class="btn btn-primary">Voir plus</a>
                 </div>
                 <div class="card">
                   <img src="https://aawsat.com/sites/default/files/2020/03/19/568356835685698467946799.jpg" class="card-img-top" alt="" style=" height: 190px !important ; width:300px !important">
@@ -144,7 +166,7 @@
                         <h2 class="title"><strong>الوضعية الحالية  <span class="text-color">في تونس  </span></strong></h2>
                     </div>
                     <p class="card-text">الحالات النشيطة حسب الولايات.</p>
-                    <a href="https://covid-19.tn/%d9%83%d9%8a%d9%81%d9%8a%d8%a9-%d8%a7%d9%84%d9%88%d9%82%d8%a7%d9%8a%d8%a9-%d8%a7%d9%84%d8%a3%d8%b3%d8%a7%d8%b3%d9%8a%d8%a9-%d9%85%d9%86-%d9%81%d9%8a%d8%b1%d9%88%d8%b3-%d9%83%d9%88%d8%b1%d9%88%d9%86/" class="btn btn-primary">Voir plus</a>
+                    <a href="https://covid-19.tn/%d9%84%d9%88%d8%ad%d8%a9-%d8%a7%d9%84%d9%82%d9%8a%d8%a7%d8%af%d8%a9/?fbclid=IwAR1TcWvnI3qV9y_QQyVqJnDSuqbO6VaQWYJXkOw-sJD0Xn797MG9yUxnnaQ" class="btn btn-primary">Voir plus</a>
                 </div>
             </div>
             <div class="row-modified" style="margin-top: 100px;">
@@ -189,34 +211,34 @@
 
 
         <section class="page-section dark-bg">
-        <div class="container">
-        <div class="row text-center fact-counter white">
-            <div class="col-sm-4 col-md-4 bottom-xs-pad-30" data-animation="fadeInLeft">
-                <!-- Icon -->
-                <i class="icon-user7 fa-3x text-color"></i>
-                <!-- number -->
-                <div class="count-number" data-count="1024"><span class="counter"></span></div>
-                <!-- Title -->
-                <h4 class="text-color">Utilisateurs</h4>
-            </div>
-            <div class="col-sm-4 col-md-4 bottom-xs-pad-30" data-animation="fadeInRight">
-                <!-- Icon -->
-                <i class="icon-organization fa-3x text-color"></i>
-                <!-- number -->
-                <div class="count-number" data-count="148"><span class="counter"></span></div>
-                <!-- Title -->
-                <h4 class="text-color">Etablissements</h4>
-            </div>
-            <div class="col-sm-4 col-md-4 bottom-xs-pad-30" data-animation="fadeInRight">
-                <!-- Icon -->
-                <i class="icon-heart3 fa-3x text-color"></i>
-                <!-- number -->
-                <div class="count-number" data-count="3740"><span class="counter"></span></div>
-                <!-- Title -->
-                <h4 class="text-color">Donateurs</h4>
-            </div>
-        </div>
-    </div>
+<!--         <div class="container"> -->
+<!--         <div class="row text-center fact-counter white"> -->
+<!--             <div class="col-sm-4 col-md-4 bottom-xs-pad-30" data-animation="fadeInLeft"> -->
+<!--                 Icon -->
+<!--                 <i class="icon-user7 fa-3x text-color"></i> -->
+<!--                 number -->
+<!--                 <div class="count-number" data-count="1024"><span class="counter"></span></div> -->
+<!--                 Title -->
+<!--                 <h4 class="text-color">Utilisateurs</h4> -->
+<!--             </div> -->
+<!--             <div class="col-sm-4 col-md-4 bottom-xs-pad-30" data-animation="fadeInRight"> -->
+<!--                 Icon -->
+<!--                 <i class="icon-organization fa-3x text-color"></i> -->
+<!--                 number -->
+<!--                 <div class="count-number" data-count="148"><span class="counter"></span></div> -->
+<!--                 Title -->
+<!--                 <h4 class="text-color">Etablissements</h4> -->
+<!--             </div> -->
+<!--             <div class="col-sm-4 col-md-4 bottom-xs-pad-30" data-animation="fadeInRight"> -->
+<!--                 Icon -->
+<!--                 <i class="icon-heart3 fa-3x text-color"></i> -->
+<!--                 number -->
+<!--                 <div class="count-number" data-count="3740"><span class="counter"></span></div> -->
+<!--                 Title -->
+<!--                 <h4 class="text-color">Donateurs</h4> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--     </div> -->
 </section>
 
         
