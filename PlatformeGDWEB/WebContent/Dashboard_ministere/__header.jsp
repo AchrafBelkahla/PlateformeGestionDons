@@ -96,8 +96,8 @@
 }
 </style>
 
-<link href="../vjs.zencdn.net/7.1.0/video-js.css"  rel="stylesheet">
-<link href="assets/css/videojs.css"  rel="stylesheet">
+<!-- <link href="../vjs.zencdn.net/7.1.0/video-js.css"  rel="stylesheet"> -->
+<!-- <link href="assets/css/videojs.css"  rel="stylesheet"> -->
 
 
 

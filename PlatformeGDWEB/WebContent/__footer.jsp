@@ -124,8 +124,6 @@
 
 
     <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
-    <script src="../vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script>
-    <script src="../vjs.zencdn.net/7.1.0/video.js"></script>
 </body>
 
 <!-- Mirrored from www.cha9a9a.tn/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 27 Mar 2020 13:54:57 GMT -->
