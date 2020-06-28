@@ -897,10 +897,17 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 	}
 
 	@Override
-	public List<Besoin> getAllBesoin(int current, int nbRecords) {
+	public List<Besoin> getAllBesoin(int current, int nbRecords, String order, String direction) {
 
 		int start = current * nbRecords - nbRecords;
-		return em.createNamedQuery("Besoin.findAll",Besoin.class).setFirstResult(start).setMaxResults(nbRecords).getResultList();
+		String q ="";
+//		return em.createNamedQuery("Besoin.findAll",Besoin.class).setFirstResult(start).setMaxResults(nbRecords).getResultList();
+		if((order != null)&&(direction!=null))
+			 q = "SELECT b FROM Besoin b ORDER BY "+order+" "+direction;
+		else
+			 q = "SELECT b FROM Besoin b ORDER BY b.dateBesoin desc";
+		Query req = em.createQuery(q);
+		return req.setFirstResult(start).setMaxResults(nbRecords).getResultList();
 	}
 
 	@Override

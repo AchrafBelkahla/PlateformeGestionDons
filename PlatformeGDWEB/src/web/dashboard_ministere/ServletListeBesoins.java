@@ -35,12 +35,11 @@ public class ServletListeBesoins extends HttpServlet{
 	private PlatformGDLocal dao;
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//req.setAttribute("besoins", dao.getAllBesoin());
-		//req.getRequestDispatcher("Dashboard_ministere/ListeBesoins.jsp").forward(req,resp);
 		
-
 		int currentPage = Integer.valueOf(req.getParameter("currentPage"));
-		List<Besoin> besoins = dao.getAllBesoin(currentPage,GlobalConfig.recordsPerPage);
+		String order = req.getParameter("order");
+		String direction = req.getParameter("direction");
+		List<Besoin> besoins = dao.getAllBesoin(currentPage,GlobalConfig.recordsPerPage, order, direction);
         int rows = (int) dao.getNumberOfRows("Besoin");
         int nOfPages = rows / GlobalConfig.recordsPerPage;
         
@@ -51,23 +50,21 @@ public class ServletListeBesoins extends HttpServlet{
         req.setAttribute("noOfPages", nOfPages);
         req.setAttribute("currentPage", currentPage);
         req.setAttribute("recordsPerPage", GlobalConfig.recordsPerPage);
+        req.setAttribute("order", order);
+        req.setAttribute("direction", direction);
 		req.setAttribute("besoins", besoins);
 		req.getRequestDispatcher("Dashboard_ministere/ListeBesoins.jsp").forward(req,resp);
 		
 	}
+	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession(false);
 		Utilisateur user = (Utilisateur) session.getAttribute("user");
-		
-		System.out.println("*************************************   id etab  ***********************************************");
 		String idEtablissement = request.getParameter("idEtab");
-		System.out.println(idEtablissement);
-		System.out.println("*************************************   id prod  ***********************************************");
 		Etablisement etablisement = dao.getEtablissementById(idEtablissement);
 		String idProduit = request.getParameter("produit");
-		System.out.println(idEtablissement);
 		int quantite = Integer.parseInt(request.getParameter("quantite"));
 		String priorite =  request.getParameter("Priorite");		
 		String motif =  request.getParameter("motif");
@@ -118,7 +115,9 @@ public class ServletListeBesoins extends HttpServlet{
 		 
 		session.setAttribute("user", user);
 		int currentPage = Integer.valueOf(request.getParameter("currentPage"));
-		List<Besoin> besoins = dao.getAllBesoin(currentPage,GlobalConfig.recordsPerPage);
+		String order = request.getParameter("order");
+		String direction = request.getParameter("direction");		
+		List<Besoin> besoins = dao.getAllBesoin(currentPage,GlobalConfig.recordsPerPage,order, direction);
 		int rows = (int) dao.getNumberOfRows("Categorie");
         int nOfPages = rows / GlobalConfig.recordsPerPage;
         
@@ -129,6 +128,8 @@ public class ServletListeBesoins extends HttpServlet{
         request.setAttribute("noOfPages", nOfPages);
         request.setAttribute("currentPage", currentPage);
         request.setAttribute("recordsPerPage", GlobalConfig.recordsPerPage);
+        request.setAttribute("order", order);
+        request.setAttribute("direction", direction);
         request.setAttribute("besoins", besoins);
         request.getRequestDispatcher("Dashboard_ministere/ListeBesoins.jsp").forward(request,response);
 	}

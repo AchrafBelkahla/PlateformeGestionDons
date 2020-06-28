@@ -5,9 +5,20 @@
     		<nav aria-label="Navigation for page">
 		    <ul class="pagination">
 		        <c:if test="${currentPage != 1}">
-		            <li class="page-item"><a class="page-link" 
-		                href="${link}?currentPage=${currentPage-1}">Previous</a>
-		            </li>
+
+		            <c:choose>
+		                <c:when test="${order == null}">		        	
+				            <li class="page-item"><a class="page-link" 
+				                href="${link}?currentPage=${currentPage-1}">Previous</a>
+				            </li>
+			            </c:when>
+			            <c:otherwise>
+				            <li class="page-item"><a class="page-link" 
+				                href="${link}?currentPage=${currentPage-1}&order=${order}&direction=${direction}">Previous</a>
+				            </li>			            	
+			            </c:otherwise>
+			           </c:choose>
+
 		        </c:if>
 		<c:if test="${noOfPages < 10}">
 		        <c:forEach begin="1" end="${noOfPages}" var="i">
@@ -18,9 +29,20 @@
 		                    </li>
 		                </c:when>
 		                <c:otherwise>
-		                    <li class="page-item"><a class="page-link" 
-		                        href="${link}?currentPage=${i}">${i}</a>
-		                    </li>
+		                <c:choose>
+			                <c:when test="${order == null}">		        	
+			                    <li class="page-item"><a class="page-link" 
+			                        href="${link}?currentPage=${i}">${i}</a>
+			                    </li>
+				            </c:when>
+				            <c:otherwise>
+					            <li class="page-item"><a class="page-link" 
+					                href="${link}?currentPage=${i}&order=${order}&direction=${direction}">${i}</a>
+					            </li>			            	
+				            </c:otherwise>
+				           </c:choose>		                
+		                
+
 		                </c:otherwise>
 		            </c:choose>
 		        </c:forEach>
@@ -34,9 +56,18 @@
 		                    </li>
 		                </c:when>
 		                <c:otherwise>
-		                    <li class="page-item"><a class="page-link" 
-		                        href="${link}?currentPage=${i}">${i}</a>
-		                    </li>
+		                 <c:choose>
+			                <c:when test="${order == null}">		        	
+			                    <li class="page-item"><a class="page-link" 
+			                        href="${link}?currentPage=${i}">${i}</a>
+			                    </li>
+				            </c:when>
+				            <c:otherwise>
+					            <li class="page-item"><a class="page-link" 
+					                href="${link}?currentPage=${i}&order=${order}&direction=${direction}">${i}</a>
+					            </li>			            	
+				            </c:otherwise>
+				           </c:choose>	
 		                </c:otherwise>
 		            </c:choose>
 		        </c:forEach>
@@ -50,17 +81,35 @@
 		                    </li>
 		                </c:when>
 		                <c:otherwise>
-		                    <li class="page-item"><a class="page-link" 
-		                        href="${link}?currentPage=${i}">${i}</a>
-		                    </li>
+							<c:choose>
+				                <c:when test="${order == null}">		        	
+				                    <li class="page-item"><a class="page-link" 
+				                        href="${link}?currentPage=${i}">${i}</a>
+				                    </li>
+					            </c:when>
+					            <c:otherwise>
+						            <li class="page-item"><a class="page-link" 
+						                href="${link}?currentPage=${i}&order=${order}&direction=${direction}">${i}</a>
+						            </li>			            	
+					            </c:otherwise>
+				           </c:choose>	
 		                </c:otherwise>
 		            </c:choose>
 		        </c:forEach>
 		</c:if>   
 		        <c:if test="${currentPage lt noOfPages}">
-		            <li class="page-item"><a class="page-link" 
-		                href="${link}?currentPage=${currentPage+1}">Next</a>
-		            </li>
+		        	<c:choose>
+		                <c:when test="${order == null}">		        	
+				            <li class="page-item"><a class="page-link" 
+				                href="${link}?currentPage=${currentPage+1}">Next</a>
+				            </li>
+			            </c:when>
+			            <c:otherwise>
+				            <li class="page-item"><a class="page-link" 
+				                href="${link}?currentPage=${currentPage+1}&order=${order}&direction=${direction}">Next</a>
+				            </li>			            	
+			            </c:otherwise>
+			           </c:choose>
 		        </c:if>              
 		    </ul>
 		</nav>

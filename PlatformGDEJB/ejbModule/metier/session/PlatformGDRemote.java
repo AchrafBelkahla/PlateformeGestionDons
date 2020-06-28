@@ -132,7 +132,7 @@ public interface PlatformGDRemote {
 	// l'ajout
 
 		
-		public List<Besoin> getAllBesoin(int current, int nbRecords);
+		public List<Besoin> getAllBesoin(int current, int nbRecords, String order, String direction);
 
 		public List<Categorie> getAllCategorie(int current, int nbRecords);
 

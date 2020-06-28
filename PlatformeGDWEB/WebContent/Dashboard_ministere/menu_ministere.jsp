@@ -50,7 +50,7 @@
                                 <a href="Liste_Dons">Dons</a>
                             </li>
                             <li >
-                                <a href="Liste_Besoins?currentPage=1">Besoins</a>
+                                <a href="Liste_Besoins?currentPage=1&order=b.dateBesoin&direction=desc">Besoins</a>
                             </li>
 
                             <li >
