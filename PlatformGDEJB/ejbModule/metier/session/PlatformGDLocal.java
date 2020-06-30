@@ -211,6 +211,9 @@ public interface PlatformGDLocal {
 		public long getNumberOfRowsDonateurs(String type);
 
 		public List<Don> getAllDonsEnNature(int current, int nbRecords);
+		List<DonEnNature> getAllDonsEnNature(int current, int nbRecords, String order, String direction);
+		List<Reglement> getAllDonsReglement(int current, int nbRecords, String order, String direction);
+		
 		
 
 }

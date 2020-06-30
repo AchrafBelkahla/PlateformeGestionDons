@@ -38,11 +38,37 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 		Query req = em.createQuery("SELECT d FROM DonEnNature d");
 		return req.setFirstResult(start).setMaxResults(nbRecords).getResultList();
 	}
+
+	@Override
+	public List<DonEnNature> getAllDonsEnNature(int current, int nbRecords, String order, String direction) {
+
+		int start = current * nbRecords - nbRecords;
+		String q ="";
+		if((order != null)&&(direction!=null))
+			 q = "SELECT b FROM DonEnNature b ORDER BY "+order+" "+direction;
+		else
+			 q = "SELECT b FROM Besoin b ORDER BY b.utilisateur.Nom desc";
+		Query req = em.createQuery(q);
+		return req.setFirstResult(start).setMaxResults(nbRecords).getResultList();
+	}
 	
 	@Override
 	public List<Reglement> getAllDonsReglement() {
 		Query req = em.createQuery("select r from Reglement r");
 		return req.getResultList();
+	}
+
+	@Override
+	public List<Reglement> getAllDonsReglement(int current, int nbRecords, String order, String direction) {
+
+		int start = current * nbRecords - nbRecords;
+		String q ="";
+		if((order != null)&&(direction!=null))
+			 q = "SELECT b FROM DonEnNature b ORDER BY "+order+" "+direction;
+		else
+			 q = "SELECT b FROM Besoin b ORDER BY b.utilisateur.Nom desc";
+		Query req = em.createQuery(q);
+		return req.setFirstResult(start).setMaxResults(nbRecords).getResultList();
 	}
 	
 	@Override

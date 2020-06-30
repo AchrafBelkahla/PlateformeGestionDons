@@ -47,14 +47,19 @@
                             </li>
 
                             <li >
-                                <a href="Liste_Dons">Dons</a>
+                            	<select name="Dons" onchange="location = this.value;">
+                                        <option value="">Dons</option>
+                                        
+                                        <option value="Liste_Dons_En_Nature?currentPage=1&order=b.utilisateur.Nom&direction=desc"> Dons en nature</option>
+                                        <option value="Liste_Dons_Reglement?currentPage=1&order=b.utilisateur.Nom&direction=desc"> Réglements</option>
+                                    </select> 
                             </li>
                             <li >
                                 <a href="Liste_Besoins?currentPage=1&order=b.dateBesoin&direction=desc">Besoins</a>
                             </li>
 
                             <li >
-                                <a href="Liste_DRS?currentPage=1">Liste DRS</a>
+                                <a href="Liste_DRS?currentPage=1">DRS</a>
                             </li>
                             <li>
                                 <a href="LogOut">Déconnexion</a>
