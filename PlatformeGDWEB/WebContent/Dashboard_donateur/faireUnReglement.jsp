@@ -54,7 +54,7 @@
 						<div class="cha9a9a-title text-center pad-5">
 							<select id="new_fund_type" name="mode_reglement" class="form-control">
 									<option value="30">
-									<option value="Chéque">Chéque</option>
+									<option value="Cheque">Chéque</option>
 									<option value="Virement bancaire">Virement bancaire</option>
 							</select>
 						</div>

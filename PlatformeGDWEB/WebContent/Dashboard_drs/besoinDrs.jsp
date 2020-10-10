@@ -34,7 +34,7 @@
 <%-- 				<a href="editBesoinDrs?idBesoin=${besoin.getIdBesoin()}" --%>
 <!-- 					class="btn btn-warning " role="button" id="editbesoin">Editer</a>  -->
 				<button type="button" class="btn btn-success" onclick="document.getElementById('forma').style.display = 'block'">Réaffecter</button>
-				<button class="btn btn-danger" id="deletebesoin">Supprimer</button>
+<!-- 				<button class="btn btn-danger" id="deletebesoin">Supprimer</button> -->
 			</div>
 		</div>
 

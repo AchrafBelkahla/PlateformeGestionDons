@@ -134,7 +134,7 @@ public class FaireUnDonEnNatureServlet extends HttpServlet {
 			 user.addDon(don_en_nature);
 			 metier.updateUtilisateur(user);
 			 metier.updateDonEnNature(don_en_nature);
-			 req.getRequestDispatcher("/besoinsByEtablissement").forward(req, resp);
+			 req.getRequestDispatcher("/besoinsByEtablissement?currentPage=1").forward(req, resp);
 		}
 	
 

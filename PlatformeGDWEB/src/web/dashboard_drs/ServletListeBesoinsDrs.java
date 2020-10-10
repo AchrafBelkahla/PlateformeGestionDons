@@ -49,7 +49,7 @@ public class ServletListeBesoinsDrs extends HttpServlet{
 		//req.getRequestDispatcher("Dashboard_drs/ListeBesoins_drs.jsp").forward(req,resp);
 		int currentPage = Integer.valueOf(req.getParameter("currentPage"));
 		List<Besoin> besoins = dao.getBesoinsByGouvernorat(gouvernorat, currentPage,GlobalConfig.recordsPerPage);
-        int rows = (int) dao.getNumberOfRows("Categorie");
+        int rows = besoins.size();
         int nOfPages = rows / GlobalConfig.recordsPerPage;
         
         if (nOfPages % GlobalConfig.recordsPerPage > 0) {
@@ -70,7 +70,7 @@ public class ServletListeBesoinsDrs extends HttpServlet{
 		// get infos from session
 		HttpSession session = request.getSession(false);
 		Utilisateur user = (Utilisateur) session.getAttribute("user");
-		
+		String gouvernorat = user.getEtablissement().getAdresse().getGouvernorat();
 		
 		String idEtablissement = request.getParameter("idEtab");
 		Etablisement etablisement = dao.getEtablissementById(idEtablissement);
@@ -116,6 +116,7 @@ public class ServletListeBesoinsDrs extends HttpServlet{
 			    part.write(uploadPath + File.separator + fileName);
 			}
 			 photoBesoin.setPhotos(photos);
+			 dao.ajoutPhotoBesoin(photoBesoin);
 			 b.setPhotoBesoin(photoBesoin);
 		 }
 		 dao.ajoutBesoin(b);
@@ -128,7 +129,7 @@ public class ServletListeBesoinsDrs extends HttpServlet{
 		//request.setAttribute("besoins", besoins);
 		//request.getRequestDispatcher("Dashboard_drs/ListeBesoins_drs.jsp").forward(request, response);
 		int currentPage = Integer.valueOf(request.getParameter("currentPage"));
-		List<Besoin> besoins = dao.getBesoinsByEtablissement(user.getEtablissement().getIdEtablissement(), currentPage,GlobalConfig.recordsPerPage);
+		List<Besoin> besoins = dao.getBesoinsByGouvernorat(gouvernorat, currentPage,GlobalConfig.recordsPerPage);
         int rows = (int) dao.getNumberOfRows("Categorie");
         int nOfPages = rows / GlobalConfig.recordsPerPage;
         

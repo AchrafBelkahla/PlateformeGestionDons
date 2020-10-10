@@ -54,7 +54,7 @@ public class ServletBesoins extends HttpServlet {
 			//request.getRequestDispatcher("Dashboard_etablissement/besoins.jsp").forward(request,response);
 			int currentPage = Integer.valueOf(request.getParameter("currentPage"));
 			List<Besoin> besoins = dao.getBesoinsByEtablissement(id_etablissement,currentPage,GlobalConfig.recordsPerPage);
-	        int rows = (int) dao.getNumberOfRows("Besoin");
+	        int rows = besoins.size();
 	        int nOfPages = rows / GlobalConfig.recordsPerPage;
 	        
 	        if (nOfPages % GlobalConfig.recordsPerPage > 0) {
@@ -94,7 +94,7 @@ public class ServletBesoins extends HttpServlet {
 			 
 			// Handle photos
 			String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
-			File uploadDir = new File(UPLOAD_DIRECTORY);
+			File uploadDir = new File(uploadPath);
 			if (!uploadDir.exists()) uploadDir.mkdir();
 			String fileName;
 			String extension; 
@@ -116,7 +116,7 @@ public class ServletBesoins extends HttpServlet {
 				    photo.setIdP(fileName);    // Id photo = filename in directory
 				    dao.ajoutPhoto(photo);
 				    photos.add(photo);
-				    part.write(UPLOAD_DIRECTORY + File.separator + fileName);
+				    part.write(uploadPath + File.separator + fileName);
 				}
 				 photoBesoin.setPhotos(photos);
 				 dao.ajoutPhotoBesoin(photoBesoin);

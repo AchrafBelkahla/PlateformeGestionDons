@@ -106,8 +106,11 @@ public class ServletListeBesoins extends HttpServlet{
 			    part.write(uploadPath + File.separator + fileName);
 			}
 			 photoBesoin.setPhotos(photos);
+			 dao.ajoutPhotoBesoin(photoBesoin);
 			 b.setPhotoBesoin(photoBesoin);
 		 }
+		 System.out.println("************************************************* besoin ***********************");
+		 System.out.println(b);
 		 dao.ajoutBesoin(b);
 		 etablisement.addBesoin(b);
 		dao.updateEtablisement(etablisement);

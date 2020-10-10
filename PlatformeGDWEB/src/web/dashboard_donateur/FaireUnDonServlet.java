@@ -9,9 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import metier.entities.Etablisement;
 import metier.session.PlatformGDLocal;
-import web.GetAllDons;
+
 
 @WebServlet(urlPatterns = { "/faire_un_don" })
 public class FaireUnDonServlet extends HttpServlet {

@@ -1,10 +1,9 @@
 package web;
 
-import web.GlobalConfig.Protocol;
 
 public class GlobalConfig 
 {
-	public static final int recordsPerPage = 7;
+	public static final int recordsPerPage = 10;
 	public enum Protocol {
 	    SMTP,
 	    SMTPS,
