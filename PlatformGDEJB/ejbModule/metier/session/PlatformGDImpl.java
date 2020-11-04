@@ -1063,4 +1063,12 @@ public class PlatformGDImpl implements PlatformGDLocal, PlatformGDRemote {
 			return false;
 		}
 	}
+	
+	@Override
+	public Etablisement findMinistere() {
+		String etablissement = "ministere";
+		Query req=em.createQuery("select e from Etablisement e where e.libelle =:x");
+		req.setParameter("x", etablissement);
+		return (Etablisement) req.getSingleResult();
+	}
 }

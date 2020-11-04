@@ -191,4 +191,8 @@ public class PlatformGDService {
 	public void ajouterPhotoDon(String url_photo, String id_don) {
 		metier.ajouterPhotoDon(url_photo, id_don);
 	}
+	@WebMethod
+	public Etablisement findMinistere(){
+		return metier.findMinistere();
+	}
 }
