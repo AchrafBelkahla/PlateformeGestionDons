@@ -1,4 +1,4 @@
-package web;
+package web.dashboard_ministere;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,17 +21,19 @@ import metier.session.PlatformGDLocal;
 import service.DaoManagement;
 import service.emailManagement;
 
+
 /**
- * Servlet implementation class AjoutEtudiant
+ * Servlet implementation for changer responsable
  */
-@WebServlet("/InscriptionEtablissement")
-public class InscriptionEtablissement extends HttpServlet {
+
+@WebServlet("/changerResponsable")
+public class ServletChangerResponsable extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@EJB
 	private PlatformGDLocal metier;
 
-	public InscriptionEtablissement() {
+	public ServletChangerResponsable() {
 		metier = new PlatformGDImpl();
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -44,27 +46,40 @@ public class InscriptionEtablissement extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
-			String id_etablissement = request.getParameter("nom_etab");
+			DaoManagement daoManagement = new DaoManagement();
+			int type = Integer.parseInt(request.getParameter("type"));
+			String id_etablissement = request.getParameter("id_etablissement");
 			Etablisement etablissement = metier.findetablissement(id_etablissement);
 			String nom = request.getParameter("input1");
 			String prenom = request.getParameter("input2");
 			String email = request.getParameter("input3");
 			String password = request.getParameter("input4");
+			Utilisateur utilisateur;
 
-			Utilisateur utilisateur = new Utilisateur();
+			//create
+			if(type == 1) 
+			{
+				System.out.println("ok1");
+				utilisateur = new Utilisateur();
+			}
+			//edit
+			else 
+			{
+				utilisateur = etablissement.getUtilisateurs().get(0);
+			}
 
 			utilisateur.setNom(nom);
 			utilisateur.setPrenom(prenom);
 			utilisateur.setEmail(email);
 			utilisateur.setMdp(password);
 			utilisateur.setEtatDecompte(true);
-			utilisateur.setAccepted(false);
+			utilisateur.setAccepted(true);
 			utilisateur.setRole("responsable");
-			DaoManagement daoManagement = new DaoManagement();
+
 			
 //////////////////////////////////////////////////////////////////////
 			List<Telephone> collection_tel = new ArrayList<Telephone>();
-			collection_tel.addAll(etablissement.getTelephones());
+//			collection_tel.addAll(etablissement.getTelephones());
 			
 			String Tel = request.getParameter("input6");
 			Telephone telephone = new Telephone();
@@ -73,24 +88,40 @@ public class InscriptionEtablissement extends HttpServlet {
 			
 			String FAX = request.getParameter("input10");
 			Telephone fax = new Telephone();
-			fax.setNumero("Fax:" + FAX);
+			fax.setNumero(FAX);
 			collection_tel.add(fax);
 ///////////////////////////////////////////////////////////////////////	
 			List<Utilisateur> collection_utilisateur = new ArrayList<Utilisateur>();
-			collection_utilisateur.addAll(etablissement.getUtilisateurs());
+//			collection_utilisateur.addAll(etablissement.getUtilisateurs());
 			
 			collection_utilisateur.add(utilisateur);
+		
+
 				if (metier.veriff(email) == null) {
+					System.out.println("ok2");
 					metier.ajoutetelephone(telephone);
 					metier.ajoutetelephone(fax);
-					etablissement.setUtilisateurs(collection_utilisateur);
-					utilisateur.setEtablissement(etablissement);
+
 					utilisateur.setTelephone(collection_tel);
 					String confirmId = UUID.randomUUID().toString();
 					utilisateur.setConfirmId(confirmId);
-					utilisateur.setConfirmed(true);
-					daoManagement.ajouteUtilisateur(utilisateur);
-					metier.updateEtablisement(etablissement);
+					utilisateur.setConfirmed(false);
+					//create
+					if(type == 1) 
+					{
+						etablissement.setUtilisateurs(collection_utilisateur);
+						utilisateur.setEtablissement(etablissement);
+						daoManagement.ajouteUtilisateur(utilisateur);
+						metier.updateEtablisement(etablissement);
+					}
+					//edit
+					else 
+					{
+						utilisateur.setMdp(daoManagement.hashPassword(password));
+						metier.updateUtilisateur(utilisateur);
+					}
+
+					System.out.println("ok3");
 					
 					
 					String to = utilisateur.getEmail();
@@ -107,7 +138,7 @@ public class InscriptionEtablissement extends HttpServlet {
 							"    </p>\n" +
 							"<br>"+
 							"    <p>\n" + 
-							"Merci de vous etre inscrit/e a la platforme X. Veullez cliquer sur le lien suivant pour terminer votre inscription " + 
+							"Merci de vous etre inscrit/e a la platforme SanteDonTn. Veullez cliquer sur le lien suivant pour terminer votre inscription " + 
 							"<a href="+"http://197.14.56.37:8080/PlatformeGDWEB/confirmUser?"+"userId="+utilisateur.getIdut()+"&confirmId="+confirmId+">Confirmer mon inscription</a>"+
 							"    </p>\n" +
 							"<br>"+
@@ -125,19 +156,18 @@ public class InscriptionEtablissement extends HttpServlet {
 
 					}
 					emailManagement.sendEmail(to, subject, body);
-					request.setAttribute("errur1", "un email de confirmation vous a été envoyé, veuillez cliquer sur le lien de confirmation !");
-					request.getRequestDispatcher("LoginPage.jsp").forward(request, response);
+					request.setAttribute("message", "un email de confirmation a été envoyé au responsable !");
 					
 				} else {
-					request.setAttribute("erreur", "adresse email existe");
+					request.setAttribute("message", "Vous avez introduit une adresse email existante !");
 //				}
 			}
 
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-
-		request.getRequestDispatcher("InscriptionEtablissement.jsp").forward(request, response);
+		request.getRequestDispatcher("Dashboard_ministere/changerResponsable.jsp").forward(request, response);
+//		response.sendRedirect("Ministere?currentPage=1");
 	}
 
 }

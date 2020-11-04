@@ -19,8 +19,9 @@
                             Les champs (*) sont obligatoires
 
                             <hr class="margin-20">
-<div class="text-center"><h5>${errur1}</h5></div>
-                            <input type="hidden" name="_csrf_token" value="IIiFHgrXbZ7M04pETE7JixbloTm8lLGvXPin38Dh3Oo"/>
+							<div class="text-center">
+								<h5>${errur1}</h5>
+							</div>
 
                             <div class="form-group">
                                 <div class="col-md-10 col-md-offset-1">

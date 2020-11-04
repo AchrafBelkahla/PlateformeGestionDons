@@ -22,13 +22,8 @@ public class ServletMinistere extends HttpServlet{
 	private PlatformGDLocal dao;
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		System.out.println("**************************** servlet do get ministere ******************************************");
-		//req.setAttribute("etablissements", dao.getAllEtablissement());
-		//req.getRequestDispatcher("Dashboard_ministere/dash_ministere.jsp").forward(req,resp);
-		
 		int currentPage = Integer.valueOf(req.getParameter("currentPage"));
-		List<Etablisement> etablissements = dao.getAllDrs(currentPage,GlobalConfig.recordsPerPage);
+		List<Etablisement> etablissements = dao.getAllEtablissement(currentPage,GlobalConfig.recordsPerPage);
 		 int rows = (int) dao.getNumberOfRowsDRS("Etablisement");
         int nOfPages = rows / GlobalConfig.recordsPerPage;
         

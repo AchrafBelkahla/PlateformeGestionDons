@@ -85,7 +85,7 @@ public class Etablisement implements Serializable {
 
 	@OneToMany(mappedBy = "etablissement")
 	@LazyCollection(LazyCollectionOption.FALSE)
-	private Collection<Utilisateur> utilisateurs;
+	private List<Utilisateur> utilisateurs;
 
 	@OneToMany(mappedBy="etablisement")
 	@LazyCollection(LazyCollectionOption.FALSE)
@@ -153,11 +153,11 @@ public class Etablisement implements Serializable {
 	        besoin.setEtablisement(this);
 	    }
 
-	public Collection<Utilisateur> getUtilisateurs() {
+	public List<Utilisateur> getUtilisateurs() {
 		return utilisateurs;
 	}
 
-	public void setUtilisateurs(Collection<Utilisateur> utilisateurs) {
+	public void setUtilisateurs(List<Utilisateur> utilisateurs) {
 		this.utilisateurs = utilisateurs;
 	}
 
